@@ -121,4 +121,24 @@ class User extends AppModel
             throw $e;
         }
     }
+
+    public function login()
+    {
+        $db = DB::conn();
+
+        $params = array(
+            'username' => $this->username,
+            'password' => md5($this->password)
+        );
+
+        $user = $db->row("SELECT id, username FROM user WHERE BINARY username = :username AND BINARY password = :password", $params);
+
+        if(!$user) {
+            throw new RecordNotFoundException('No Record Found');
+        }
+
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['username'] = $user['username'];
+    }
+
 }

@@ -1,6 +1,5 @@
 <font color = "black">
-<h1> Hello!</h1>
-<h4> それはあなたを見て良いことだ~</h4>
+<h1> Welcome to TC Records</h1>
 <h5>Please log in to continue</h5>
 <br />
 
@@ -32,7 +31,7 @@
 <!--Will be redirected to login_end once successfully logged in-->
     <div class="control-group">
     <div class="controls">
-    <input type="hidden" name="page_next" value="home">
+    <input type="hidden" name="page_next" value="login_end">
     <div class="span12">
     <button class="btn btn-info btn-medium" type="submit">Login</button>
 
