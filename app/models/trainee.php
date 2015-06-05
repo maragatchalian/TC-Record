@@ -2,21 +2,21 @@
 
 class Trainee extends AppModel
 {
-    /*const MIN_EMPLOYEE_ID_LENGTH = 4;
+    const MIN_EMPLOYEE_ID_LENGTH = 4;
     const MIN_FIRST_NAME_LENGTH = 2;
     const MIN_LAST_NAME_LENGTH = 2;
     const MIN_SKILL_SET_LENGTH = 5;
-    const MIN_TRAINING_STATUS_LENGTH = 8;
-    const MIN_BATCH_LENGTH = 8;
+    const MIN_TRAINING_STATUS_LENGTH = 5;
+    const MIN_BATCH_LENGTH = 5;
     const MIN_HIRED_LENGTH = 1;
     const MIN_GRADUATED_LENGTH = 1;
 
     const MAX_EMPLOYEE_ID_LENGTH = 20;
     const MAX_FIRST_NAME_LENGTH = 30;
     const MAX_LAST_NAME_LENGTH = 30;
-    const MAX_SKILL_SET_LENGTH = 50;
+    const MAX_SKILL_SET_LENGTH = 20;
     const MAX_TRAINING_STATUS_LENGTH = 20;
-    const MAX_BATCH_LENGTH = 8;
+    const MAX_BATCH_LENGTH = 20;
     const MAX_HIRED_LENGTH = 20;
     const MAX_GRADUATED_LENGTH = 20;
 
@@ -73,8 +73,14 @@ class Trainee extends AppModel
         ),
 
         'hired' => array(
-            'length' => array(
-                'validate_between', self::MIN_HIRED_LENGTH, self::MAX_HIRED_LENGTH
+            'valid' => array(
+                'is_valid_date',
+            )
+        ),
+
+        'graduated' => array(
+            'valid' => array(
+                'is_valid_date',
             )
         ),
     );
@@ -86,13 +92,13 @@ class Trainee extends AppModel
             array($this->employee_id));
         
         return (!$employee_id_exist);
-    }*/
+    }
 
     public function add()
     {
-        /*if (!$this->validate()) {
+        if (!$this->validate()) {
             throw new ValidationException('Invalid Input!');
-        }*/
+        }
 
         try {
             $db = DB::conn(); 

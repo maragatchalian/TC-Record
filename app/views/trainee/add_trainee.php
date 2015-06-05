@@ -1,50 +1,39 @@
 <font color = "black">
 <h3>Add a Trainee</h3>
 
-<?php //if ($trainee->hasError()): ?>
-    <!--<div class="alert alert-error">
-        <h4 class="alert-heading">Oh snap!</h4><h7>Change a few things up and try registering again.</h7><br /><br/>
-<?php
-/*
-<?php 
-//Checking of username if it's valid
-    if ($trainee->validation_errors['employee_id']['valid']): ?>
+<?php if ($trainee->hasError()): ?>
+    <div class="alert alert-error">
+        <h4 class="alert-heading">Oh snap!</h4><h7>Change a few things up and try again.</h7><br /><br/>
+
+<?php //Checking of Employee ID length
+if ($trainee->validation_errors['employee_id']['valid']): ?>
     <div>
-        <em>Username may only consist of letters, numbers,  hypen (-), underscores(_), and dots(.).</em>
+        <em>Employee ID</em> Must only consist of numbers
     </div>
 <?php endif ?>
 
-<?php 
-//Checking of username length 
-if (!empty($user->validation_errors['username']['length'])): ?>
-    <div>
-        <em>Your Username</em> must be between
-        <?php readable_text($user->validation['username']['length'][1]) ?> and
-        <?php readable_text($user->validation['username']['length'][2]) ?> characters.
-    </div>
-<?php endif ?>
 
 <?php 
-//Checking of username if it exists
-if (!empty($user->validation_errors['username']['exist'])): ?>
+//Checking of Employee ID if it exists
+if (!empty($trainee->validation_errors['employee_id']['exist'])): ?>
     <div>
-        <em> Username is already taken. Please choose another.</em>
+        <em> Employee ID </em> is already existing!
     </div>
 <?php endif ?>
 
 <?php 
 //Checking of first_name length
-if (!empty($user->validation_errors['first_name']['length'])): ?>
+if (!empty($trainee->validation_errors['first_name']['length'])): ?>
     <div>
         <em>Your First Name</em> must be between
-            <?php readable_text($user->validation['first_name']['length'][1]) ?> and
-            <?php readable_text($user->validation['first_name']['length'][2]) ?> characters.
+            <?php readable_text($trainee->validation['first_name']['length'][1]) ?> and
+            <?php readable_text($trainee->validation['first_name']['length'][2]) ?> characters.
     </div>
 <?php endif ?>
 
 <?php 
 //Checking of first_name if it's valid.
-    if ($user->validation_errors['first_name']['valid']): ?>
+    if ($trainee->validation_errors['first_name']['valid']): ?>
     <div>
         <em>First Name </em> MUST only consist of letters or hypen (-)</em>
     </div>
@@ -52,70 +41,70 @@ if (!empty($user->validation_errors['first_name']['length'])): ?>
 
 <?php 
 //Last Name Validation
-    if (!empty($user->validation_errors['last_name']['length'])): ?>
+    if (!empty($trainee->validation_errors['last_name']['length'])): ?>
     <div><em>Your Last Name</em> must be between
-        <?php readable_text($user->validation['last_name']['length'][1]) ?> and
-        <?php readable_text($user->validation['last_name']['length'][2]) ?> characters.
+        <?php readable_text($trainee->validation['last_name']['length'][1]) ?> and
+        <?php readable_text($trainee->validation['last_name']['length'][2]) ?> characters.
     </div>
 <?php endif ?>
 
 <?php
-//Checking of first_name if it's valid.
-if ($user->validation_errors['last_name']['valid']): ?>
+//Checking of last_name if it's valid.
+if ($trainee->validation_errors['last_name']['valid']): ?>
     <div>
         <em>Last Name </em> MUST only consist of letters or hypen (-)</em>
     </div>
 <?php endif ?>
 
 
-<?php 
-//Email Validation
-if (!empty($user->validation_errors['email']['length'])): ?>
-    <div><em>Your Email</em> must be 
-        <?php readable_text($user->validation['email']['length'][1]) ?> 
-        <?php readable_text($user->validation['email']['length'][2]) ?> characters and below only.
-    </div>
-<?php endif ?>
-
-<?php
-//Checking of email if it already exists 
-if(!empty($user->validation_errors['email']['exist'])): ?>
+<!--Skill Set Validation Error Message--> 
+  <?php if (!empty($trainee->validation_errors['skill_set']['length'])): ?>    
     <div>
-         <em> Your email address</em> is already registered. Please choose another.
-    </div>
-<?php endif ?>
-
-<?php 
-//Password Validation
-if (!empty($user->validation_errors['password']['length'])): ?>
-    <div><em>Your Password</em> must be between
-        <?php readable_text($user->validation['password']['length'][1]) ?> and
-        <?php readable_text($user->validation['password']['length'][2]) ?> characters.
-    </div>
-<?php endif ?>
-
-<?php 
-//Checking if Password and Confirm Password matched
-if (!empty($user->validation_errors['confirm_password']['match'])) : ?> 
-    <div>
-        <em>Passwords</em> did not match!
-    </div>
-<?php endif ?>
-
-<!--User Type  Validation Error Message--> 
-  <?php if (!empty($user->validation_errors['user_type']['length'])): ?>    
-    <div>
-     Please select a <em>User Type!</em> 
+     Please select a <em>Skill Set!</em> 
     </div>
   <?php endif ?>
 
+<!--Training Status Validation Error Message--> 
+  <?php if (!empty($trainee->validation_errors['training_status']['length'])): ?>
+    <div>
+     Please select a <em>Training Status!</em> 
+    </div>
+  <?php endif ?>
+
+<!--Course Status Validation Error Message--> 
+  <?php if (!empty($trainee->validation_errors['course_status']['length'])): ?>
+    <div>
+     Please select a <em>Course Status!</em> 
+    </div>
+  <?php endif ?>
+
+<!--Batch Validation Error Message--> 
+  <?php if (!empty($trainee->validation_errors['batch']['length'])): ?>
+    <div>
+     Please select a <em>Batch!</em> 
+    </div>
+  <?php endif ?>
+
+<!--Hired Validation Error Message--> 
+  <?php if (!empty($trainee->validation_errors['hired']['valid'])): ?>
+    <div>
+    Your input on <em>Date Hired</em> is not valid!
+    </div>
+  <?php endif ?>
+
+<!--Hired Validation Error Message--> 
+  <?php if (!empty($trainee->validation_errors['graduated']['valid'])): ?>
+    <div>
+    Your input on <em>Date of graduation</em> is not valid!
+    </div>
+  <?php endif ?>
+
+
+
 </div>
 <?php endif ?> 
-*/
-?>
-</div>
-<?php //endif ?>
--->
+    
+
 <form class="form-horizontal">
 <form action="<?php readable_text(url('')) ?>" method="POST">
 <!--Employee Id-->
@@ -176,9 +165,9 @@ if (!empty($user->validation_errors['confirm_password']['match'])) : ?>
     <div class="controls">
     <select name="course_status"> 
         <option value="">Please Select</option>
-        <option value="Essential Course">Essential Course</option>
-        <option value="Language Course">Language Course</option>
-        <option value="Project Course">EOC</option>
+        <option value="EssentialCourse">Essential Course</option>
+        <option value="LanguageCourse">Language Course</option>
+        <option value="ProjectCourse">EOC</option>
     </select>
     </div>
     </div>
@@ -189,9 +178,9 @@ if (!empty($user->validation_errors['confirm_password']['match'])) : ?>
     <div class="controls">
     <select name="batch">        
         <option value="">Please Select</option>
-        <option value="2015 - 1st Sem">2015 - 1st Sem</option>
-        <option value="2014 - 2nd Sem">2014 - 2nd Sem</option>
-        <option value="2014 - 1st Sem">2014 - 1st Sem</option>
+        <option value="20151stSem">2015 - 1st Sem</option>
+        <option value="20142ndSem">2014 - 2nd Sem</option>
+        <option value="20141stSem">2014 - 1st Sem</option>
     </select>
     </div>
     </div>
