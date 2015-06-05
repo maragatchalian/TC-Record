@@ -1,0 +1,24 @@
+ul.nav {
+    margin:0;
+    padding:0;
+    list-style:none;
+    height:30px; line-height:100px;
+    background:#006799; /*Navigaton Backgound Color */
+    font-family: Trebuchet, Helvetica, sans-serif;
+    font-size:20px;
+}
+ul.nav li {
+    border-right:1px solid #004566;line-height:30px; /* Separator Line Color */
+    float:left;
+}
+ul.nav a {
+    display:block;
+    padding:0 28px;
+    color:#ccece6; /* Font Color */
+    text-decoration:none;
+}
+ul.nav a:hover,
+ul.nav li.current a {
+    background:#009be5; /* Hover Color */
+    opacity:10;
+}
