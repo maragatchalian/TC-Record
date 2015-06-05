@@ -24,3 +24,17 @@ registered          TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (id)
 );  
 
+CREATE TABLE IF NOT EXISTS trainee(
+id                  INT(11) NOT NULL AUTO_INCREMENT,
+employee_id         INT(11) NOT NULL,
+first_name          VARCHAR(50) NOT NULL,
+last_name           VARCHAR(50) NOT NULL,
+skill_set           VARCHAR(20) NOT NULL,
+course_status       VARCHAR(50) NOT NULL,
+training_status     VARCHAR(20) NOT NULL,
+batch               VARCHAR(30) NOT NULL,
+hired               VARCHAR(30) NOT NULL,
+graduated           VARCHAR(30) NOT NULL,
+PRIMARY KEY (id)
+);  
+

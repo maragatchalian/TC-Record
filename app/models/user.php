@@ -2,7 +2,7 @@
 
 class User extends AppModel
 {
-	const MIN_USERNAME_LENGTH = 2;
+    const MIN_USERNAME_LENGTH = 2;
     const MIN_FIRST_NAME_LENGTH = 2;
     const MIN_LAST_NAME_LENGTH = 2;
     const MIN_EMAIL_LENGTH = '';
@@ -95,7 +95,7 @@ class User extends AppModel
         return (!$username_exist);
     }
 
-	public function register()
+    public function register()
     {
         if (!$this->validate()) {
             throw new ValidationException('Invalid Input!');
@@ -111,7 +111,7 @@ class User extends AppModel
                 'last_name' => $this->last_name,
                 'password' => md5($this->password),
                 'email' => strtolower($this->email),
-                'user_type' => ($this->user_type),
+                'user_type' => $this->user_type,
                 'registered' => $registered
             );
             $db->insert('user', $params); 

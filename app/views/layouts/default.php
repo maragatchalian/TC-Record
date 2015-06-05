@@ -29,13 +29,14 @@
 
     <div class="container">
 
+ <?php if (isset($_SESSION['user_id'])) : ?>
   <ul class="nav">
     <li><a href="#">Home</a></li>
     <li><a href="#">Trainees</a></li>
     <li><a href="#">Courses</a></li>
     <li><a href="#">Exam Scores</a></li>
   </ul>
-
+ <?php endif ?>
  
       <?php echo $_content_ ?>
 
