@@ -1,10 +1,14 @@
 <?php
 
 class TraineeController extends AppController
-{
-    
+{  
     const ADD_TRAINEE = 'add_trainee';
     const ADD_TRAINEE_END = 'add_trainee_end';
+
+    public function index()
+    {
+        
+    }
 
     public function add_trainee() 
     {
@@ -42,4 +46,5 @@ class TraineeController extends AppController
         $this->set(get_defined_vars());
         $this->render($page);
     }
+
 }

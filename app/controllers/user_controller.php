@@ -7,6 +7,11 @@ class UserController extends AppController
     const REGISTER = 'register';
     const REGISTER_END = 'register_end';
 
+    public function index()
+    {
+
+    }
+    
     public function register() 
     {
         $params = array(

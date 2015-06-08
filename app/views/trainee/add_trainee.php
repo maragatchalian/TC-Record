@@ -208,6 +208,8 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
     <input type="hidden" name="trainee_id" value="<?php readable_text($trainee->id) ?>">
     <input type="hidden" name="page_next" value="add_trainee_end">
     <button type="submit" class="btn btn-info btn-medium">Submit</button>
+    <a class="btn btn-medium btn-default"
+      href="<?php readable_text(url('trainee/index')) ?>">Cancel</a>
     </form> 
     </div>
     </div>

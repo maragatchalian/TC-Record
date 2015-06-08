@@ -7,6 +7,6 @@
 You have successfully logged in. 
 </p>
 
-<a href="<?php readable_text(url('thread/index')) ?>"> Proceed </a> 
+<a href="<?php readable_text(url('user/index')) ?>"> Proceed </a> 
 </font>
 </html>
