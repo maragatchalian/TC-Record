@@ -121,4 +121,45 @@ class Trainee extends AppModel
             throw $e;
         }
     }
+
+    public function edit()
+    {
+        if (!$this->validate()) {
+            throw new ValidationException('invalid input');
+        }
+       
+         try {
+            $db = DB::conn();
+            $params = array(
+                'employee_id' => $this->employee_id,
+                'first_name' => $this->first_name,
+                'last_name' => $this->last_name,
+                'skill_set' => $this->skill_set,
+                'course_status' => $this->course_status,
+                'training_status' => $this->training_status,
+                'batch' => $this->batch,
+                'hired' => $this->hired,
+                'graduated' => $this->graduated
+            );
+            $trainee_id = array('id' => $this->trainee_id);
+            $db->update('trainee', $params, $trainee_id);
+            
+        } catch(Exception $e) {
+            throw $e;
+        }
+    }
+
+    public static function getAll()
+    {
+        $trainees = array();
+
+        $db = DB::conn();
+        $rows = $db->rows("SELECT * FROM trainee ORDER by hired desc");
+
+        foreach ($rows as $row) {
+            $trainees[] = new Trainee($row);
+        }
+    
+        return $trainees;
+    }
 }
