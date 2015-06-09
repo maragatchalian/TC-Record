@@ -16,8 +16,8 @@ class TraineeController extends AppController
 
     public function view_trainee_profile()
     {
-        $trainee_id = Param::get('trainee_id');     
-        $trainees = Trainee::getAll($trainee_id);
+        $trainee_id = Param::get('trainee_id');   
+        $trainee = Trainee::get($trainee_id);
         $this->set(get_defined_vars());   
     }
 
@@ -59,39 +59,45 @@ class TraineeController extends AppController
         $this->render($page);
     }
 
-    public function edit_trainee() 
-    {      
+    public function edit_trainee()
+    {
+        //$trainee_id = Trainee::get('trainee_id');
+        $trainee_id = Trainee::get(Param::get('trainee_id'));
+        echo "$trainee_id";
+
         $params = array(
             'employee_id' => Param::get('employee_id'),
-            'first_name' => Param::get('first_name'),
             'last_name' => Param::get('last_name'),
-            'skill_set' => Param::get('skill_set'),
-            'training_status' => Param::get('training_status'),
-            'course_status' => Param::get('course_status'),
-            'batch' => Param::get('batch'),
-            'hired' => Param::get('hired'),
-            'graduated' => Param::get('graduated')
+            'trainee_id' => $trainee_id
         );
 
-        $trainee = new Trainee($params);      
-        $page = Param::get(PAGE_NEXT, self::EDIT);
-                
-        switch ($page) {
+        $trainee = new Trainee($params);
+                $page = Param::get(PAGE_NEXT, self::EDIT);
+        
+        switch ($page) {    
             case self::EDIT:
                 break;
             
             case self::EDIT_END:
                 try {
-                    $trainee->edit();   
-                }catch (ValidationException $e) {
+                    $trainee->edit($trainee_id);
+                } catch (ValidationException $e) {
                     $page = self::EDIT;
                 }
+                break;
+
             default:
                 throw new NotFoundException("{$page} is not found");
                 break;
         }
         $this->set(get_defined_vars());
-        $this->render($page); 
+        $this->render($page);
     }
 
+    public function delete()
+    {
+        $trainee_id = Trainee::get(Param::get('trainee_id'));
+        $trainee_id->delete($trainee_id);
+        $this->set(get_defined_vars());
+    } 
 }

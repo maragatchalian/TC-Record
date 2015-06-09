@@ -122,30 +122,37 @@ class Trainee extends AppModel
         }
     }
 
-    public function edit()
+    public function edit($trainee_id)
     {
         if (!$this->validate()) {
-            throw new ValidationException('invalid input');
+            throw new ValidationException('Invalid Input');
         }
        
-         try {
+        try {
             $db = DB::conn();
             $params = array(
                 'employee_id' => $this->employee_id,
-                'first_name' => $this->first_name,
-                'last_name' => $this->last_name,
-                'skill_set' => $this->skill_set,
-                'course_status' => $this->course_status,
-                'training_status' => $this->training_status,
-                'batch' => $this->batch,
-                'hired' => $this->hired,
-                'graduated' => $this->graduated
+                'last_name' => $this->last_name
             );
+            
             $trainee_id = array('id' => $this->trainee_id);
             $db->update('trainee', $params, $trainee_id);
             
         } catch(Exception $e) {
             throw $e;
+        }
+    }
+
+    public function delete($trainee_id)
+    {
+        try {
+            $db = DB::conn();
+            $db->begin();
+            $db->query("DELETE FROM trainee WHERE id = ?", array($this->trainee_id));
+            $db->commit();
+        
+        } catch (Exception $e) {
+                $db->rollback();
         }
     }
 
@@ -162,4 +169,12 @@ class Trainee extends AppModel
     
         return $trainees;
     }
+
+    public static function get($trainee_id)
+    {
+        $db = DB::conn();
+        $row = $db->row("SELECT * FROM trainee WHERE id = ?", array($trainee_id));
+        
+        return $row;
+    } 
 }
