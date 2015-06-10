@@ -17,7 +17,7 @@ class TraineeController extends AppController
     public function view_trainee_profile()
     {
         $trainee_id = Param::get('trainee_id');   
-        $trainee = Trainee::get($trainee_id);
+        $trainee = Trainee::getById($trainee_id);
         $this->set(get_defined_vars());   
     }
 
@@ -61,10 +61,9 @@ class TraineeController extends AppController
 
     public function edit_trainee()
     {
-        //$trainee_id = Trainee::get('trainee_id');
-        $trainee_id = Trainee::get(Param::get('trainee_id'));
-        echo "$trainee_id";
-
+        $trainees = Param::get('trainee_id');
+        $trainee_id = Trainee::getById($trainees);
+        
         $params = array(
             'employee_id' => Param::get('employee_id'),
             'last_name' => Param::get('last_name'),
@@ -72,12 +71,11 @@ class TraineeController extends AppController
         );
 
         $trainee = new Trainee($params);
-                $page = Param::get(PAGE_NEXT, self::EDIT);
+        $page = Param::get(PAGE_NEXT, self::EDIT);
         
-        switch ($page) {    
+        switch ($page) {
             case self::EDIT:
                 break;
-            
             case self::EDIT_END:
                 try {
                     $trainee->edit($trainee_id);
@@ -85,11 +83,11 @@ class TraineeController extends AppController
                     $page = self::EDIT;
                 }
                 break;
-
             default:
                 throw new NotFoundException("{$page} is not found");
                 break;
         }
+        $trainee_edit = Trainee::getById($trainee_id);
         $this->set(get_defined_vars());
         $this->render($page);
     }
@@ -100,4 +98,12 @@ class TraineeController extends AppController
         $trainee_id->delete($trainee_id);
         $this->set(get_defined_vars());
     } 
-}
+
+    public function sort_by_training_status() 
+    {
+        $trainee_id = Param::get('trainee_id');
+        $training_status = Trainee::getAll($trainee_id);
+        $this->set(get_defined_vars());
+        $this->render('index');
+    }
+}  

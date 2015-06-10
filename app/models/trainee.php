@@ -3,13 +3,13 @@
 class Trainee extends AppModel
 {
     const MIN_EMPLOYEE_ID_LENGTH = 4;
-    const MIN_FIRST_NAME_LENGTH = 2;
-    const MIN_LAST_NAME_LENGTH = 2;
-    const MIN_SKILL_SET_LENGTH = 5;
-    const MIN_TRAINING_STATUS_LENGTH = 5;
-    const MIN_BATCH_LENGTH = 5;
-    const MIN_HIRED_LENGTH = 1;
-    const MIN_GRADUATED_LENGTH = 1;
+    const MIN_FIRST_NAME_LENGTH = 1;
+    const MIN_LAST_NAME_LENGTH = 1;
+    const MIN_SKILL_SET_LENGTH = 1;
+    const MIN_TRAINING_STATUS_LENGTH = 1;
+    const MIN_BATCH_LENGTH = 1;
+    const MIN_HIRED_LENGTH = 10;
+    const MIN_GRADUATED_LENGTH = 10;
 
     const MAX_EMPLOYEE_ID_LENGTH = 20;
     const MAX_FIRST_NAME_LENGTH = 30;
@@ -17,11 +17,9 @@ class Trainee extends AppModel
     const MAX_SKILL_SET_LENGTH = 20;
     const MAX_TRAINING_STATUS_LENGTH = 20;
     const MAX_BATCH_LENGTH = 20;
-    const MAX_HIRED_LENGTH = 20;
-    const MAX_GRADUATED_LENGTH = 20;
+    const MAX_HIRED_LENGTH = 10;
+    const MAX_GRADUATED_LENGTH = 10;
 
-
-  
     public $validation = array(
 
         'employee_id' => array(
@@ -88,7 +86,7 @@ class Trainee extends AppModel
     public function is_employee_id_exist()
     {
         $db = DB::conn();
-        $employee_id_exist = $db->row("SELECT employee_id FROM trainee where employee_id = ?", 
+        $employee_id_exist = $db->row("SELECT employee_id FROM trainee WHERE employee_id = ?", 
             array($this->employee_id));
         
         return (!$employee_id_exist);
@@ -122,12 +120,12 @@ class Trainee extends AppModel
         }
     }
 
-    public function edit($trainee_id)
+    /*public function edit($trainee_id)
     {
         if (!$this->validate()) {
             throw new ValidationException('Invalid Input');
         }
-       
+    /*
         try {
             $db = DB::conn();
             $params = array(
@@ -140,6 +138,21 @@ class Trainee extends AppModel
             
         } catch(Exception $e) {
             throw $e;
+        }
+    }*/
+
+    public function edit($trainee_id)
+    {
+        if (!$this->validate()) {
+            throw new ValidationException("Invalid Trainee");
+        }
+
+        try {
+            $db = DB::conn();
+            $db->query('UPDATE trainee SET employee_id = ?, last_name = ?
+                WHERE id = ?', array($this->employee_id, $this->last_name, $trainee_id));
+        } catch (Exception $e) {
+        throw $e;
         }
     }
 
@@ -161,20 +174,47 @@ class Trainee extends AppModel
         $trainees = array();
 
         $db = DB::conn();
-        $rows = $db->rows("SELECT * FROM trainee ORDER by hired desc");
+        $rows = $db->rows("SELECT * FROM trainee ORDER BY hired desc");
 
         foreach ($rows as $row) {
             $trainees[] = new Trainee($row);
         }
-    
         return $trainees;
     }
 
-    public static function get($trainee_id)
+    public static function getById($trainee_id)
     {
+        
         $db = DB::conn();
         $row = $db->row("SELECT * FROM trainee WHERE id = ?", array($trainee_id));
         
         return $row;
     } 
+
+    public static function getByTrainingStatus($training_status) 
+    {
+        $trainee = array();
+        $db = DB::conn();
+
+        $rows = $db->rows("SELECT * FROM trainee WHERE training_status = ?", array($training_status));
+            
+        foreach($rows as $row) {
+            $trainee[] = new self($row);
+        }
+        return $trainee;
+    }
+
+    public static function getAllCategory()
+    {
+        $db = DB::conn();
+        $rows = $db->rows("SELECT DISTINCT category FROM thread");
+        $categories = array();
+        
+        foreach ($rows as $row) {
+            if (!empty($row['category'])) {
+                $categories[] = $row['category'];
+            }
+        }
+        return $categories;
+    }
 }

@@ -3,7 +3,7 @@
 
 <?php if ($trainee->hasError()): ?>
     <div class="alert alert-error">
-        <h4 class="alert-heading">Oh snap!</h4><h7>Change a few things up and try again.</h7><br /><br/>
+        <h4 class="alert-heading">Oh snap!</h4><h7>Change a few things up and try again.</h7><br /><br />
 
 <?php //Checking of Employee if it's valid
 if ($trainee->validation_errors['employee_id']['valid']): ?>
@@ -43,11 +43,13 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
 
 <form class="form-horizontal">
 <form action="<?php readable_text(url('')) ?>" method="POST">
+
 <!--Employee Id-->
     <div class="control-group">
     <label class="control-label" for="employee_id"><h5>Employee ID</h5></label>
     <div class="controls">
     <input type="text" name="employee_id" placeholder="Employee ID" value="<?php readable_text(Param::get('employee_id')) ?>">
+    
     </div>
     </div>
 
@@ -65,7 +67,7 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
 <button class="btn btn-info btn-medium" type="submit">Save</button>
 <a href="<?php readable_text(url('trainee/index')) ?>" class="btn btn-medium">Cancel</a>
 
- <a href="<?php readable_text(url('trainee/delete', array('trainee_id' => $trainee->id)))?>"
+<a href="<?php readable_text(url('trainee/delete', array('trainee_id' => $trainee->id)))?>"
 onclick="return confirm('Are you sure you want to delete this Trainee?')">
 <span class ="icon-trash"></span>
 </a> Delete This Trainee<font color ="white">...</font>
