@@ -2,7 +2,7 @@
 
 class Trainee extends AppModel
 {
-    const MIN_EMPLOYEE_ID_LENGTH = 4;
+    const MIN_EMPLOYEE_ID_LENGTH = 3;
     const MIN_FIRST_NAME_LENGTH = 1;
     const MIN_LAST_NAME_LENGTH = 1;
     const MIN_SKILL_SET_LENGTH = 1;
@@ -120,17 +120,24 @@ class Trainee extends AppModel
         }
     }
 
-    /*public function edit($trainee_id)
+    public function edit($trainee_id)
     {
         if (!$this->validate()) {
             throw new ValidationException('Invalid Input');
         }
-    /*
+    
         try {
             $db = DB::conn();
             $params = array(
                 'employee_id' => $this->employee_id,
-                'last_name' => $this->last_name
+                'last_name' => $this->last_name,
+                'first_name' => $this->first_name,
+                'skill_set' => $this->skill_set,
+                'course_status' => $this->course_status,
+                'training_status' => $this->training_status,
+                'batch' => $this->batch,
+                'hired' => $this->hired,
+                'graduated'=> $this->graduated
             );
             
             $trainee_id = array('id' => $this->trainee_id);
@@ -138,21 +145,6 @@ class Trainee extends AppModel
             
         } catch(Exception $e) {
             throw $e;
-        }
-    }*/
-
-    public function edit($trainee_id)
-    {
-        if (!$this->validate()) {
-            throw new ValidationException("Invalid Trainee");
-        }
-
-        try {
-            $db = DB::conn();
-            $db->query('UPDATE trainee SET employee_id = ?, last_name = ?
-                WHERE id = ?', array($this->employee_id, $this->last_name, $trainee_id));
-        } catch (Exception $e) {
-        throw $e;
         }
     }
 

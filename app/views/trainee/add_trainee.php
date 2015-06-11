@@ -165,9 +165,11 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
     <div class="controls">
     <select name="course_status"> 
         <option value="">Please Select</option>
-        <option value="EssentialCourse">Essential Course</option>
-        <option value="LanguageCourse">Language Course</option>
-        <option value="ProjectCourse">EOC</option>
+        <option value="Essential Course">Essential Course</option>
+        <option value="Language Course">Language Course</option>
+        <option value="Project Course">Project Course</option>
+        <option value="EOC">EOC</option>
+        <option value="Done - Graduated">Done - Graduated</option>
     </select>
     </div>
     </div>
@@ -178,9 +180,9 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
     <div class="controls">
     <select name="batch">        
         <option value="">Please Select</option>
-        <option value="20151stSem">2015 - 1st Sem</option>
-        <option value="20142ndSem">2014 - 2nd Sem</option>
-        <option value="20141stSem">2014 - 1st Sem</option>
+        <option value="2015 - 1st Sem">2015 - 1st Sem</option>
+        <option value="2014 - 2nd Sem">2014 - 2nd Sem</option>
+        <option value="2014 - 1st Sem">2014 - 1st Sem</option>
     </select>
     </div>
     </div>
@@ -189,7 +191,7 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
     <div class="control-group">
     <label class="control-label" for="hired"><h5>Date Hired</h5></label>
     <div class="controls">
-    <input type="text" name="hired" placeholder="mm/dd/yyyy" value="<?php readable_text(Param::get('hired')) ?>">
+    <input type="text" name="hired" placeholder="yyyy/mm/dd" value="<?php readable_text(Param::get('hired')) ?>">
     </div>
     </div>
 
@@ -197,7 +199,7 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
     <div class="control-group">
     <label class="control-label" for="graduated"><h5>Date of Graduation</h5></label>
     <div class="controls">
-    <input type="text" name="graduated" placeholder="mm/dd/yyyy" value="<?php readable_text(Param::get('graduated')) ?>">
+    <input type="text" name="graduated" placeholder="yyyy/mm/dd" value="<?php readable_text(Param::get('graduated')) ?>">
     </div>
     </div>
 

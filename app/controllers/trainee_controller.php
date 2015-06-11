@@ -61,12 +61,18 @@ class TraineeController extends AppController
 
     public function edit_trainee()
     {
-        $trainees = Param::get('trainee_id');
-        $trainee_id = Trainee::getById($trainees);
+        $trainee_id = Param::get('trainee_id');
         
         $params = array(
             'employee_id' => Param::get('employee_id'),
             'last_name' => Param::get('last_name'),
+            'first_name' => Param::get('first_name'),
+            'skill_set' => Param::get('skill_set'),
+            'training_status' => Param::get('training_status'),
+            'course_status' => Param::get('course_status'),
+            'batch' => Param::get('batch'),
+            'hired' => Param::get('hired'),
+            'graduated' => Param::get('graduated'),
             'trainee_id' => $trainee_id
         );
 
@@ -87,7 +93,7 @@ class TraineeController extends AppController
                 throw new NotFoundException("{$page} is not found");
                 break;
         }
-        $trainee_edit = Trainee::getById($trainee_id);
+        $trainee_edit = $trainee_id;
         $this->set(get_defined_vars());
         $this->render($page);
     }
