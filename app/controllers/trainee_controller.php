@@ -93,7 +93,7 @@ class TraineeController extends AppController
                 throw new NotFoundException("{$page} is not found");
                 break;
         }
-        $trainee_edit = $trainee_id;
+        $trainee_edit = Trainee::getById($trainee_id);
         $this->set(get_defined_vars());
         $this->render($page);
     }

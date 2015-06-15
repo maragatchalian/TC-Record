@@ -111,7 +111,7 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
     <div class="control-group">
     <label class="control-label" for="employee_id"><h5>Employee ID</h5></label>
     <div class="controls">
-    <input type="text" name="employee_id" value="<?php readable_text(Param::get('employee_id')) ?>">
+    <input type="text" name="employee_id" value="<?php readable_text($trainee_edit['employee_id']) ?>">
     
     </div>
     </div>
@@ -120,7 +120,7 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
     <div class="control-group">
     <label class="control-label" for="first_name"><h5>First Name</h5></label>
     <div class="controls">
-    <input type="text" name="first_name" value="<?php readable_text(Param::get('last_name')) ?>"> 
+    <input type="text" name="first_name" value="<?php readable_text($trainee_edit['first_name']) ?>"> 
     </div>
     </div>
 
@@ -128,7 +128,7 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
     <div class="control-group">
     <label class="control-label" for="last_name"><h5>Last Name</h5></label>
     <div class="controls">
-    <input type="text" name="last_name" value="<?php readable_text(Param::get('last_name')) ?>"> 
+    <input type="text" name="last_name" value="<?php readable_text($trainee_edit['last_name']) ?>"> 
     </div>
     </div>
 
@@ -137,7 +137,7 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
     <label class="control-label" for="skill_set"><h5>Skill Set</h5></label>
     <div class="controls">
     <select name="skill_set"> 
-        <option value="">Please Select</option>
+        <option value="<?php readable_text($trainee_edit['skill_set']) ?>"><?php readable_text($trainee_edit['skill_set']) ?></option>
         <option value="Pending">Pending</option>
         <option value="Android">Android</option>
         <option value="iOS">iOS</option>
@@ -149,10 +149,10 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
 
 <!--Training Status -->
     <div class="control-group">
-    <label class="control-label" for="training_status"><h5>Training Status</h5></label>
+    <label class="control-label" for="training_status"><h5><?php readable_text($trainee_edit['training_status']) ?></h5></label>
     <div class="controls">
     <select name="training_status"> 
-        <option value="">Please Select</option>
+        <option value="<?php readable_text($trainee_edit['graduated']) ?>"><?php readable_text($trainee_edit['graduated']) ?></option>
         <option value="Graduated">Graduated</option>
         <option value="On-Training">On-Training</option>
         <option value="EOC">EOC</option>
@@ -165,7 +165,7 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
     <label class="control-label" for="course_status"><h5>Course Status</h5></label>
     <div class="controls">
     <select name="course_status"> 
-        <option value="">Please Select</option>
+        <option value=""><?php readable_text($trainee_edit['course_status']) ?></option>
         <option value="Essential Course">Essential Course</option>
         <option value="Language Course">Language Course</option>
         <option value="Project Course">Project Course</option>
@@ -180,7 +180,7 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
     <label class="control-label" for="batch"><h5>Batch</h5></label>
     <div class="controls">
     <select name="batch">        
-        <option value="">Please Select</option>
+        <option value="<?php readable_text($trainee_edit['batch']) ?>"><?php readable_text($trainee_edit['batch']) ?></option>
         <option value="2015 - 1st Sem">2015 - 1st Sem</option>
         <option value="2014 - 2nd Sem">2014 - 2nd Sem</option>
         <option value="2014 - 1st Sem">2014 - 1st Sem</option>
@@ -192,7 +192,7 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
     <div class="control-group">
     <label class="control-label" for="hired"><h5>Date Hired</h5></label>
     <div class="controls">
-    <input type="text" name="hired" placeholder="yyyy/mm/dd" value="<?php readable_text(Param::get('hired')) ?>">
+    <input type="text" name="hired" placeholder="yyyy/mm/dd" value="<?php readable_text($trainee_edit['hired']) ?>">
     </div>
     </div>
 
@@ -200,7 +200,7 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
     <div class="control-group">
     <label class="control-label" for="graduated"><h5>Date of Graduation</h5></label>
     <div class="controls">
-    <input type="text" name="graduated" placeholder="yyyy/mm/dd" value="<?php readable_text(Param::get('graduated')) ?>">
+    <input type="text" name="graduated" placeholder="yyyy/mm/dd" value="<?php readable_text($trainee_edit['graduated']) ?>">
     </div>
     </div>
 
