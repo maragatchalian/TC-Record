@@ -193,6 +193,9 @@ table.gridtable td {
         <td><a href="<?php readable_text(url('trainee/view_trainee_profile', array('trainee_id' => $get_from_trainee->id))) ?>">
         <?php readable_text($get_from_trainee->training_status) ?> </a> </td>
 
+        <td><a href="<?php readable_text(url('#', array('trainee_id' => $get_from_trainee->id))) ?>">
+        <?php readable_text($get_from_trainee->course_status) ?> </a> </td>
+
     <?php endforeach; ?> 
     </tr>
 </table>

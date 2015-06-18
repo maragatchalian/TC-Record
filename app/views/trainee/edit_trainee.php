@@ -5,8 +5,8 @@
     <div class="alert alert-error">
         <h4 class="alert-heading">Oh snap!</h4><h7>Change a few things up and try again.</h7><br /><br />
 
-<?php //Checking of Employee ID length
-if ($trainee->validation_errors['employee_id']['valid']): ?>
+<?php //Checking of Employee ID if it's valid
+if (!empty($trainee->validation_errors['employee_id']['valid'])): ?>
     <div>
         <em>Employee ID</em> Must only consist of numbers
     </div>
@@ -18,6 +18,14 @@ if ($trainee->validation_errors['employee_id']['valid']): ?>
 if (!empty($trainee->validation_errors['employee_id']['exist'])): ?>
     <div>
         <em> Employee ID </em> is already existing!
+    </div>
+<?php endif ?>
+
+<?php 
+//Checking of Employee ID length
+if (!empty($trainee->validation_errors['employee_id']['length'])): ?>
+    <div>
+        <em> Employee ID </em> must be 3 - 11 numbers only.
     </div>
 <?php endif ?>
 
@@ -63,6 +71,14 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
      Please select a <em>Skill Set!</em> 
     </div>
   <?php endif ?>
+
+<!--Course Status Validation Error Message--> 
+  <?php if (!empty($trainee->validation_errors['course_status']['length'])): ?>    
+    <div>
+     Please select a <em>Skill Set!</em> 
+    </div>
+  <?php endif ?>
+
 
 <!--Training Status Validation Error Message--> 
   <?php if (!empty($trainee->validation_errors['training_status']['length'])): ?>
@@ -149,10 +165,10 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
 
 <!--Training Status -->
     <div class="control-group">
-    <label class="control-label" for="training_status"><h5><?php readable_text($trainee_edit['training_status']) ?></h5></label>
+    <label class="control-label" for="training_status"><h5>Training Status</h5></label>
     <div class="controls">
     <select name="training_status"> 
-        <option value="<?php readable_text($trainee_edit['graduated']) ?>"><?php readable_text($trainee_edit['graduated']) ?></option>
+        <option value="<?php readable_text($trainee_edit['training_status']) ?>"><?php readable_text($trainee_edit['training_status'])?></option>
         <option value="Graduated">Graduated</option>
         <option value="On-Training">On-Training</option>
         <option value="EOC">EOC</option>
@@ -165,7 +181,7 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
     <label class="control-label" for="course_status"><h5>Course Status</h5></label>
     <div class="controls">
     <select name="course_status"> 
-        <option value=""><?php readable_text($trainee_edit['course_status']) ?></option>
+        <option value="<?php readable_text($trainee_edit['course_status']) ?>"><?php readable_text($trainee_edit['course_status']) ?></option>
         <option value="Essential Course">Essential Course</option>
         <option value="Language Course">Language Course</option>
         <option value="Project Course">Project Course</option>

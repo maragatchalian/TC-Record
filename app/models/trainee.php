@@ -7,15 +7,17 @@ class Trainee extends AppModel
     const MIN_LAST_NAME_LENGTH = 1;
     const MIN_SKILL_SET_LENGTH = 1;
     const MIN_TRAINING_STATUS_LENGTH = 1;
+    const MIN_COURSE_STATUS_LENGTH = 1;
     const MIN_BATCH_LENGTH = 1;
     const MIN_HIRED_LENGTH = 10;
     const MIN_GRADUATED_LENGTH = 10;
 
-    const MAX_EMPLOYEE_ID_LENGTH = 20;
+    const MAX_EMPLOYEE_ID_LENGTH = 11;
     const MAX_FIRST_NAME_LENGTH = 30;
     const MAX_LAST_NAME_LENGTH = 30;
     const MAX_SKILL_SET_LENGTH = 20;
     const MAX_TRAINING_STATUS_LENGTH = 20;
+    const MAX_COURSE_STATUS_LENGTH = 20;
     const MAX_BATCH_LENGTH = 20;
     const MAX_HIRED_LENGTH = 10;
     const MAX_GRADUATED_LENGTH = 10;
@@ -61,6 +63,12 @@ class Trainee extends AppModel
         'training_status' => array(
             'length' => array(
                 'validate_between', self::MIN_TRAINING_STATUS_LENGTH, self::MAX_TRAINING_STATUS_LENGTH
+            )
+        ),
+
+        'course_status' => array(
+            'length' => array(
+                'validate_between', self::MIN_COURSE_STATUS_LENGTH, self::MAX_COURSE_STATUS_LENGTH
             )
         ),
         
@@ -129,7 +137,7 @@ class Trainee extends AppModel
         try {
             $db = DB::conn();
             $params = array(
-                'employee_id' => $this->employee_id,
+                'employee_id' => $this->new_employee_id,
                 'last_name' => $this->last_name,
                 'first_name' => $this->first_name,
                 'skill_set' => $this->skill_set,

@@ -5,19 +5,26 @@
     <div class="alert alert-error">
         <h4 class="alert-heading">Oh snap!</h4><h7>Change a few things up and try again.</h7><br /><br/>
 
-<?php //Checking of Employee ID length
-if ($trainee->validation_errors['employee_id']['valid']): ?>
+<?php //Checking of Employee ID if it's valid
+if (!empty($trainee->validation_errors['employee_id']['valid'])): ?>
     <div>
         <em>Employee ID</em> Must only consist of numbers
     </div>
 <?php endif ?>
-
 
 <?php 
 //Checking of Employee ID if it exists
 if (!empty($trainee->validation_errors['employee_id']['exist'])): ?>
     <div>
         <em> Employee ID </em> is already existing!
+    </div>
+<?php endif ?>
+
+<?php 
+//Checking of Employee ID length
+if (!empty($trainee->validation_errors['employee_id']['length'])): ?>
+    <div>
+        <em> Employee ID </em> must be 3 - 11 numbers only.
     </div>
 <?php endif ?>
 
@@ -59,6 +66,13 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
 
 <!--Skill Set Validation Error Message--> 
   <?php if (!empty($trainee->validation_errors['skill_set']['length'])): ?>    
+    <div>
+     Please select a <em>Skill Set!</em> 
+    </div>
+  <?php endif ?>
+
+  <!--Course Status Validation Error Message--> 
+  <?php if (!empty($trainee->validation_errors['course_status']['length'])): ?>    
     <div>
      Please select a <em>Skill Set!</em> 
     </div>

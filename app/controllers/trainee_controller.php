@@ -64,7 +64,7 @@ class TraineeController extends AppController
         $trainee_id = Param::get('trainee_id');
         
         $params = array(
-            'employee_id' => Param::get('employee_id'),
+            'new_employee_id' => Param::get('employee_id'),
             'last_name' => Param::get('last_name'),
             'first_name' => Param::get('first_name'),
             'skill_set' => Param::get('skill_set'),
@@ -85,9 +85,16 @@ class TraineeController extends AppController
             case self::EDIT_END:
                 try {
                     $trainee->edit($trainee_id);
+                    $success = true;
                 } catch (ValidationException $e) {
                     $page = self::EDIT;
+                    $success = false;
                 }
+
+                if ($success) {
+                    $trainee->employee_id = $trainee->new_employee_id;
+                }
+
                 break;
             default:
                 throw new NotFoundException("{$page} is not found");
