@@ -226,11 +226,6 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
 <button class="btn btn-info btn-medium" type="submit">Save</button>
 <a href="<?php readable_text(url('trainee/index')) ?>" class="btn btn-medium">Cancel</a>
 
-<a href="<?php readable_text(url('trainee/delete', array('trainee_id' => $trainee->id)))?>"
-onclick="return confirm('Are you sure you want to delete this Trainee?')">
-<span class ="icon-trash"></span>
-</a> Delete This Trainee<font color ="white">...</font>
-
 </div>
 </div>
 
