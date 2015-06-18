@@ -191,17 +191,17 @@ class Trainee extends AppModel
         return $trainee;
     }
 
-    public static function getAllCategory()
+    public static function getAllTrainingStatus()
     {
         $db = DB::conn();
-        $rows = $db->rows("SELECT DISTINCT category FROM thread");
-        $categories = array();
+        $rows = $db->rows("SELECT DISTINCT training_status FROM trainee");
+        $training_status = array();
         
         foreach ($rows as $row) {
-            if (!empty($row['category'])) {
-                $categories[] = $row['category'];
+            if (!empty($row['training_status'])) {
+                $training_status[] = $row['training_status'];
             }
         }
-        return $categories;
+        return $training_status;
     }
 }

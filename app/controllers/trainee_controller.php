@@ -107,8 +107,9 @@ class TraineeController extends AppController
 
     public function sort_by_training_status() 
     {
+        $training_status = Trainee::getAllTrainingStatus();
         $trainee_id = Param::get('trainee_id');
-        $training_status = Trainee::getAll($trainee_id);
+        $trainees = Trainee::getByTrainingStatus($trainee_id);
         $this->set(get_defined_vars());
         $this->render('index');
     }

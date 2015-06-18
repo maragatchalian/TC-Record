@@ -8,20 +8,32 @@
 Sort Trainee by:
 <br />
    <br />
-
    <div class="menu-wrap">
     <nav class="menu">
         <ul class="clearfix">
             <li>
-                <a href="#">Training Status <span class="arrow">&#9660;</span></a>
+                <a href="<?php readable_text(url('trainee/index')) ?>">Date Hired</span></a>
+            </li>
+            
+            <li>
+                <a href="<?php readable_text(url('trainee/index')) ?>">Training Status <span class="arrow">&#9660;</span></a>
                  <ul class="sub-menu">
-                    <li><a href="#">On-Training</a></li>
+                    <li><a href="<?php readable_text(url('trainee/sort_by_training_status')) ?>">On-Training</a></li>
                     <li><a href="#">Graduated</a></li>
-                </ul>
-
                
 
+                <?php foreach ($training_status as $get_from_training_status): ?>
+        <li>
+            <a href="<?php readable_text('/trainee/index?get_from_training_status='.$get_from_training_status) ?>">
+            <?php readable_text($get_from_training_status); ?></a>
+        </li>
+    <?php endforeach; ?>
+
+
+
+                </ul>
             </li>
+
         </ul>
     </nav>
 </div>
