@@ -9,6 +9,7 @@ class TraineeController extends AppController
 
     public function index()
     {
+        $training_status = Trainee::getAllTrainingStatus();
         $trainee_id = Param::get('trainee_id');     
         $trainees = Trainee::getAll($trainee_id);
         $this->set(get_defined_vars());   
