@@ -7,29 +7,16 @@ class TraineeController extends AppController
     const EDIT = 'edit_trainee';
     const EDIT_END = 'edit_trainee_end';
 
-
-public function index()
-{
-$trainee_id = Param::get('trainee_id');
-$trainees = Trainee::getAll($trainee_id);
-$training_status = Trainee::getAllTrainingStatus();
-$category = Param::get('training_status','none');
-$get_training_status = Trainee::getByTrainingStatus($category);
-// $get_training_status = Trainee::getByTrainingStatus();
-$this->set(get_defined_vars());
-}
-
- public function sort_trainee()
-{
-$trainee_id = Param::get('trainee_id');
-$trainees = Trainee::getByTrainingStatus($trainee_id);
-$training_status = Trainee::getAllTrainingStatus();
-$category = Param::get('training_status','none');
-$get_training_status = Trainee::getByTrainingStatus($category);
-//$threads = Thread::getByCategory($category);
-$this->set(get_defined_vars());
-$this->render('results');
-}
+    public function index()
+    {
+        $trainee_id = Param::get('trainee_id');     
+        $trainees = Trainee::getAll($trainee_id);
+        $training_status = Trainee::getAllTrainingStatus();
+               $category = Param::get('training_status','none');
+        $get_training_status = Trainee::getByTrainingStatus($category);
+       // $get_training_status = Trainee::getByTrainingStatus();
+        $this->set(get_defined_vars());   
+    }
 
     public function view_trainee_profile()
     {
@@ -122,5 +109,19 @@ $this->render('results');
         $this->render($page);
     }
 
- 
+    public function sort_by_training_status() 
+    {
+        $trainee_id = Param::get('trainee_id');
+        $trainees = Trainee::getByTrainingStatus($trainee_id);
+
+        $training_status = Trainee::getAllTrainingStatus();
+        
+
+        $category = Param::get('training_status','none');
+        $get_training_status = Trainee::getByTrainingStatus($category);
+        //$threads = Thread::getByCategory($category);
+
+        $this->set(get_defined_vars());
+        $this->render('index');
+    }
 }  
