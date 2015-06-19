@@ -1,28 +1,3 @@
-<br />
-<h3> Trainees </h3>
-<a class="btn btn-medium btn-info" href="<?php readable_text(url('trainee/add_trainee')) ?>">Add Trainee</a>
-<br />
-<br />
-
-Sort Data By: <br />
-<a href="<?php readable_text(url('trainee/index')) ?>">Date Hired</a> <br />
-<br />
-
-Training Status: 
-<?php foreach ($trainees as $get_trainees_status): ?>
-<a class="btn btn-medium btn-info" href="<?php readable_text(url('trainee/sort_trainee', array('trainee_id' => $get_trainees_status->training_status))) ?>"></a>
-<?php endforeach; ?>
-<br />
-<br />
-
-
-
-TODO: Sort BY BATCH 
-<br />
-<br />
-
-TODO: Sort BY SKILL SET
-
 
 <!-- Index Table -->
 <style type="text/css">
