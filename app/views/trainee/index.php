@@ -16,19 +16,22 @@ Sort Trainee by:
             </li>
             
             <li>
-                <a href="<?php //readable_text(url('trainee/sort_by_training_status')) ?>">Training Status <span class="arrow">&#9660;</span></a>
-                 <ul class="sub-menu">            
-                    <?php foreach ($training_status as $get_from_training_status): ?>
+                <a href="">Training Status <span class="arrow">&#9660;</span></a>
+                <ul class="sub-menu">           
+                     
+
                     <li>
-                    <a href="<?php readable_text('/trainee/index?get_from_training_status='.$get_from_training_status) ?>">
+                    <?php foreach ($training_status as $get_from_training_status): //List of Training Statuses?>
+                    <?php foreach ($trainees as $get_trainees_status): //List of Trainees under the training status?>
+                    <a href="<?php readable_text(url('trainee/sort_by_training_status', array('trainee_id' => $get_trainees_status->training_status))) ?>">  
                     <?php readable_text($get_from_training_status); ?></a>
-                    </li>
                     <?php endforeach; ?>
-            
+                    <?php endforeach; ?>
+                    </li>
+                   
         </ul>
     </nav>
 </div>
-
 
 
 <style type="text/css">
