@@ -11,11 +11,24 @@ class TraineeController extends AppController
     {
         $trainee_id = Param::get('trainee_id');     
         $trainees = Trainee::getAll($trainee_id);
-        $training_status = Trainee::getAllTrainingStatus();
-               $category = Param::get('training_status','none');
-        $get_training_status = Trainee::getByTrainingStatus($category);
-       // $get_training_status = Trainee::getByTrainingStatus();
+        $training_status = Trainee::getDistinctTrainingStatus();
+        $skill_set = Trainee::getDistinctSkillSet();
+        $course_status = Trainee::getDistinctCourseStatus();
+        $batch = Trainee::getDistinctBatch();
         $this->set(get_defined_vars());   
+    }
+
+    public function sort_by_training_status() 
+    {
+        $trainee_id = Param::get('trainee_id');
+        $trainees = Trainee::getByTrainingStatus($trainee_id);
+        $training_status = Trainee::getDistinctTrainingStatus();
+
+        $category = Param::get('training_status');
+        $get_training_status = Trainee::getByTrainingStatus($category);
+        
+        $this->set(get_defined_vars());
+        $this->render('index');
     }
 
     public function view_trainee_profile()
@@ -107,21 +120,5 @@ class TraineeController extends AppController
         $trainee_edit = Trainee::getById($trainee_id);
         $this->set(get_defined_vars());
         $this->render($page);
-    }
-
-    public function sort_by_training_status() 
-    {
-        $trainee_id = Param::get('trainee_id');
-        $trainees = Trainee::getByTrainingStatus($trainee_id);
-
-        $training_status = Trainee::getAllTrainingStatus();
-        
-
-        $category = Param::get('training_status','none');
-        $get_training_status = Trainee::getByTrainingStatus($category);
-        //$threads = Thread::getByCategory($category);
-
-        $this->set(get_defined_vars());
-        $this->render('index');
     }
 }  

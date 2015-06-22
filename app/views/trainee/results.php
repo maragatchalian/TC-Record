@@ -8,74 +8,40 @@
 Sort Trainee by:
 <br />
 <br />
-    <div class="menu-wrap">
-        <nav class="menu">
-            <ul class="clearfix">
-                <!--Sort by Date Hired-->
+<div class="menu-wrap">
+    <nav class="menu">
+        <ul class="clearfix">
+            <li>
+                <a href="<?php readable_text(url('trainee/index')) ?>">Date Hired</span></a>
+            </li>
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" href="" data-toggle="dropdown" role="button" aria-expanded="false">
+                    Training Status <span class="caret"></span>
+                </a>
+            
+            <ul class="sub-menu">
                 <li>
-                    <a href="<?php readable_text(url('trainee/index')) ?>">Date Hired</span></a>
+                    <a href="<?php readable_text(url('thread/index')) ?>">
+                        <i class="icon-calendar"></i> On-Training
+                    </a>
                 </li>
-                
-                <!--Sort by Training Status-->
-                <li>
-                    <a href="">Training Status <span class="arrow">&#9660;</span></a>
-                    <ul class="sub-menu">           
-                        <li>
-  
-                        <?php foreach ($training_status as $get_training_status): //List of Training Statuses?>
-                        <?php foreach ($trainees as $get_trainees_status): //List of Trainees under the training status?>
-                         <a href="<?php readable_text(url('trainee/sort_by_training_status', array('trainee_id' => $get_trainees_status->training_status))) ?>">  
-                        <?php readable_text($get_training_status); ?></a>
-                        <?php endforeach; ?>
-                        <?php endforeach; ?>
-                        </li>   
-                    </ul>
 
-                <!--Sort by Skill Set-->
                 <li>
-                    <a href=""> Skill Set <span class="arrow">&#9660;</span></a>
-                    <ul class="sub-menu">           
-                        <li>
-                        <?php foreach ($skill_set as $get_skill_set): //List of Training Statuses?>
-                        <a href="<?php readable_text(url('trainee/sort_by_training_status', array('trainee_id' => $get_trainees_status->training_status))) ?>">    
-                        <?php readable_text($get_skill_set); ?></a>
-                        <?php //endforeach; ?>
-                        <?php endforeach; ?>
-                        </li>
-                    </ul>
-                </li>  
+                    <a href="<?php readable_text(url('thread/top_threads', array('type'=>'comment'))) ?>">
+                        <i class="icon-comment"></i> Graduated
+                    </a>
+                </li>
 
-                <!--Sort by Course Status-->
                 <li>
-                    <a href=""> Course Status <class="arrow">&#9660;</span></a>
-                    <ul class="sub-menu">           
-                        <li>
-                        <?php foreach ($course_status as $get_course_status): //List of Training Statuses?>
-                        <a href="<?php readable_text(url('trainee/sort_by_training_status', array('trainee_id' => $get_trainees_status->training_status))) ?>">    
-                        <?php readable_text($get_course_status); ?></a>
-                        <?php //endforeach; ?>
-                        <?php endforeach; ?>
-                        </li>
-                    </ul>
-                </li>  
+                    <a href="<?php readable_text(url('thread/top_threads', array('type'=>'follow'))) ?>">
+                        <i class="icon-eye-open"></i> EOC
+                    </a>
+                </li>
+        </ul>
+    </nav>
+</div>
 
-                <!--Sort by Batch-->
-                <li>
-                    <a href=""> Batch <span class="arrow">&#9660;</span></a>
-                    <ul class="sub-menu">           
-                        <li>
-                        <?php foreach ($batch as $get_batch): //List of Training Statuses?>
-                        <a href="<?php readable_text(url('trainee/sort_by_training_status', array('trainee_id' => $get_trainees_status->training_status))) ?>">    
-                        <?php readable_text($get_batch); ?></a>
-                        <?php //endforeach; ?>
-                        <?php endforeach; ?>
-                        </li>
-                    </ul>
-                </li>  
-
-            </ul>
-        </nav>
-    </div>
 
 
 <style type="text/css">
@@ -171,9 +137,22 @@ body {
 .sub-menu li a:hover, .sub-menu .current-item a {
     background:#3e3436;
 }
-</style>
 
-<!--Trainee Table-->
+
+.navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle {
+    color: #FFF;
+}
+.navbar .nav li.dropdown.open > .dropdown-toggle .caret, .navbar .nav li.dropdown.active > .dropdown-toggle .caret, .navbar .nav li.dropdown.open.active > .dropdown-toggle .caret {
+    border-top-color:#FFF;
+}
+
+
+<br />
+<br />
+<br />
+TODO: Display/Sort Trainees <br /><br />
+
+<!-- CSS goes in the document HEAD or added to your external stylesheet -->
 <style type="text/css">
 table.gridtable {
     font-family: verdana,arial,sans-serif;

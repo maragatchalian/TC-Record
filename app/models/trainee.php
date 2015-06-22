@@ -191,7 +191,7 @@ class Trainee extends AppModel
         return $trainee;
     }
 
-    public static function getAllTrainingStatus()
+    public static function getDistinctTrainingStatus()
     {
         $db = DB::conn();
         $rows = $db->rows("SELECT DISTINCT training_status FROM trainee");
@@ -203,5 +203,47 @@ class Trainee extends AppModel
             }
         }
         return $training_status;
+    }
+
+    public static function getDistinctSkillSet()
+    {
+        $db = DB::conn();
+        $rows = $db->rows("SELECT DISTINCT skill_set FROM trainee");
+        $skill_set = array();
+        
+        foreach ($rows as $row) {
+            if (!empty($row['skill_set'])) {
+                $skill_set[] = $row['skill_set'];
+            }
+        }
+        return $skill_set;
+    }
+
+    public static function getDistinctCourseStatus()
+    {
+        $db = DB::conn();
+        $rows = $db->rows("SELECT DISTINCT course_status FROM trainee");
+        $course_status = array();
+        
+        foreach ($rows as $row) {
+            if (!empty($row['course_status'])) {
+                $course_status[] = $row['course_status'];
+            }
+        }
+        return $course_status;
+    }
+
+    public static function getDistinctBatch()
+    {
+        $db = DB::conn();
+        $rows = $db->rows("SELECT DISTINCT batch FROM trainee");
+        $batch = array();
+        
+        foreach ($rows as $row) {
+            if (!empty($row['batch'])) {
+                $batch[] = $row['batch'];
+            }
+        }
+        return $batch;
     }
 }
