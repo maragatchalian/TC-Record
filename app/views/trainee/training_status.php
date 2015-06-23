@@ -1,12 +1,9 @@
-<font color ='black'>
-<br />
-<br />
-<h1>Category List</h1>
+Filter by Training Status
 <ul>
-    <?php foreach ($categories as $category): ?>
+    <?php foreach ($trainees as $get_trainee): ?>
     	<li>
-    		<a href="<?php readable_text('/thread/display_category?category='.$category) ?>">
-    		<?php readable_text($category); ?></a>
+    		<a href="<?php readable_text(url('trainee/index', array('trainee_id' => $get_trainee->training_status))) ?>"> 
+    		<?php readable_text($get_trainee); ?></a>
     	</li>
     <?php endforeach; ?>
 </font>

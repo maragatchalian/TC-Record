@@ -164,7 +164,7 @@ class Trainee extends AppModel
         $rows = $db->rows("SELECT * FROM trainee ORDER BY hired desc");
 
         foreach ($rows as $row) {
-            $trainees[] = new Trainee($row);
+            $trainees[] = new self($row);
         }
         return $trainees;
     }
@@ -246,4 +246,6 @@ class Trainee extends AppModel
         }
         return $batch;
     }
+
+
 }

@@ -1,6 +1,4 @@
-<br />
 <h3> Trainees </h3>
-
 
 <a class="btn btn-medium btn-info" href="<?php readable_text(url('trainee/add_trainee')) ?>">Add Trainee</a>
 <br />
@@ -8,74 +6,46 @@
 Sort Trainee by:
 <br />
 <br />
-    <div class="menu-wrap">
-        <nav class="menu">
-            <ul class="clearfix">
-                <!--Sort by Date Hired-->
-                <li>
-                    <a href="<?php readable_text(url('trainee/index')) ?>">Date Hired</span></a>
-                </li>
-                
-                <!--Sort by Training Status-->
-                <li>
-                    <a href="">Training Status <span class="arrow">&#9660;</span></a>
-                    <ul class="sub-menu">           
-                        <li>
-  
-                        <?php foreach ($training_status as $get_training_status): //List of Training Statuses?>
-                        <?php foreach ($trainees as $get_trainees_status): //List of Trainees under the training status?>
-                         <a href="<?php readable_text(url('trainee/sort_by_training_status', array('trainee_id' => $get_trainees_status->training_status))) ?>">  
+<div class="menu-wrap">
+    <nav class="menu">
+        <ul class="clearfix">
+                     
+        <!--Sort by Date Hired-->
+            <li>
+                <a href="<?php readable_text(url('trainee/index')) ?>">Date Hired</span></a>
+            </li>
+
+        <!--Sort by Training Status-->
+            <li>
+                <a href="">Training Status <span class="arrow">&#9660;</span></a>
+                <ul class="sub-menu">      
+                   <li>
+                    <?php foreach ($training_status as $get_training_status): //List of Training Statuses?>
+                        <a href="<?php readable_text(url('trainee/sort', array('trainee_id'=>$get_training_status))) ?>">  
                         <?php readable_text($get_training_status); ?></a>
-                        <?php endforeach; ?>
-                        <?php endforeach; ?>
-                        </li>   
-                    </ul>
+                    <?php endforeach; ?>
+                    </li>   
+                </ul>
+            </li>    
 
-                <!--Sort by Skill Set-->
-                <li>
-                    <a href=""> Skill Set <span class="arrow">&#9660;</span></a>
-                    <ul class="sub-menu">           
-                        <li>
-                        <?php foreach ($skill_set as $get_skill_set): //List of Training Statuses?>
-                        <a href="<?php readable_text(url('trainee/sort_by_training_status', array('trainee_id' => $get_trainees_status->training_status))) ?>">    
+
+        <!--Sort by Skill Set-->
+            <li>
+                <a href="">Skill Set <span class="arrow">&#9660;</span></a>
+                <ul class="sub-menu">      
+                   <li>
+                    <?php foreach ($skill_set as $get_skill_set): //List of Training Statuses?>
+                        <a href="<?php readable_text(url('trainee/sort',  array('trainee_id'=>$get_skill_set)) ?>">  
                         <?php readable_text($get_skill_set); ?></a>
-                        <?php //endforeach; ?>
-                        <?php endforeach; ?>
-                        </li>
-                    </ul>
-                </li>  
+                    <?php endforeach; ?>
+                    </li>   
+                </ul>
+            </li>    
 
-                <!--Sort by Course Status-->
-                <li>
-                    <a href=""> Course Status <class="arrow">&#9660;</span></a>
-                    <ul class="sub-menu">           
-                        <li>
-                        <?php foreach ($course_status as $get_course_status): //List of Training Statuses?>
-                        <a href="<?php readable_text(url('trainee/sort_by_training_status', array('trainee_id' => $get_trainees_status->training_status))) ?>">    
-                        <?php readable_text($get_course_status); ?></a>
-                        <?php //endforeach; ?>
-                        <?php endforeach; ?>
-                        </li>
-                    </ul>
-                </li>  
 
-                <!--Sort by Batch-->
-                <li>
-                    <a href=""> Batch <span class="arrow">&#9660;</span></a>
-                    <ul class="sub-menu">           
-                        <li>
-                        <?php foreach ($batch as $get_batch): //List of Training Statuses?>
-                        <a href="<?php readable_text(url('trainee/sort_by_training_status', array('trainee_id' => $get_trainees_status->training_status))) ?>">    
-                        <?php readable_text($get_batch); ?></a>
-                        <?php //endforeach; ?>
-                        <?php endforeach; ?>
-                        </li>
-                    </ul>
-                </li>  
-
-            </ul>
-        </nav>
-    </div>
+        </ul>
+    </nav>
+</div>
 
 
 <style type="text/css">
@@ -173,6 +143,7 @@ body {
 }
 </style>
 
+
 <!--Trainee Table-->
 <style type="text/css">
 table.gridtable {
@@ -213,8 +184,7 @@ table.gridtable td {
 </tr>
 
 
-    <?php foreach ($trainees as $get_from_trainee): ?>
-    
+<?php foreach ($trainees as $get_from_trainee): ?>
     <tr>
         <td><a href="<?php readable_text(url('trainee/view_trainee_profile', array('trainee_id' => $get_from_trainee->id))) ?>">
         <?php readable_text($get_from_trainee->employee_id) ?> </a> </td>

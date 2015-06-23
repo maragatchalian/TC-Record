@@ -9,16 +9,16 @@ class TraineeController extends AppController
 
     public function index()
     {
-        $trainee_id = Param::get('trainee_id');     
+        $trainee_id = Param::get('trainee_id'); 
         $trainees = Trainee::getAll($trainee_id);
         $training_status = Trainee::getDistinctTrainingStatus();
         $skill_set = Trainee::getDistinctSkillSet();
-        $course_status = Trainee::getDistinctCourseStatus();
-        $batch = Trainee::getDistinctBatch();
+
+
         $this->set(get_defined_vars());   
     }
 
-    public function sort_by_training_status() 
+    public function sort() 
     {
         $trainee_id = Param::get('trainee_id');
         $trainees = Trainee::getByTrainingStatus($trainee_id);
@@ -26,6 +26,7 @@ class TraineeController extends AppController
 
         $category = Param::get('training_status');
         $get_training_status = Trainee::getByTrainingStatus($category);
+
         
         $this->set(get_defined_vars());
         $this->render('index');
