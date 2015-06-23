@@ -178,12 +178,25 @@ class Trainee extends AppModel
         return $row;
     } 
 
-    public static function getByTrainingStatus($category) 
+    public static function getByTrainingStatus($training_status) 
     {
         $trainee = array();
         $db = DB::conn();
 
-        $rows = $db->rows("SELECT * FROM trainee WHERE training_status = ?", array($category));
+        $rows = $db->rows("SELECT * FROM trainee WHERE training_status = ?", array($training_status));
+            
+        foreach($rows as $row) {
+            $trainee[] = new self($row);
+        }
+        return $trainee;
+    }
+
+    public static function getBySkillSet($skill_set) 
+    {
+        $trainee = array();
+        $db = DB::conn();
+
+        $rows = $db->rows("SELECT * FROM trainee WHERE skill_set = ?", array($skill_set));
             
         foreach($rows as $row) {
             $trainee[] = new self($row);

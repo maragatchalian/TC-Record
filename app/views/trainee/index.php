@@ -21,26 +21,27 @@ Sort Trainee by:
                 <ul class="sub-menu">      
                    <li>
                     <?php foreach ($training_status as $get_training_status): //List of Training Statuses?>
-                        <a href="<?php readable_text(url('trainee/sort', array('trainee_id'=>$get_training_status))) ?>">  
+                        <a href="<?php readable_text(url('trainee/sort_by_trainee_id', array('trainee_id'=>$get_training_status))) ?>">  
                         <?php readable_text($get_training_status); ?></a>
                     <?php endforeach; ?>
                     </li>   
                 </ul>
             </li>    
 
-
         <!--Sort by Skill Set-->
             <li>
                 <a href="">Skill Set <span class="arrow">&#9660;</span></a>
                 <ul class="sub-menu">      
                    <li>
-                    <?php foreach ($skill_set as $get_skill_set): //List of Training Statuses?>
-                        <a href="<?php readable_text(url('trainee/sort',  array('trainee_id'=>$get_skill_set)) ?>">  
+                    <?php foreach ($skill_set as $get_skill_set): //List of Skill Set?>
+                        <a href="<?php readable_text(url('trainee/sort_by_skill_set', array('trainee_id'=>$get_skill_set))) ?>"> 
                         <?php readable_text($get_skill_set); ?></a>
                     <?php endforeach; ?>
                     </li>   
                 </ul>
             </li>    
+
+
 
 
         </ul>
