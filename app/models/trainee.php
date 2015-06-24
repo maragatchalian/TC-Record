@@ -204,6 +204,32 @@ class Trainee extends AppModel
         return $trainee;
     }
 
+    public static function getByBatch($batch) 
+    {
+        $trainee = array();
+        $db = DB::conn();
+
+        $rows = $db->rows("SELECT * FROM trainee WHERE batch = ?", array($batch));
+            
+        foreach($rows as $row) {
+            $trainee[] = new self($row);
+        }
+        return $trainee;
+    }
+
+    public static function getByCourseStatus($course_status) 
+    {
+        $trainee = array();
+        $db = DB::conn();
+
+        $rows = $db->rows("SELECT * FROM trainee WHERE course_status = ?", array($course_status));
+            
+        foreach($rows as $row) {
+            $trainee[] = new self($row);
+        }
+        return $trainee;
+    }
+
     public static function getDistinctTrainingStatus()
     {
         $db = DB::conn();

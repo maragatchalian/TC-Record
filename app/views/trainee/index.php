@@ -41,6 +41,33 @@ Sort Trainee by:
                 </ul>
             </li>    
 
+        <!--Sort by Batch-->
+            <li>
+                <a href="">Batch <span class="arrow">&#9660;</span></a>
+                <ul class="sub-menu">      
+                   <li>
+                    <?php foreach ($batch as $get_batch): //List of Skill Set?>
+                        <a href="<?php readable_text(url('trainee/sort_by_batch', array('trainee_id'=>$get_batch))) ?>"> 
+                        <?php readable_text($get_batch); ?></a>
+                    <?php endforeach; ?>
+                    </li>   
+                </ul>
+            </li>    
+
+        <!--Sort by Course Status-->
+            <li>
+                <a href="">Course <span class="arrow">&#9660;</span></a>
+                <ul class="sub-menu">      
+                   <li>
+                    <?php foreach ($course_status as $get_course_status): //List of Skill Set?>
+                        <a href="<?php readable_text(url('trainee/sort_by_course_status', array('trainee_id'=>$get_course_status))) ?>"> 
+                        <?php readable_text($get_course_status); ?></a>
+                    <?php endforeach; ?>
+                    </li>   
+                </ul>
+            </li>    
+
+
 
 
 
@@ -180,7 +207,7 @@ table.gridtable td {
     <th> Batch </th>
     <th> Skill </th>
     <th> Training Status </th>
-    <th> Course </th>
+    <th> Current Course </th>
     <th> Exam Date </th>
 </tr>
 

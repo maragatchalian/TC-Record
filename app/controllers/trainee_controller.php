@@ -13,6 +13,8 @@ class TraineeController extends AppController
         $trainees = Trainee::getAll($trainee_id);
         $training_status = Trainee::getDistinctTrainingStatus();
         $skill_set = Trainee::getDistinctSkillSet();
+        $batch =  Trainee::getDistinctBatch();
+        $course_status = Trainee::getDistinctCourseStatus();
         $this->set(get_defined_vars());   
     }
 
@@ -22,6 +24,8 @@ class TraineeController extends AppController
         $trainees = Trainee::getByTrainingStatus($trainee_id);
         $skill_set = Trainee::getDistinctSkillSet();
         $training_status = Trainee::getDistinctTrainingStatus();
+        $batch =  Trainee::getDistinctBatch();
+        $course_status = Trainee::getDistinctCourseStatus();
         $this->set(get_defined_vars());
         $this->render('index');
     }
@@ -32,6 +36,32 @@ class TraineeController extends AppController
         $trainees = Trainee::getBySkillSet($trainee_id);
         $training_status = Trainee::getDistinctTrainingStatus();
         $skill_set = Trainee::getDistinctSkillSet();
+        $batch =  Trainee::getDistinctBatch();
+        $course_status = Trainee::getDistinctCourseStatus();
+        $this->set(get_defined_vars());
+        $this->render('index');
+    }
+
+    public function sort_by_batch() 
+    {
+        $trainee_id = Param::get('trainee_id');
+        $trainees = Trainee::getByBatch($trainee_id);
+        $training_status = Trainee::getDistinctTrainingStatus();
+        $skill_set = Trainee::getDistinctSkillSet();
+        $batch =  Trainee::getDistinctBatch();
+        $course_status = Trainee::getDistinctCourseStatus();
+        $this->set(get_defined_vars());
+        $this->render('index');
+    }
+
+    public function sort_by_course_status() 
+    {
+        $trainee_id = Param::get('trainee_id');
+        $trainees = Trainee::getByCourseStatus($trainee_id);
+        $training_status = Trainee::getDistinctTrainingStatus();
+        $skill_set = Trainee::getDistinctSkillSet();
+        $batch =  Trainee::getDistinctBatch();
+        $course_status = Trainee::getDistinctCourseStatus();
         $this->set(get_defined_vars());
         $this->render('index');
     }
