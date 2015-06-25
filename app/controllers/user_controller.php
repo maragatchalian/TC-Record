@@ -9,7 +9,7 @@ class UserController extends AppController
 
     public function index()
     {
-
+        //TODO: ADMIN PROFILE
     }
     
     public function register() 
@@ -67,7 +67,7 @@ class UserController extends AppController
             case self::LOGIN_END_PAGE:
                 try {
                     $user->login();
-                }catch (ValidationException $e){
+                } catch (ValidationException $e) {
                     $page = self::LOGIN_PAGE;
                 }
                 break;

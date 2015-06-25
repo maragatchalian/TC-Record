@@ -52,8 +52,8 @@ class User extends AppModel
                 'validate_between', self::MIN_EMAIL_LENGTH, self::MAX_EMAIL_LENGTH
             ),
 
-        'exist' => array(
-            'is_email_exist',
+            'exist' => array(
+                'is_email_exist',
             )
         ),
 
@@ -90,9 +90,9 @@ class User extends AppModel
     public function is_email_exist()
     {
         $db = DB::conn();
-        $username_exist = $db->row("SELECT email FROM user where email = ?", array($this->email));
+        $email_exist = $db->row("SELECT email FROM user where email = ?", array($this->email));
         
-        return (!$username_exist);
+        return (!$email_exist);
     }
 
     public function register()
@@ -125,7 +125,6 @@ class User extends AppModel
     public function login()
     {
         $db = DB::conn();
-
         $params = array(
             'username' => $this->username,
             'password' => md5($this->password)
@@ -140,5 +139,4 @@ class User extends AppModel
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
     }
-
 }

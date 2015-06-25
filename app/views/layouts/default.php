@@ -18,7 +18,7 @@
   <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
   <div class="container">
-    <a class="brand" href="index">DietCake Hello</a>
+    <a class="brand" href="index">TC Records</a>
     <?php if(isset($_SESSION["username"])):?>
     <p align="right">You are logged in as: <b><?php echo ($_SESSION["username"]); ?> </b> <br>
     <a href="<?php readable_text(url('user/logout'));?>">Logout</a></p>

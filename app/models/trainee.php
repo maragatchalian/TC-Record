@@ -94,8 +94,7 @@ class Trainee extends AppModel
     public function is_employee_id_exist()
     {
         $db = DB::conn();
-        $employee_id_exist = $db->row("SELECT employee_id FROM trainee WHERE employee_id = ?", 
-            array($this->employee_id));
+        $employee_id_exist = $db->row("SELECT employee_id FROM trainee WHERE employee_id = ?", array($this->employee_id));
         
         return (!$employee_id_exist);
     }
@@ -147,7 +146,7 @@ class Trainee extends AppModel
                 'hired' => $this->hired,
                 'graduated'=> $this->graduated
             );
-            
+        
             $trainee_id = array('id' => $this->trainee_id);
             $db->update('trainee', $params, $trainee_id);
             
@@ -285,6 +284,4 @@ class Trainee extends AppModel
         }
         return $batch;
     }
-
-
 }
