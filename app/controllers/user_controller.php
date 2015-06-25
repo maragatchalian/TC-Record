@@ -9,7 +9,8 @@ class UserController extends AppController
 
     public function index()
     {
-        //TODO: ADMIN PROFILE
+        $user = User::get($_SESSION['user_id']);
+        $this->set(get_defined_vars());
     }
     
     public function register() 
