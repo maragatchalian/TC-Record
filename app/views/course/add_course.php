@@ -1,5 +1,9 @@
 <h3>Add a Course</h3>
 
+<?php if ($course->hasError()): ?>
+    <div class="alert alert-error">
+        <h4 class="alert-heading">Oh snap!</h4><h7>Change a few things up and try again.</h7><br /><br/>
+
 <?php //Checking of name length
 if (!empty($course->validation_errors['name']['length'])): ?>
     <div>
@@ -23,6 +27,13 @@ if (!empty($course->validation_errors['name']['valid'])): ?>
      Please select a <em>Category!</em> 
     </div>
   <?php endif ?>
+
+</div>
+<?php endif ?> 
+
+
+<form class="form-horizontal">
+<form action="<?php readable_text(url('')) ?>" method="POST">
 
 <!--Course Category-->
     <label for="category"><h5>Category</h5></label>
