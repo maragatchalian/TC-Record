@@ -7,7 +7,10 @@ class CourseController extends AppController
 
     public function index()
     {
-        //TODO: Display Courses
+        $categories = Course::getDistinctCategory();
+        $course_id = Param::get('course_id');
+        $courses = Course::getByCategory($course_id);
+        $this->set(get_defined_vars());
     }
 
     public function add_course()
@@ -39,4 +42,5 @@ class CourseController extends AppController
         $this->set(get_defined_vars());
         $this->render($page);
     }
+
 }

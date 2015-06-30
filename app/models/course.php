@@ -47,4 +47,31 @@ class Course extends AppModel
             throw $e;
         }
     }
+
+    public static function getDistinctCategory()
+    {
+        $db = DB::conn();
+        $rows = $db->rows("SELECT DISTINCT category FROM courses");
+        $categories = array();
+        
+        foreach ($rows as $row) {
+            if (!empty($row['category'])) {
+                $categories[] = $row['category'];
+            }
+        }
+        return $categories;
+    }
+
+    public static function getByCategory($category) 
+    {
+        $course = array();
+        $db = DB::conn();
+
+        $rows = $db->rows("SELECT * FROM courses WHERE category = ?", array($category));
+            
+        foreach($rows as $row) {
+            $course[] = new self($row);
+        }
+        return $course;
+    }
 }
