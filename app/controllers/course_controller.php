@@ -84,4 +84,15 @@ class CourseController extends AppController
         $this->set(get_defined_vars());
         $this->render($page);
     }
+
+    public function delete_course() 
+    { 
+        $course_id = Param::get('course_id');
+        $course = Course::delete($course_id);
+
+
+        //$course_id = Param::get('course_id');
+        //$course->delete($course_id);
+        $this->set(get_defined_vars());
+    }  
 }

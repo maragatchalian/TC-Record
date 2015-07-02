@@ -47,6 +47,40 @@ class Course extends AppModel
         }
     }
 
+    public function edit($course_id)
+    {
+        if (!$this->validate()) {
+            throw new ValidationException('Invalid Input');
+        }
+    
+        try {
+            $db = DB::conn();
+            $params = array(
+                'category' => $this->category,
+                'name' => $this->name
+            );
+        
+            $course_id = array('id' => $this->course_id);
+            $db->update('courses', $params, $course_id);
+            
+        } catch(Exception $e) {
+            throw $e;
+        }
+    }
+
+    public static function delete($course_id)
+    {
+        try {
+            $db = DB::conn();
+            $db->begin();
+
+            $db->query("DELETE FROM courses WHERE id = ?", array($course_id));
+            $db->commit();
+        } catch (Exception $e) {
+            $db->rollback();
+        }
+    }
+
     public static function getDistinctCategory()
     {
         $db = DB::conn();
@@ -81,25 +115,4 @@ class Course extends AppModel
         
         return $row;
     } 
-
-    public function edit($course_id)
-    {
-        if (!$this->validate()) {
-            throw new ValidationException('Invalid Input');
-        }
-    
-        try {
-            $db = DB::conn();
-            $params = array(
-                'category' => $this->category,
-                'name' => $this->name
-            );
-        
-            $course_id = array('id' => $this->course_id);
-            $db->update('courses', $params, $course_id);
-            
-        } catch(Exception $e) {
-            throw $e;
-        }
-    }
 }
