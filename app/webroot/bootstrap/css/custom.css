@@ -128,16 +128,4 @@ body {
     background:#2e2728;
 }
  
-.sub-menu li {
-    display:block;
-    font-size:14px;
-}
- 
-.sub-menu li a {
-    padding:10px 30px;
-    display:block;
-}
- 
-.sub-menu li a:hover, .sub-menu .current-item a {
-    background:#3e3436;
-}
+/*----- Course Tabs -----*/

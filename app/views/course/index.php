@@ -3,7 +3,53 @@
 <a class="btn btn-medium btn-info" href="<?php readable_text(url('course/add_course')) ?>">Add Course</a> <br />
 <br />
 
+<ul id="courses">
+    <?php foreach ($categories as $get_categories): ?>
+        <li>
+            <a href="<?php readable_text(url('course/index', array('course_id' => $get_categories))) ?>">
+            <?php readable_text($get_categories); ?></a>
+        </li>
+    <?php endforeach; ?>
+</ul>    
+
+
+<center>
+<!-- Index Table -->   
+<table class="gridtable"> 
+<tr>
+    <th> Course Name</th>
+</tr>
+<br />
+<br />
+
+
+<?php foreach ($courses as $get_from_trainee): ?>
+<tr>
+    <td> <?php readable_text($get_from_trainee->name) ?> </a> </td>
+</tr>
+
+
+<?php endforeach; ?>
+
+
+</table>
+</center>
+
 <style>
+.sub-menu li {
+    display:block;
+    font-size:14px;
+}
+ 
+.sub-menu li a {
+    padding:10px 30px;
+    display:block;
+}
+ 
+.sub-menu li a:hover, .sub-menu .current-item a {
+    background:#3e3436;
+}
+
 ul#courses
 {
     padding: 0;
@@ -31,35 +77,3 @@ ul#courses li a:hover
     background-color: lightgrey;
 }
 </style>
-
-
-  
-<ul id="courses">
-    <?php foreach ($categories as $get_categories): ?>
-        <li>
-            <a href="<?php readable_text(url('course/index', array('course_id' => $get_categories))) ?>">
-            <?php readable_text($get_categories); ?></a>
-        </li>
-    <?php endforeach; ?>
-</ul>    
-
-
-
-<!-- Index Table -->    
-<center>
-<br />
-<br />
-<table class="gridtable">
-<tr>
-    <th> Sub Courses </th>
-</tr>
-</center>
-
-
-
-<?php foreach ($courses as $get_from_trainee): ?>
-<tr>
-    <td> <?php readable_text($get_from_trainee->name) ?> </a> </td>
-</tr>
-
-<?php endforeach; ?>

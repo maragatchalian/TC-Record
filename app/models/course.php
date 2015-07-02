@@ -74,4 +74,17 @@ class Course extends AppModel
         }
         return $course;
     }
+
+    public static function getAll()
+    {
+        $courses = array();
+
+        $db = DB::conn();
+        $rows = $db->rows("SELECT * FROM courses");
+
+        foreach ($rows as $row) {
+            $courses[] = new self($row);
+        }
+        return $courses;
+    }
 }

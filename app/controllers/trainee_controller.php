@@ -9,8 +9,7 @@ class TraineeController extends AppController
 
     public function index()
     {
-        $trainee_id = Param::get('trainee_id'); 
-        $trainees = Trainee::getAll($trainee_id);
+        $trainees = Trainee::getAll();
         $training_status = Trainee::getDistinctTrainingStatus();
         $skill_set = Trainee::getDistinctSkillSet();
         $batch =  Trainee::getDistinctBatch();
