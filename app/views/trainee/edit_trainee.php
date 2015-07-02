@@ -1,4 +1,3 @@
-<font color = "black">
 <h3>Edit a Trainee</h3>
 
 <?php if ($trainee->hasError()): ?>
@@ -230,4 +229,3 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
 </div>
 
 </form>
-</font>

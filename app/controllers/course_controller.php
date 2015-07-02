@@ -20,7 +20,7 @@ class CourseController extends AppController
     {
         $params = array(
             'name' => Param::get('name'),
-            'category' => Param::get('category'),
+            'category' => Param::get('category')
         );
 
         $course = new Course($params);
@@ -55,11 +55,12 @@ class CourseController extends AppController
 
     public function edit_course()
     {
-        $course_id = Param::get('course_id');
+        $course_id = Param::get('course_id');  
         
         $params = array(
             'category' => Param::get('category'),
             'name' => Param::get('name'),
+            'course_id' => $course_id
         );
 
         $course = new Course($params);

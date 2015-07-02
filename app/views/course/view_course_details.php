@@ -1,5 +1,5 @@
 <br />
-<h4> <?php readable_text($course['name']);?>, </h4>
+<h4> <?php readable_text($course['name']);?></h4>
 	Category: <?php readable_text($course['category']);?> 
 
 <br />
