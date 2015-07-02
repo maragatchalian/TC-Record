@@ -170,7 +170,6 @@ class Trainee extends AppModel
 
     public static function getById($trainee_id)
     {
-        
         $db = DB::conn();
         $row = $db->row("SELECT * FROM trainee WHERE id = ?", array($trainee_id));
         

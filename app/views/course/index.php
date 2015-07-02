@@ -23,12 +23,11 @@
 <br />
 
 
-<?php foreach ($courses as $get_from_trainee): ?>
+<?php foreach ($courses as $get_courses): ?>
 <tr>
-    <td> <?php readable_text($get_from_trainee->name) ?> </a> </td>
+    <td> <a href="<?php readable_text(url('course/view_course_details', array('course_id'=>$get_courses->id))) ?>">
+        <?php readable_text($get_courses->name) ?> </a> </td>
 </tr>
-
-
 <?php endforeach; ?>
 
 

@@ -2,7 +2,6 @@
 
 class Course extends AppModel
 {
-
     const MIN_NAME_LENGTH = 2;
     const MAX_NAME_LENGTH = 20;
 
@@ -75,16 +74,32 @@ class Course extends AppModel
         return $course;
     }
 
-    public static function getAll()
+    public static function getById($course_id)
     {
-        $courses = array();
-
         $db = DB::conn();
-        $rows = $db->rows("SELECT * FROM courses");
+        $row = $db->row("SELECT * FROM courses WHERE id = ?", array($course_id));
+        
+        return $row;
+    } 
 
-        foreach ($rows as $row) {
-            $courses[] = new self($row);
+    public function edit($course_id)
+    {
+        if (!$this->validate()) {
+            throw new ValidationException('Invalid Input');
         }
-        return $courses;
+    
+        try {
+            $db = DB::conn();
+            $params = array(
+                'category' => $this->category,
+                'name' => $this->name
+            );
+        
+            $course_id = array('id' => $this->course_id);
+            $db->update('courses', $params, $course_id);
+            
+        } catch(Exception $e) {
+            throw $e;
+        }
     }
 }
