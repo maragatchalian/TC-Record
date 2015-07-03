@@ -1,131 +1,56 @@
 /*Default Menu*/
 ul.nav {
-    margin:0;
-    padding:0;
-    list-style:none;
-    height:30px; line-height:100px;
-    background:#006799; /*Navigaton Backgound Color */
-    font-family: 'Ek Mukta';
-    font-size:15px;
+margin:0;
+padding:0;
+list-style:none;
+height:30px; line-height:100px;
+background:#006799; /*Navigaton Backgound Color */
+font-family: 'Ek Mukta';
+font-size:15px;
 }
 ul.nav li {
-    border-right:1px solid #004566;line-height:30px; /* Separator Line Color */
-    float:left;
+border-right:1px solid #004566;line-height:30px; /* Separator Line Color */
+float:left;
 }
 ul.nav a {
-    display:block;
-    padding:0 28px;
-    color:#ccece6; /* Font Color */
-    text-decoration:none;
+display:block;
+padding:0 28px;
+color:#ccece6; /* Font Color */
+text-decoration:none;
 }
 ul.nav a:hover,
 ul.nav li.current a {
-    background:#009be5; /* Hover Color */
-    opacity:10;
+background:#009be5; /* Hover Color */
+opacity:10;
 }
-
 /*Index Table*/
 table.gridtable {
-    font-family: verdana,arial,sans-serif;
-    font-size:14px;
-    color:#333333;
-    border-width: 1px;
-    border-color: #666666;
-    border-collapse: collapse;
+font-family: verdana,arial,sans-serif;
+font-size:14px;
+color:#333333;
+border-width: 1px;
+border-color: #666666;
+border-collapse: collapse;
 }
 table.gridtable th {
-    border-width: 1px;
-    padding: 8px;
-    border-style: solid;
-    border-color: #666666;
-    background-color: #dedede;
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #666666;
+background-color: #dedede;
 }
 table.gridtable td {
-    border-width: 1px;
-    padding: 8px;
-    border-style: solid;
-    border-color: #666666;
-    background-color: #ffffff;
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #666666;
+background-color: #ffffff;
 }
-
 /*Sorting Options*/
 body {
-    background:#00000 url('body-bg.jpg');
+background:#00000 url('body-bg.jpg');
 }
- 
 .clearfix:after {
-    display:block;
-    clear:both;
+display:block;
+clear:both;
 }
- 
-/*----- Menu Outline -----*/
-.menu-wrap {
-    width:100%;
-    box-shadow:0px 1px 3px rgba(0,0,0,0.2);
-    background:#3e3436;
-}
- 
-.menu {
-    width:1000px;
-    margin:0px auto;
-}
- 
-.menu li {
-    margin:0px;
-    list-style:none;
-    font-family:'Ek Mukta';
-}
- 
-.menu a {
-    transition:all linear 0.15s;
-    color:#919191;
-}
- 
-.menu li:hover > a, .menu .current-item > a {
-    text-decoration:none;
-    color:#be5b70;
-}
- 
-.menu .arrow {
-    font-size:11px;
-    line-height:0%;
-}
- 
-/*----- Top Level -----*/
-.menu > ul > li {
-    float:left;
-    display:inline-block;
-    position:relative;
-    font-size:14px;
-}
- 
-.menu > ul > li > a {
-    padding:10px 40px;
-    display:inline-block;
-    text-shadow:0px 1px 0px rgba(0,0,0,0.4);
-}
- 
-.menu > ul > li:hover > a, .menu > ul > .current-item > a {
-    background:#2e2728;
-}
- 
-/*----- Bottom Level -----*/
-.menu li:hover .sub-menu {
-    z-index:1;
-    opacity:1;
-}
- 
-.sub-menu {
-    width:160%;
-    padding:5px 0px;
-    position:absolute;
-    top:100%;
-    left:0px;
-    z-index:-1;
-    opacity:0;
-    transition:opacity linear 0.15s;
-    box-shadow:0px 2px 3px rgba(0,0,0,0.2);
-    background:#2e2728;
-}
- 
-/*----- Course Tabs -----*/

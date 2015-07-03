@@ -65,6 +65,7 @@ class UserController extends AppController
         switch ($page) {
             case self::LOGIN_PAGE:
                 break;
+            
             case self::LOGIN_END_PAGE:
                 try {
                     $user->login();
@@ -72,6 +73,7 @@ class UserController extends AppController
                     $page = self::LOGIN_PAGE;
                 }
                 break;
+            
             default:
                 throw new NotFoundException("{$page} is not found");
                 break;

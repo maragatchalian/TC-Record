@@ -3,10 +3,9 @@
 class Course extends AppModel
 {
     const MIN_NAME_LENGTH = 2;
-    const MAX_NAME_LENGTH = 20;
-
     const MIN_CATEGORY_LENGTH = 1;
     const MAX_CATEGORY_LENGTH = 20;
+    const MAX_NAME_LENGTH = 20;
 
     public $validation = array(
 
@@ -35,12 +34,15 @@ class Course extends AppModel
         try {
             $db = DB::conn(); 
             $db->begin();
+            
             $params = array( 
                 'name' => $this->name,
                 'category' => $this->category,
             );
+
             $db->insert('courses', $params); 
             $db->commit();
+
         } catch(Exception $e) {
             $db->rollback();
             throw $e;
@@ -76,6 +78,7 @@ class Course extends AppModel
 
             $db->query("DELETE FROM courses WHERE id = ?", array($course_id));
             $db->commit();
+        
         } catch (Exception $e) {
             $db->rollback();
         }
@@ -84,7 +87,7 @@ class Course extends AppModel
     public static function getDistinctCategory()
     {
         $db = DB::conn();
-        $rows = $db->rows("SELECT DISTINCT category FROM courses");
+        $rows = $db->rows("SELECT DISTINCT category FROM courses order by category");
         $categories = array();
         
         foreach ($rows as $row) {
@@ -114,5 +117,18 @@ class Course extends AppModel
         $row = $db->row("SELECT * FROM courses WHERE id = ?", array($course_id));
         
         return $row;
-    } 
+    }
+
+    public static function getAll()
+    {
+        $course = array();
+
+        $db = DB::conn();
+        $rows = $db->rows("SELECT * FROM courses");
+
+        foreach ($rows as $row) {
+            $course[] = new self($row);
+        }
+        return $course;
+    }
 }

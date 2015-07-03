@@ -105,6 +105,7 @@ class User extends AppModel
             $db = DB::conn(); 
             $registered = date("Y-m-d H:i:s");
             $db->begin();
+            
             $params = array( 
                 'username' => $this->username,
                 'first_name' => $this->first_name,
@@ -114,8 +115,10 @@ class User extends AppModel
                 'user_type' => $this->user_type,
                 'registered' => $registered
             );
+            
             $db->insert('user', $params); 
             $db->commit();
+        
         } catch(Exception $e) {
             $db->rollback();
             throw $e;

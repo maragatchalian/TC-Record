@@ -9,7 +9,7 @@ class CourseController extends AppController
 
     public function index()
     {
-
+        $course_index = Course::getAll();
         $categories = Course::getDistinctCategory();
         $course_id = Param::get('course_id');
         $courses = Course::getByCategory($course_id);
@@ -31,13 +31,14 @@ class CourseController extends AppController
                 break;
             
             case self::ADD_COURSE_END:
+                $course_id = Param::get('course_id');   
+                $course = Course::getById($course_id);
                 try {
                     $course->add();
                 } catch (ValidationException $e) {
                     $page = self::ADD_COURSE;
                 }
                 break;
-
             default:
                 throw new NotFoundException("{$page} is not found");
                 break;
@@ -46,17 +47,9 @@ class CourseController extends AppController
         $this->render($page);
     }
 
-    public function view_course_details()
-    {
-        $course_id = Param::get('course_id');   
-        $course = Course::getById($course_id);
-        $this->set(get_defined_vars());   
-    }
-
     public function edit_course()
     {
-        $course_id = Param::get('course_id');  
-        
+        $course_id = Param::get('course_id');   
         $params = array(
             'category' => Param::get('category'),
             'name' => Param::get('name'),
@@ -76,6 +69,7 @@ class CourseController extends AppController
                     $page = self::EDIT;
                 }
                 break;
+           
             default:
                 throw new NotFoundException("{$page} is not found");
                 break;
@@ -89,10 +83,13 @@ class CourseController extends AppController
     { 
         $course_id = Param::get('course_id');
         $course = Course::delete($course_id);
-
-
-        //$course_id = Param::get('course_id');
-        //$course->delete($course_id);
         $this->set(get_defined_vars());
-    }  
+    }
+
+    public function view_course_details()
+    {
+        $course_id = Param::get('course_id');   
+        $course = Course::getById($course_id);
+        $this->set(get_defined_vars());   
+    }
 }

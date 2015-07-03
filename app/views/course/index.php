@@ -16,12 +16,12 @@
 <center>
 <!-- Index Table -->   
 <table class="gridtable"> 
-<tr>
+<!--<tr>
     <th> Course Name</th>
-</tr>
+</tr>-->
 <br />
 <br />
-
+ 
 
 <?php foreach ($courses as $get_courses): ?>
 <tr>

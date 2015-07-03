@@ -33,7 +33,7 @@
   <ul class="nav">
     <li><a href="<?php readable_text(url('user/index')) ?>">Home</a></li>
     <li><a href="<?php readable_text(url('trainee/index')) ?>">Trainees</a></li>
-    <li><a href="<?php readable_text(url('http://tc.record.com/course/index?course_id=Essential+Course')) ?>">Courses</a></li>
+    <li><a href="<?php readable_text(url('course/index')) ?>">Courses</a></li>
     <li><a href="#">Exam Scores</a></li>
   </ul>
  <?php endif ?>

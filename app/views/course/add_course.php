@@ -2,35 +2,38 @@
 
 <?php if ($course->hasError()): ?>
     <div class="alert alert-error">
-        <h4 class="alert-heading">Oh snap!</h4><h7>Change a few things up and try again.</h7><br /><br/>
+    <h4 class="alert-heading">Oh snap!</h4>
+    <h7>Change a few things up and try again.</h7>
 
-<?php //Checking of name length
-if (!empty($course->validation_errors['name']['length'])): ?>
-    <div>
-        <em> Name </em> must be between
-            <?php readable_text($course->validation['name']['length'][1]) ?> and
-            <?php readable_text($course->validation['name']['length'][2]) ?> characters.
+    <br />
+    <br />
+
+    <?php //Checking of name length
+    if (!empty($course->validation_errors['name']['length'])): ?>
+        <div>
+            <em> Name </em> must be between
+                <?php readable_text($course->validation['name']['length'][1]) ?> and
+                <?php readable_text($course->validation['name']['length'][2]) ?> characters.
+        </div>
+    <?php endif ?>
+
+
+    <?php //Checking of name if it's valid
+    if (!empty($course->validation_errors['name']['valid'])): ?>
+        <div>
+            Invalid <em>Name</em>!
+        </div>
+    <?php endif ?>
+
+    <!--Skill Set Validation Error Message--> 
+    <?php if (!empty($course->validation_errors['category']['length'])): ?>    
+        <div>
+         Please select a <em>Category!</em> 
+        </div>
+      <?php endif ?>
+
     </div>
-<?php endif ?>
-
-
-<?php //Checking of name if it's valid
-if (!empty($course->validation_errors['name']['valid'])): ?>
-    <div>
-        Invalid <em>Name</em>!
-    </div>
-<?php endif ?>
-
-<!--Skill Set Validation Error Message--> 
- <?php if (!empty($course->validation_errors['category']['length'])): ?>    
-    <div>
-     Please select a <em>Category!</em> 
-    </div>
-  <?php endif ?>
-
-</div>
 <?php endif ?> 
-
 
 <form class="form-horizontal">
 <form action="<?php readable_text(url('')) ?>" method="POST">
