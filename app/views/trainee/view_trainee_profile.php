@@ -16,7 +16,7 @@
 <b>Date Hired : </b><?php readable_text($trainee['hired']);?> <br />
 <b>Date of Graduation : </b><?php readable_text($trainee['graduated']);?> <br />
 <a class="btn btn-medium btn-info" href="<?php readable_text(url('trainee/edit_trainee', array('trainee_id' => $trainee_id))) ?>">Edit Trainee</a>
-<a class="btn btn-medium btn-info" href="">Exam Scores</a>
+<a class="btn btn-medium btn-info" href="<?php readable_text(url('exam/view_score', array('trainee_id' => $trainee_id))) ?>">Exam Scores</a>
 <br />
 </div>
 <a class="btn btn-medium btn-info" href="">Change Photo</a>
