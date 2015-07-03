@@ -101,7 +101,7 @@
 
         <td> <?php readable_text($get_from_trainee->skill_set) ?> </a> </td>
 
-        <td> <a href="<?php readable_text(url('trainee/edit_trainee', array('trainee_id' => $get_from_trainee->id))) ?>"><?php readable_text($get_from_trainee->training_status) ?> </a> </td>
+        <td> <?php readable_text($get_from_trainee->training_status) ?> </a> </td>
 
         <td> <?php readable_text($get_from_trainee->course_status) ?> </a> </td>
 

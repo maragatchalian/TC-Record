@@ -3,7 +3,7 @@
         You've successfully added a Course!               
     </p>
                  
-<a href="<?php readable_text(url('course/view_course_details', array('course_id' => $course_id))) ?>">
+<a href="<?php readable_text(url('course/index')) ?>">
     &larr; Back to Courses 
 </a>
 

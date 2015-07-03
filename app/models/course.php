@@ -40,7 +40,7 @@ class Course extends AppModel
                 'category' => $this->category,
             );
 
-            $db->insert('courses', $params); 
+            $db->insert('course', $params); 
             $db->commit();
 
         } catch(Exception $e) {
@@ -63,7 +63,7 @@ class Course extends AppModel
             );
         
             $course_id = array('id' => $this->course_id);
-            $db->update('courses', $params, $course_id);
+            $db->update('course', $params, $course_id);
             
         } catch(Exception $e) {
             throw $e;
@@ -76,7 +76,7 @@ class Course extends AppModel
             $db = DB::conn();
             $db->begin();
 
-            $db->query("DELETE FROM courses WHERE id = ?", array($course_id));
+            $db->query("DELETE FROM course WHERE id = ?", array($course_id));
             $db->commit();
         
         } catch (Exception $e) {
@@ -87,7 +87,7 @@ class Course extends AppModel
     public static function getDistinctCategory()
     {
         $db = DB::conn();
-        $rows = $db->rows("SELECT DISTINCT category FROM courses order by category");
+        $rows = $db->rows("SELECT DISTINCT category FROM course order by category");
         $categories = array();
         
         foreach ($rows as $row) {
@@ -103,7 +103,7 @@ class Course extends AppModel
         $course = array();
         $db = DB::conn();
 
-        $rows = $db->rows("SELECT * FROM courses WHERE category = ?", array($category));
+        $rows = $db->rows("SELECT * FROM course WHERE category = ?", array($category));
             
         foreach($rows as $row) {
             $course[] = new self($row);
@@ -114,21 +114,8 @@ class Course extends AppModel
     public static function getById($course_id)
     {
         $db = DB::conn();
-        $row = $db->row("SELECT * FROM courses WHERE id = ?", array($course_id));
+        $row = $db->row("SELECT * FROM course WHERE id = ?", array($course_id));
         
         return $row;
-    }
-
-    public static function getAll()
-    {
-        $course = array();
-
-        $db = DB::conn();
-        $rows = $db->rows("SELECT * FROM courses");
-
-        foreach ($rows as $row) {
-            $course[] = new self($row);
-        }
-        return $course;
     }
 }

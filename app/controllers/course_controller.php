@@ -9,7 +9,6 @@ class CourseController extends AppController
 
     public function index()
     {
-        $course_index = Course::getAll();
         $categories = Course::getDistinctCategory();
         $course_id = Param::get('course_id');
         $courses = Course::getByCategory($course_id);
@@ -31,8 +30,6 @@ class CourseController extends AppController
                 break;
             
             case self::ADD_COURSE_END:
-                $course_id = Param::get('course_id');   
-                $course = Course::getById($course_id);
                 try {
                     $course->add();
                 } catch (ValidationException $e) {

@@ -13,7 +13,7 @@ email               VARCHAR(50) UNIQUE NOT NULL,
 user_type           VARCHAR(20) NOT NULL,
 registered          TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (id)
-);ENGINE=InnoDB;
+)ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS trainee(
 id                  INT(11) NOT NULL AUTO_INCREMENT,
@@ -27,11 +27,21 @@ batch               VARCHAR(30) NOT NULL,
 hired               VARCHAR(30) NOT NULL,
 graduated           VARCHAR(30) NOT NULL,
 PRIMARY KEY (id)
-);ENGINE=InnoDB;
+)ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS courses(
+CREATE TABLE IF NOT EXISTS course(
 id                  INT(11) NOT NULL AUTO_INCREMENT,
 name                VARCHAR(50) NOT NULL,
 category            VARCHAR(30) NOT NULL,
+PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS exam(
+id                  INT(11) NOT NULL AUTO_INCREMENT,
+trainee_id          INT(11) NOT NULL,
+course_id           INT(11) NOT NULL,
+score               INT(3) NOT NULL,
+makeup_score        INT(3) NOT NULL,
+date_taken          VARCHAR(30) NOT NULL,
 PRIMARY KEY (id)
 )ENGINE=InnoDB;
