@@ -17,7 +17,7 @@
 <b>Member Since: </b>  <?php readable_text($user['registered']);?> <br />
 <br /><br />
 
-<a class="btn btn-medium btn-info" href="<?php readable_text(url('trainee/edit_trainee', array('trainee_id' => $trainee_id))) ?>">Edit Profile</a>
+<a class="btn btn-medium btn-info" href="">Edit Profile</a>
 </div>
 <a class="btn btn-medium btn-info" href="">Change Photo</a>
 
