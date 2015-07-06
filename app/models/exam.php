@@ -37,4 +37,17 @@ class Exam extends AppModel
     {
         return new self(object_to_array(Trainee::getById($trainee_id)));
     }
+
+    public static function getAll()
+    {
+        $exam = array();
+
+        $db = DB::conn();
+        $rows = $db->rows("SELECT * FROM exam");
+
+        foreach ($rows as $row) {
+            $exam[] = new self($row);
+        }
+        return $exam;
+    }
 }
