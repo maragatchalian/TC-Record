@@ -12,10 +12,15 @@ class Exam extends AppModel
             $db = DB::conn(); 
             $db->begin();
             
+            $trainee_id = Param::get('trainee_id');
             $params = array( 
-                'trainee_id' => $this->trainee_id,
+                'trainee_id' => $trainee_id,
+                'course_name' => $this->course_name,
+                'items' => $this->items,
                 'score' => $this->score,
+                'status' => $this->status,
                 'makeup_score' => $this->makeup_score,
+                'makeup_status' => $this->makeup_status,
                 'date_taken' => $this->date_taken
             );
 

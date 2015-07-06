@@ -39,9 +39,12 @@ PRIMARY KEY (id)
 CREATE TABLE IF NOT EXISTS exam(
 id                  INT(11) NOT NULL AUTO_INCREMENT,
 trainee_id          INT(11) NOT NULL,
-course_id           INT(11) NOT NULL,
+course_name         VARCHAR(30) NOT NULL,
+items               INT(3) NOT NULL,
 score               INT(3) NOT NULL,
 makeup_score        INT(3) NOT NULL,
+status              VARCHAR(10) NOT NULL,
+makeup_status              VARCHAR(10) NOT NULL,
 date_taken          VARCHAR(30) NOT NULL,
 PRIMARY KEY (id)
 )ENGINE=InnoDB;
