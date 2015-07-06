@@ -7,7 +7,9 @@ class ExamController extends AppController
 
     public function view_score()
     {
-
+        $trainee_id = Param::get('trainee_id');
+        $trainee = Exam::getAllTrainee($trainee_id);
+        $this->set(get_defined_vars());
     }
 
     public function add_score() 
@@ -25,11 +27,11 @@ class ExamController extends AppController
             case self::ADD_SCORE:
                 break;
             
-            case self::ADD_TRAINEE_END:
+            case self::ADD_SCORE_END:
                 try {
-                    $trainee->add();
+                    $exam->add();
                 } catch (ValidationException $e) {
-                    $page = self::ADD_TRAINEE;
+                    $page = self::ADD_SCORE;
                 }
                 break;
 
@@ -40,5 +42,4 @@ class ExamController extends AppController
         $this->set(get_defined_vars());
         $this->render($page);
     }
-    
 }

@@ -27,4 +27,9 @@ class Exam extends AppModel
             throw $e;
         }
     }
+
+    public static function getAllTrainee($trainee_id)
+    {
+        return new self(object_to_array(Trainee::getById($trainee_id)));
+    }
 }
