@@ -9,7 +9,7 @@ class ExamController extends AppController
     {
         $trainee_id = Param::get('trainee_id');
         $trainee = Exam::getAllTrainee($trainee_id);
-        $exam = Exam::getAll();
+        $exam = Exam::getAllByTraineeId($trainee_id);
         $this->set(get_defined_vars());
     }
 

@@ -1,4 +1,74 @@
-//TODO: Add scores of trainees
+<?php if ($exam->hasError()): ?>
+    <div class="alert alert-error">
+    <h4 class="alert-heading">Oh snap!</h4>
+    <h7>Change a few things up and try again.</h7>
+
+    <br />
+    <br />
+
+    <?php //Checking of course name
+    if (!empty($exam->validation_errors['course_name']['length'])): ?>
+        <div>
+            <em> Course Name </em> must be between
+                <?php readable_text($exam->validation['course_name']['length'][1]) ?> and
+                <?php readable_text($exam->validation['course_name']['length'][2]) ?> characters.
+        </div>
+    <?php endif ?>
+
+   <?php //Checking of score items
+    if (!empty($exam->validation_errors['items']['length'])): ?>
+        <div>
+            <em> Number of Exam Items </em> must be between
+                <?php readable_text($exam->validation['items']['length'][1]) ?> and
+                <?php readable_text($exam->validation['items']['length'][2]) ?>.
+        </div>
+    <?php endif ?>
+
+    <?php //Checking of score
+    if (!empty($exam->validation_errors['score']['length'])): ?>
+        <div>
+            <em> Exam Score </em> must be between
+                <?php readable_text($exam->validation['score']['length'][1]) ?> and
+                <?php readable_text($exam->validation['score']['length'][2]) ?>.
+        </div>
+    <?php endif ?>
+
+    <?php //Checking of makeup exam score
+    if (!empty($exam->validation_errors['makeup_score']['length'])): ?>
+        <div>
+            <em> Makeup Exam Score </em> must be between
+                <?php readable_text($exam->validation['makeup_score']['length'][1]) ?> and
+                <?php readable_text($exam->validation['makeup_score']['length'][2]) ?>.
+        </div>
+    <?php endif ?>
+
+    <?php //Checking of status
+    if (!empty($exam->validation_errors['status']['length'])): ?>
+        <div>
+            <em> Makeup Exam Score </em> must be between
+                <?php readable_text($exam->validation['status']['length'][1]) ?> and
+                <?php readable_text($exam->validation['status']['length'][2]) ?>.
+        </div>
+    <?php endif ?>
+
+    <?php //Checking of makeup status
+    if (!empty($exam->validation_errors['makeup_status']['length'])): ?>
+        <div>
+            <em> Makeup Exam Score </em> must be between
+                <?php readable_text($exam->validation['makeup_status']['length'][1]) ?> and
+                <?php readable_text($exam->validation['makeup_status']['length'][2]) ?>.
+        </div>
+    <?php endif ?>
+
+    <?php //Checking of Date Taken
+    if (!empty($exam->validation_errors['date_taken']['valid'])): ?>
+        <div>
+        Your input on <em>Date Taken</em> is not valid!
+        </div>
+      <?php endif ?>
+
+    </div>
+<?php endif ?> 
 
 <form class="form-horizontal">
 <form action="<?php readable_text(url('')) ?>" method="POST">
@@ -27,7 +97,6 @@
 <!--Items-->
     <label for="items"><h5>Items</h5></label>
     <input type="text" name="items" placeholder="Items" value="<?php readable_text(Param::get('items')) ?>">
-
 
 <!--Score-->
     <label for="score"><h5>Score</h5></label>
