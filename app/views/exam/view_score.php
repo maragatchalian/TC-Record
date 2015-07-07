@@ -16,17 +16,15 @@
     <th> Date Taken </th>
 </tr>
 
-<?php foreach ($exam as $get_from_trainee): ?>
+<?php foreach ($exam as $get_exam_details): ?>
     <tr>
-        <td> <?php readable_text($get_from_trainee->course_name)?> </a> </td>
-        <td> <?php readable_text($get_from_trainee->items) ?> </a> </td>
-        <td> <?php readable_text($get_from_trainee->score) ?> </a> </td>
-        <td> <?php readable_text($get_from_trainee->status) ?> </a> </td>
-        <td> <?php readable_text($get_from_trainee->makeup_score) ?> </a> </td>
-        <td> <?php readable_text($get_from_trainee->makeup_status) ?> </a> </td>
-        <td> <?php readable_text($get_from_trainee->date_taken) ?> </a> </td>
-
-
+        <td> <?php readable_text($get_exam_details->course_name)?> </a> </td>
+        <td> <?php readable_text($get_exam_details->items) ?> </a> </td>
+        <td> <?php readable_text($get_exam_details->score) ?> </a> </td>
+        <td> <?php readable_text($get_exam_details->status) ?> </a> </td>
+        <td> <?php readable_text($get_exam_details->makeup_score) ?> </a> </td>
+        <td> <?php readable_text($get_exam_details->makeup_status) ?> </a> </td>
+        <td> <?php readable_text($get_exam_details->date_taken) ?> </a> </td>
     <?php endforeach; ?> 
     </tr>
 </table>
