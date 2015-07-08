@@ -18,14 +18,16 @@
 
 <?php foreach ($exam as $get_exam_details): ?>
     <tr>
-        <td> <?php readable_text($get_exam_details->course_name)?> </a> </td>
+        <td> <a href="<?php readable_text(url('exam/edit_score', array('trainee_id' => $trainee_id))) ?>">
+            <?php readable_text($get_exam_details->course_name)?> </a> </td>
+
         <td> <?php readable_text($get_exam_details->items) ?> </a> </td>
         <td> <?php readable_text($get_exam_details->score) ?> </a> </td>
         <td> <?php readable_text($get_exam_details->status) ?> </a> </td>
         <td> <?php readable_text($get_exam_details->makeup_score) ?> </a> </td>
         <td> <?php readable_text($get_exam_details->makeup_status) ?> </a> </td>
         <td> <?php readable_text($get_exam_details->date_taken) ?> </a> </td>
-    <?php endforeach; ?> 
+<?php endforeach; ?> 
     </tr>
 </table>
 

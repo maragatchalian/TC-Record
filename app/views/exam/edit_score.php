@@ -1,3 +1,4 @@
+<h3> Edit Score </h3>
 <?php if ($exam->hasError()): ?>
     <div class="alert alert-error">
     <h4 class="alert-heading">Oh snap!</h4>
@@ -72,10 +73,11 @@
 
 <form class="form-horizontal">
 <form action="<?php readable_text(url('')) ?>" method="POST">
+<input type="hidden" name="trainee_id" value="<?php readable_text(Param::get('trainee_id')) ?>">
 
     <label for="course_name"><h5>Course </h5></label>
-    <select name="course_name"> 
-        <option value="">Please Select</option>
+    <select name="course_name" value="<?php readable_text($exam_edit['course_name']) ?>"> 
+        <option value="<?php readable_text($exam_edit['course_name']) ?>"><?php readable_text($exam_edit['course_name']) ?></option>
         <option value=""><b>1. Essential Course</b></option>
         <option value="Computer Science">Computer Science</option>
         <option value="Database">Database</option>
@@ -96,16 +98,16 @@
 
 <!--Items-->
     <label for="items"><h5>Items</h5></label>
-    <input type="text" name="items" placeholder="Items" value="<?php readable_text(Param::get('items')) ?>">
+    <input type="text" name="items" value="<?php readable_text($exam_edit['items']) ?>"> 
 
 <!--Score-->
     <label for="score"><h5>Score</h5></label>
-    <input type="text" name="score" placeholder="Score" value="<?php readable_text(Param::get('score')) ?>">
+    <input type="text" name="score" value="<?php readable_text($exam_edit['score']) ?>"> 
 
 <!--Status-->
     <label for="status"><h5>Status</h5></label>
-    <select name="status"> 
-        <option value="">Please Select</option>
+    <select name="status" value="<?php readable_text($exam_edit['status']) ?>"> 
+        <option value="<?php readable_text($exam_edit['status']) ?>"><?php readable_text($exam_edit['status']) ?></option>
         <option value="Passed">Passed</option>
         <option value="Failed">Failed</option>
         <option value="Pending">Pending</option>
@@ -114,12 +116,12 @@
 
 <!--Makeup Score-->
     <label for="makeup_score"><h5>Make-up Score</h5></label>
-    <input type="text" name="makeup_score" placeholder="Make-up Score" value="<?php readable_text(Param::get('makeup_score')) ?>">
+    <input type="text" name="makeup_score" value="<?php readable_text($exam_edit['makeup_score']) ?>">
 
  <!--Makeup Status-->
     <label for="makeup_status"><h5>Make-up status</h5></label>
     <select name="makeup_status"> 
-        <option value="">Please Select</option>
+        <option value="<?php readable_text($exam_edit['makeup_status']) ?>"><?php readable_text($exam_edit['makeup_status']) ?></option>
         <option value="Passed">Passed</option>
         <option value="Failed">Failed</option>
         <option value="Pending">Pending</option>
@@ -128,16 +130,12 @@
 
 <!--Date Taken-->
     <label for="date_taken"><h5>Date Taken</h5></label>
-    <input type="text" name="date_taken" placeholder="yyyy/mm/dd" value="<?php readable_text(Param::get('date_taken')) ?>">
-
-<!--Trainee Id-->
-    <input type="hidden" name="trainee_id" value="<?php readable_text(Param::get('trainee_id')) ?>">
-
+    <input type="text" name="date_taken" value="<?php readable_text($exam_edit['date_taken']) ?>">
 
 <!--Submit-->
     <div class="control-group">
     <div class="controls">
-    <form class="well" method="post" action="<?php readable_text(url('exam/add_score_end')) ?>">
+    <form class="well" method="post" action="<?php readable_text(url('exam/edit_score_end')) ?>">
     <input type="hidden" name="exam_id" value="<?php readable_text($exam->id) ?>">
     <input type="hidden" name="page_next" value="add_score_end">
     <button type="submit" class="btn btn-info btn-medium">Submit</button>

@@ -25,8 +25,8 @@
         </div>
     <?php endif ?>
 
-    <!--Skill Set Validation Error Message--> 
-    <?php if (!empty($course->validation_errors['category']['length'])): ?>    
+    <?php //Course Category Error Message
+    if (!empty($course->validation_errors['category']['length'])): ?>    
         <div>
          Please select a <em>Category!</em> 
         </div>

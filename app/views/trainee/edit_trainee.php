@@ -248,5 +248,4 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
 
 </div>
 </div>
-
 </form>

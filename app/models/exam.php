@@ -93,12 +93,65 @@ class Exam extends AppModel
         }
     }
 
+    public function edit()
+    {
+        if (!$this->validate()) {
+            throw new ValidationException('Invalid Input');
+        }
+    
+        try {
+            $db = DB::conn();
+            $params = array(
+                'course_name' => $this->course_name,
+                'items' => $this->items,
+                'score' => $this->score,
+                'status' => $this->status,
+                'makeup_score' => $this->makeup_score,
+                'makeup_status' => $this->makeup_status,
+                'date_taken' => $this->date_taken
+            );
+        
+            $trainee_id = array('id' => $this->trainee_id);
+            $db->update('exam', $params, $trainee_id);
+            
+        } catch(Exception $e) {
+            throw $e;
+        }
+    }
+
     public static function getAllTrainee($trainee_id)
     {
         return new self(object_to_array(Trainee::getById($trainee_id)));
     }
 
     public static function getAllByTraineeId($trainee_id)
+    {
+        $exam = array();
+
+        $db = DB::conn();
+        $rows = $db->rows("SELECT * FROM exam where trainee_id = ?", array($trainee_id));
+
+        foreach ($rows as $row) {
+            $exam[] = new self($row);
+        }
+        return $exam;
+    }
+
+
+    public static function getAllById($exam_id)
+    {
+        $exam = array();
+
+        $db = DB::conn();
+        $rows = $db->rows("SELECT * FROM exam WHERE id = ?", array($exam_id));
+
+        foreach ($rows as $row) {
+            $exam[] = new self($row);
+        }
+        return $exam;
+    }
+
+        public static function getAllByTraineID($trainee_id)
     {
         $exam = array();
 

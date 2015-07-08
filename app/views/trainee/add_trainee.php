@@ -71,13 +71,6 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
     </div>
   <?php endif ?>
 
-  <!--Course Status Validation Error Message--> 
-  <?php if (!empty($trainee->validation_errors['course_status']['length'])): ?>    
-    <div>
-     Please select a <em>Skill Set!</em> 
-    </div>
-  <?php endif ?>
-
 <!--Training Status Validation Error Message--> 
   <?php if (!empty($trainee->validation_errors['training_status']['length'])): ?>
     <div>
@@ -182,7 +175,7 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
         <option value=""><b>1. Essential Course</b></option>
         <option value="Computer Science">Computer Science</option>
         <option value="Database">Database</option>
-        <option value="Data Structures and Algorithms">DSA</option>
+        <option value="DSA">DSA</option>
         <option value="Networking">Networking</option>
 
         <option value=""><b>2. Language Course</b></option>
