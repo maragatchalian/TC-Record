@@ -1,3 +1,5 @@
+TODO: Edit Scores
+
 <h3> Edit Score </h3>
 <?php if ($exam->hasError()): ?>
     <div class="alert alert-error">
@@ -71,13 +73,17 @@
     </div>
 <?php endif ?> 
 
+
+
 <form class="form-horizontal">
 <form action="<?php readable_text(url('')) ?>" method="POST">
-<input type="hidden" name="trainee_id" value="<?php readable_text(Param::get('trainee_id')) ?>">
+<input type="hidden" name="exam_id" value="<?php readable_text(Param::get('exam_id')) ?>">
 
-    <label for="course_name"><h5>Course </h5></label>
-    <select name="course_name" value="<?php readable_text($exam_edit['course_name']) ?>"> 
-        <option value="<?php readable_text($exam_edit['course_name']) ?>"><?php readable_text($exam_edit['course_name']) ?></option>
+
+<!--Course Name-->
+    <labelfor="course_name"><h5>Course Name</h5></label>
+    <select name="skill_set"> 
+        <option value="<?php readable_text($exam_edit['course_name'])?>"> <?php readable_text($exam_edit['course_name'])?> </option>
         <option value=""><b>1. Essential Course</b></option>
         <option value="Computer Science">Computer Science</option>
         <option value="Database">Database</option>
@@ -98,11 +104,12 @@
 
 <!--Items-->
     <label for="items"><h5>Items</h5></label>
-    <input type="text" name="items" value="<?php readable_text($exam_edit['items']) ?>"> 
-
+    <input type="text" name="items" value="<?php readable_text($exam_edit['items']) ?>">
+    
 <!--Score-->
     <label for="score"><h5>Score</h5></label>
     <input type="text" name="score" value="<?php readable_text($exam_edit['score']) ?>"> 
+
 
 <!--Status-->
     <label for="status"><h5>Status</h5></label>
@@ -133,13 +140,10 @@
     <input type="text" name="date_taken" value="<?php readable_text($exam_edit['date_taken']) ?>">
 
 <!--Submit-->
-    <div class="control-group">
-    <div class="controls">
-    <form class="well" method="post" action="<?php readable_text(url('exam/edit_score_end')) ?>">
-    <input type="hidden" name="exam_id" value="<?php readable_text($exam->id) ?>">
-    <input type="hidden" name="page_next" value="add_score_end">
-    <button type="submit" class="btn btn-info btn-medium">Submit</button>
-    <a class="btn btn-medium btn-default" href="<?php readable_text(url('trainee/index')) ?>">Cancel</a>
-    </form> 
-    </div>
-    </div>
+<input type="hidden" name="page_next" value="edit_score_end">
+<div class="span12">
+<br />
+<button class="btn btn-info btn-medium" type="submit">Save</button>
+<a href="<?php readable_text(url('trainee/index')) ?>" class="btn btn-medium">Cancel</a>
+</form>
+</form>

@@ -138,18 +138,13 @@ class Exam extends AppModel
     }
 
 
-    public static function getAllById($exam_id)
+    public static function getById($exam_id)
     {
-        $exam = array();
-
         $db = DB::conn();
-        $rows = $db->rows("SELECT * FROM exam WHERE id = ?", array($exam_id));
-
-        foreach ($rows as $row) {
-            $exam[] = new self($row);
-        }
-        return $exam;
-    }
+        $row = $db->row("SELECT * FROM exam WHERE id = ?", array($exam_id));
+        
+        return $row;
+    } 
 
         public static function getAllByTraineID($trainee_id)
     {
