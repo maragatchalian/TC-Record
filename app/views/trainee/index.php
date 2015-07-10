@@ -18,13 +18,12 @@
                 <a href="">Training Status <span class="arrow">&#9660;</span></a>
                 <ul class="sub-menu">      
                    <li>
-                    <?php foreach ($training_status as $get_training_status): //List of Training Statuses?>
-                        <a href="<?php readable_text(url('trainee/index', array('trainee_id' =>'training_status','data'=>$get_training_status))) ?>">  
+                    <?php foreach ($training_status as $get_training_status): //List of Training Status?>
+                        <a href="<?php readable_text(url('trainee/index', array('sort_by' => 'training_status', 'data'=>$get_training_status))) ?>"> 
                         <?php readable_text($get_training_status); ?></a>
                     <?php endforeach; ?>
                     </li>   
-                </ul>
-            </li>    
+                </ul> 
         <!--Sort by Skill Set-->
             <li>
                 <a href="">Skill Set <span class="arrow">&#9660;</span></a>
