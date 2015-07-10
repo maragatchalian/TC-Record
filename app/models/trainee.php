@@ -242,6 +242,36 @@ class Trainee extends AppModel
         return $training_status;
     }
 
+
+    public static function getTrainingStatus($training_status)
+    {
+        $db = DB::conn();
+        $rows = $db->rows("SELECT training_status from trainee where training_status = ?", array($training_status));
+
+        $training_status = array();
+
+        foreach ($rows as $row) {
+            if (!empty($row['training_status'])) {
+                $training_status[] = $row['training_status'];
+            }
+        }
+        return $training_status;
+    }
+
+    /*public static function getTrainingStatus()
+    {
+        $db = DB::conn();
+        $rows = $db->rows("SELECT * from training_status");
+
+        $training_status = array();
+        foreach ($rows as $row) {
+            if (!empty($row['name'])) {
+                $training_status[] = $row['name'];
+            }
+        }
+        return $training_status;
+    }*/
+
     public static function getDistinctSkillSet()
     {
         $db = DB::conn();

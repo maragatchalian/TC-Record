@@ -29,6 +29,12 @@ graduated           VARCHAR(30) NOT NULL,
 PRIMARY KEY (id)
 )ENGINE=InnoDB;
 
+CREATE TABLE IF NOT EXISTS training_status(
+id                  INT(11) NOT NULL AUTO_INCREMENT,
+name           		VARCHAR(50) NOT NULL,
+PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
 CREATE TABLE IF NOT EXISTS course(
 id                  INT(11) NOT NULL AUTO_INCREMENT,
 name                VARCHAR(50) NOT NULL,

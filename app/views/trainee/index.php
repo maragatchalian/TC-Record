@@ -13,53 +13,49 @@
             <li>
                 <a href="<?php readable_text(url('trainee/index')) ?>">Date Hired</span></a>
             </li>
-
         <!--Sort by Training Status-->
             <li>
                 <a href="">Training Status <span class="arrow">&#9660;</span></a>
                 <ul class="sub-menu">      
                    <li>
                     <?php foreach ($training_status as $get_training_status): //List of Training Statuses?>
-                        <a href="<?php readable_text(url('trainee/sort_by_trainee_id', array('trainee_id'=>$get_training_status))) ?>">  
+                        <a href="<?php readable_text(url('trainee/index', array('trainee_id' =>'training_status','data'=>$get_training_status))) ?>">  
                         <?php readable_text($get_training_status); ?></a>
                     <?php endforeach; ?>
                     </li>   
                 </ul>
             </li>    
-
         <!--Sort by Skill Set-->
             <li>
                 <a href="">Skill Set <span class="arrow">&#9660;</span></a>
                 <ul class="sub-menu">      
                    <li>
                     <?php foreach ($skill_set as $get_skill_set): //List of Skill Set?>
-                        <a href="<?php readable_text(url('trainee/sort_by_skill_set', array('trainee_id'=>$get_skill_set))) ?>"> 
+                        <a href="<?php readable_text(url('trainee/index', array('sort_by' => 'skill_set', 'data'=>$get_skill_set))) ?>"> 
                         <?php readable_text($get_skill_set); ?></a>
                     <?php endforeach; ?>
                     </li>   
                 </ul>
             </li>    
-
         <!--Sort by Batch-->
             <li>
                 <a href="">Batch <span class="arrow">&#9660;</span></a>
                 <ul class="sub-menu">      
                    <li>
                     <?php foreach ($batch as $get_batch): //List of Skill Set?>
-                        <a href="<?php readable_text(url('trainee/sort_by_batch', array('trainee_id'=>$get_batch))) ?>"> 
+                        <a href="<?php readable_text(url('trainee/index', array('sort_by' => 'batch', 'data'=>$get_batch))) ?>"> 
                         <?php readable_text($get_batch); ?></a>
                     <?php endforeach; ?>
                     </li>   
                 </ul>
             </li>    
-
         <!--Sort by Course Status-->
             <li>
                 <a href="">Course <span class="arrow">&#9660;</span></a>
                 <ul class="sub-menu">      
                    <li>
                     <?php foreach ($course_status as $get_course_status): //List of Skill Set?>
-                        <a href="<?php readable_text(url('trainee/sort_by_course_status', array('trainee_id'=>$get_course_status))) ?>"> 
+                        <a href="<?php readable_text(url('trainee/index', array('sort_by' => 'course_status', 'data'=>$get_course_status))) ?>"> 
                         <?php readable_text($get_course_status); ?></a>
                     <?php endforeach; ?>
                     </li>   
