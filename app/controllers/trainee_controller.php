@@ -50,7 +50,7 @@ class TraineeController extends AppController
     }        
 
     public function add_trainee() 
-    {
+    {      
         $params = array(
             'employee_id' => Param::get('employee_id'),
             'first_name' => Param::get('first_name'),
@@ -82,6 +82,8 @@ class TraineeController extends AppController
                 throw new NotFoundException("{$page} is not found");
                 break;
         }
+        $name = Param::get('name');
+        $course_status = Trainee::getCourses($name);
         $this->set(get_defined_vars());
         $this->render($page);
     }
