@@ -12,10 +12,9 @@ class TraineeController extends AppController
     const SKILL_SET = 'skill_set';
     const BATCH = 'batch';
     const COURSE_STATUS = 'course_status';
- 
+
     public function index()
     {
-
         $index = Param::get('sort_by', self::INDEX);
         $trainee_id = Param::get('trainee_id');
         $data = Param::get('data');
@@ -23,6 +22,7 @@ class TraineeController extends AppController
         $skill_set = Trainee::getDistinctSkillSet();
         $batch = Trainee::getDistinctBatch();
         $course_status = Trainee::getDistinctCourseStatus();
+
         $page = 'index';
 
             switch ($index) {
@@ -31,7 +31,6 @@ class TraineeController extends AppController
                     break;
                 case self::TRAINING_STATUS:
                     $trainees = Trainee::getByTrainingStatus($data);
-                    //$page = 'training_status';
                     break;
                 case self::SKILL_SET:
                     $trainees = Trainee::getBySkillSet($data);
@@ -85,6 +84,13 @@ class TraineeController extends AppController
         }
         $this->set(get_defined_vars());
         $this->render($page);
+    }
+
+    public function view_trainee_profile()
+    {
+        $trainee_id = Param::get('trainee_id');
+        $trainee = Trainee::getById($trainee_id);
+        $this->set(get_defined_vars());
     }
 
     public function edit_trainee()

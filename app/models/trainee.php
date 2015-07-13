@@ -213,7 +213,7 @@ class Trainee extends AppModel
             $trainee[] = new self($row);
         }
         return $trainee;
-    }
+    }  
 
     public static function getByCourseStatus($course_status) 
     {
@@ -257,20 +257,6 @@ class Trainee extends AppModel
         }
         return $training_status;
     }
-
-    /*public static function getTrainingStatus()
-    {
-        $db = DB::conn();
-        $rows = $db->rows("SELECT * from training_status");
-
-        $training_status = array();
-        foreach ($rows as $row) {
-            if (!empty($row['name'])) {
-                $training_status[] = $row['name'];
-            }
-        }
-        return $training_status;
-    }*/
 
     public static function getDistinctSkillSet()
     {

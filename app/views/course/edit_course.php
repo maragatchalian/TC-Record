@@ -30,7 +30,6 @@ if (!empty($course->validation_errors['name']['valid'])): ?>
 </div>
 <?php endif ?> 
 
-
 <form class="form-horizontal">
 <form action="<?php readable_text(url('')) ?>" method="POST">
 <input type="hidden" name="course_id" value="<?php readable_text(Param::get('course_id')) ?>">
@@ -54,7 +53,7 @@ if (!empty($course->validation_errors['name']['valid'])): ?>
 <div class="span12">
 <br />
 <button class="btn btn-info btn-medium" type="submit">Save</button>
-<a href="<?php readable_text(url('#')) ?>" class="btn btn-medium">Cancel</a>
+<a href="<?php readable_text(url('course/index')) ?>" class="btn btn-medium">Cancel</a>
     </form> 
     </div>
     </div>  

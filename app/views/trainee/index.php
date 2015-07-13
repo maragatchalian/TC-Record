@@ -81,7 +81,7 @@
 
 <?php foreach ($trainees as $get_from_trainee): ?>
     <tr>
-        <td><a href="<?php readable_text(url('trainee/view_trainee_profile', array('trainee_id' => $get_from_trainee->id))) ?>">
+        <td><a href="<?php readable_text(url('trainee/view_trainee_profile', array('trainee_id' => $get_from_trainee->id))) ?>">   
         <?php readable_text($get_from_trainee->employee_id) ?> </a> </td>
 
         <td> <?php readable_text($get_from_trainee->hired) ?> </a> </td>

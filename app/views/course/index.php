@@ -25,7 +25,7 @@
 
 <?php foreach ($courses as $get_courses): ?>
 <tr>
-    <td> <a href="<?php readable_text(url('course/view_course_details', array('trainee_id'=>$get_courses->trainee_id))) ?>">
+    <td> <a href="<?php readable_text(url('course/view_course_details', array('name'=>$get_courses->name))) ?>">
         <?php readable_text($get_courses->name) ?> </a> </td>
 </tr>
 <?php endforeach; ?>
