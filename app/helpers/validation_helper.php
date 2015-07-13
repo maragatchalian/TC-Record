@@ -31,6 +31,6 @@ function is_valid_employee_id($string)
 
 function is_valid_date($string)
 {  
-	$valid = array('/');
+    $valid = array('/');
     return ctype_digit(str_replace($valid, '', $string));
 }
