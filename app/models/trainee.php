@@ -300,18 +300,8 @@ class Trainee extends AppModel
         return $batch;
     }
 
-    //Trial Implementation
     public static function getCourses()
     {
-        $db = DB::conn();
-        $rows = $db->rows("SELECT DISTINCT name FROM course");
-        $courses = array();
-        
-        foreach ($rows as $row) {
-            if (!empty($row['name'])) {
-                $courses[] = $row['name'];
-            }
-        }
-        return $courses;
+        return Course::getByName();
     }
 }

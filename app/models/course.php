@@ -118,4 +118,18 @@ class Course extends AppModel
         
         return $row;
     }
+
+    public static function getByName()
+    {
+        $db = DB::conn();
+        $rows = $db->rows("SELECT DISTINCT name FROM course");
+        $courses = array();
+        
+        foreach ($rows as $row) {
+            if (!empty($row['name'])) {
+                $courses[] = $row['name'];
+            }
+        }
+        return $courses;
+    }
 }

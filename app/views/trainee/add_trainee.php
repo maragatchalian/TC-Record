@@ -171,43 +171,12 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
     <label class="control-label" for="course_status"><h5>Course Status</h5></label>
     <div class="controls">
     <select name="course_status"> 
-        <!--<option value="">Please Select</option>
-        <option value=""><b>1. Essential Course</b></option>
-        <option value="Computer Science">Computer Science</option>
-        <option value="Database">Database</option>
-        <option value="DSA">DSA</option>
-        <option value="Networking">Networking</option>
-
-        <option value=""><b>2. Language Course</b></option>
-        <option value="GIT">GIT</option>
-        <option value="UML">UML</option>
-        <option value="Linux">Linux</option>
-        <option value="PHP">PHP</option>
-        <option value="DietCake">DietCake</option>
-        <option value="Objective C">Objective C</option>
-        <option value="iOS">iOS</option>
-        <option value="iOS Training Module">iOS Training Module</option>
-        <option value="Java">Java</option>
-        <option value="Android">Android</option>
-        <option value="Android Training Module">Android Training Module</option>
-
-        <option value=""><b>3. Finals Project</b></option>
-        <option value="Java">Individual Project</option>
-        <option value="Java">Group Project</option>
-        
-        <option value="EOC">EOC</option>
-        <option value="Done - Graduated">Done - Graduated</option> -->
-
         <option value="">Please Select</option>
-
+        
         <?php foreach ($course_status as $get_course): ?>
-        <option value= "<?php readable_text($get_course) ?>">
+            <option value= "<?php readable_text($get_course) ?>">
             <?php readable_text($get_course)?></option>
-
-
         <?php endforeach; ?>
-         
-
     </select>
     </div>
     </div>
