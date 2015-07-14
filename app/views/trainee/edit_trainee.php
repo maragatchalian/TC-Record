@@ -93,10 +93,17 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
     </div>
   <?php endif ?>
 
-<!--Batch Validation Error Message--> 
-  <?php if (!empty($trainee->validation_errors['batch']['length'])): ?>
+<!--Batch Year Validation Error Message--> 
+  <?php if (!empty($trainee->validation_errors['batch_year']['length'])): ?>
     <div>
-     Please select a <em>Batch!</em> 
+     Please select a <em>Batch Year!</em> 
+    </div>
+  <?php endif ?>
+
+<!--Batch Term Validation Error Message--> 
+  <?php if (!empty($trainee->validation_errors['batch_term']['length'])): ?>
+    <div>
+     Please select a <em>Batch Term!</em> 
     </div>
   <?php endif ?>
 
@@ -190,15 +197,27 @@ if ($trainee->validation_errors['last_name']['valid']): ?>
     </div>
     </div>
 
-<!--Batch -->
+<!--Batch Year-->
     <div class="control-group">
-    <label class="control-label" for="batch"><h5>Batch</h5></label>
+    <label class="control-label" for="batch_year"><h5>Year</h5></label>
     <div class="controls">
-    <select name="batch">        
-        <option value="<?php readable_text($trainee_edit['batch']) ?>"><?php readable_text($trainee_edit['batch']) ?></option>
-        <option value="2015 - 1st Sem">2015 - 1st Sem</option>
-        <option value="2014 - 2nd Sem">2014 - 2nd Sem</option>
-        <option value="2014 - 1st Sem">2014 - 1st Sem</option>
+    <select name="batch_year">        
+        <option value="<?php readable_text($trainee_edit['batch_year']) ?>"><?php readable_text($trainee_edit['batch_year']) ?></option>
+        <option value="2015">2015</option>
+        <option value="2014">2014</option>
+        <option value="2013">2013</option>
+    </select>
+    </div>
+    </div>
+
+<!--Batch Term-->
+    <div class="control-group">
+    <label class="control-label" for="batch_term"><h5>Term</h5></label>
+    <div class="controls">
+    <select name="batch_term">  
+    <option value="<?php readable_text($trainee_edit['batch_term']) ?>"><?php readable_text($trainee_edit['batch_term']) ?></option>
+        <option value="1st Term">1st Term</option>
+        <option value="2nd Term">2nd Term</option>
     </select>
     </div>
     </div>

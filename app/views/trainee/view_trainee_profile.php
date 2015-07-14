@@ -9,7 +9,7 @@
 <div class="float-right user-details">
 <b>Last Name: </b>  <?php readable_text($trainee['last_name']);?> <br />
 <b>First Name: </b>  <?php readable_text($trainee['first_name']);?> <br />
-<b>Batch : </b>  <?php readable_text($trainee['batch']);?> <br />
+<b>Batch : </b>  <?php readable_text($trainee['batch_year']);?> <?php readable_text($trainee['batch_term']);?> <br />
 <b>Primary Skill : </b>  <?php readable_text($trainee['skill_set']);?> <br />
 <b>Training Status : </b><?php readable_text($trainee['training_status']);?> <br />
 <b>Course Status : </b><?php readable_text($trainee['course_status']);?> <br />

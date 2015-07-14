@@ -20,7 +20,7 @@ class TraineeController extends AppController
         $data = Param::get('data');
         $training_status = Trainee::getDistinctTrainingStatus();
         $skill_set = Trainee::getDistinctSkillSet();
-        $batch = Trainee::getDistinctBatch();
+        //$batch = Trainee::getDistinctBatch();
         $course_status = Trainee::getDistinctCourseStatus();
 
         $page = 'index';
@@ -35,9 +35,9 @@ class TraineeController extends AppController
                 case self::SKILL_SET:
                     $trainees = Trainee::getBySkillSet($data);
                     break;
-                case self::BATCH:
+                /*case self::BATCH:
                     $trainees = Trainee::getByBatch($data);
-                    break;
+                    break;*/
                 case self::COURSE_STATUS:
                     $trainees = Trainee::getByCourseStatus($data);
                     break;
@@ -58,7 +58,8 @@ class TraineeController extends AppController
             'skill_set' => Param::get('skill_set'),
             'training_status' => Param::get('training_status'),
             'course_status' => Param::get('course_status'),
-            'batch' => Param::get('batch'),
+            'batch_year' => Param::get('batch_year'),
+            'batch_term' => Param::get('batch_term'),
             'hired' => Param::get('hired'),
             'graduated' => Param::get('graduated')
         );
@@ -106,7 +107,8 @@ class TraineeController extends AppController
             'skill_set' => Param::get('skill_set'),
             'training_status' => Param::get('training_status'),
             'course_status' => Param::get('course_status'),
-            'batch' => Param::get('batch'),
+            'batch_year' => Param::get('batch_year'),
+            'batch_term' => Param::get('batch_term'),
             'hired' => Param::get('hired'),
             'graduated' => Param::get('graduated'),
             'trainee_id' => $trainee_id

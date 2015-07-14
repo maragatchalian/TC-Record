@@ -8,7 +8,8 @@ class Trainee extends AppModel
     const MIN_SKILL_SET_LENGTH = 1;
     const MIN_TRAINING_STATUS_LENGTH = 1;
     const MIN_COURSE_STATUS_LENGTH = 1;
-    const MIN_BATCH_LENGTH = 1;
+    const MIN_BATCH_YEAR_LENGTH = 2;
+    const MIN_BATCH_TERM_LENGTH = 2;
     const MIN_HIRED_LENGTH = 10;
     const MIN_GRADUATED_LENGTH = 10;
 
@@ -18,7 +19,8 @@ class Trainee extends AppModel
     const MAX_SKILL_SET_LENGTH = 20;
     const MAX_TRAINING_STATUS_LENGTH = 20;
     const MAX_COURSE_STATUS_LENGTH = 20;
-    const MAX_BATCH_LENGTH = 20;
+    const MAX_BATCH_YEAR_LENGTH = 20;
+    const MAX_BATCH_TERM_LENGTH = 20;
     const MAX_HIRED_LENGTH = 10;
     const MAX_GRADUATED_LENGTH = 10;
 
@@ -72,9 +74,15 @@ class Trainee extends AppModel
             )
         ),
         
-        'batch' => array(
+        'batch_year' => array(
             'length' => array(
-                'validate_between', self::MIN_BATCH_LENGTH, self::MAX_BATCH_LENGTH
+                'validate_between', self::MIN_BATCH_YEAR_LENGTH, self::MAX_BATCH_YEAR_LENGTH
+            )
+        ),
+
+        'batch_term' => array(
+            'length' => array(
+                'validate_between', self::MIN_BATCH_TERM_LENGTH, self::MAX_BATCH_TERM_LENGTH
             )
         ),
 
@@ -115,7 +123,8 @@ class Trainee extends AppModel
                 'skill_set' => $this->skill_set,
                 'course_status' => $this->course_status,
                 'training_status' => $this->training_status,
-                'batch' => $this->batch,
+                'batch_year' => $this->batch_year,
+                'batch_term' => $this->batch_term,
                 'hired' => $this->hired,
                 'graduated' => $this->graduated
             );
@@ -142,7 +151,8 @@ class Trainee extends AppModel
                 'skill_set' => $this->skill_set,
                 'course_status' => $this->course_status,
                 'training_status' => $this->training_status,
-                'batch' => $this->batch,
+                'batch_year' => $this->batch_year,
+                'batch_term' => $this->batch_term,
                 'hired' => $this->hired,
                 'graduated'=> $this->graduated
             );
@@ -202,7 +212,7 @@ class Trainee extends AppModel
         return $trainee;
     }
 
-    public static function getByBatch($batch) 
+    /*public static function getByBatch($batch) 
     {
         $trainee = array();
         $db = DB::conn();
@@ -213,7 +223,7 @@ class Trainee extends AppModel
             $trainee[] = new self($row);
         }
         return $trainee;
-    }  
+    }  */
 
     public static function getByCourseStatus($course_status) 
     {
@@ -286,7 +296,7 @@ class Trainee extends AppModel
         return $course_status;
     }
 
-    public static function getDistinctBatch()
+    /*public static function getDistinctBatch()
     {
         $db = DB::conn();
         $rows = $db->rows("SELECT DISTINCT batch FROM trainee");
@@ -298,7 +308,7 @@ class Trainee extends AppModel
             }
         }
         return $batch;
-    }
+    }*/
 
     public static function getCourses()
     {
