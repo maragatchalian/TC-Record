@@ -212,18 +212,31 @@ class Trainee extends AppModel
         return $trainee;
     }
 
-    /*public static function getByBatch($batch) 
+    public static function getByBatchYear($batch_year)
     {
         $trainee = array();
         $db = DB::conn();
 
-        $rows = $db->rows("SELECT * FROM trainee WHERE batch = ?", array($batch));
-            
+        $rows = $db->rows("SELECT * from trainee WHERE batch_year = ?", array($batch_year));
+
         foreach($rows as $row) {
             $trainee[] = new self($row);
         }
         return $trainee;
-    }  */
+    }
+
+    public static function getByBatchTerm($batch_term, $batch_year)
+    {
+        $trainee = array();
+        $db = DB::conn();
+
+        $rows = $db->rows("SELECT * FROM trainee WHERE batch_term = ? AND batch_year = ", array($batch_term, $batch_year));
+
+        foreach($rows as $row){
+            $trainee[] = new self($row);
+        }
+        return $trainee;
+    }
 
     public static function getByCourseStatus($course_status) 
     {
@@ -252,6 +265,33 @@ class Trainee extends AppModel
         return $training_status;
     }
 
+    public static function getDistinctBatchYear()
+    {
+        $db = DB::conn();
+        $rows = $db->rows("SELECT DISTINCT batch_year FROM trainee");
+        $batch_year = array();
+        
+        foreach ($rows as $row) {
+            if (!empty($row['batch_year'])) {
+                $batch_year[] = $row['batch_year'];
+            }
+        }
+        return $batch_year;
+    }
+
+    public static function getDistinctBatchTerm()
+    {
+        $db = DB::conn();
+        $rows = $db->rows("SELECT DISTINCT batch_term FROM trainee");
+        $batch_term = array();
+        
+        foreach ($rows as $row) {
+            if (!empty($row['batch_term'])) {
+                $batch_term[] = $row['batch_term'];
+            }
+        }
+        return $batch_term;
+    }
 
     public static function getTrainingStatus($training_status)
     {

@@ -39,20 +39,21 @@
 
         <!--Sort by Batch-->
             <li class='has-sub'><li> <a href="">Batch <span class="arrow">&#9660;</span></a>
-                <ul>      
-                    <li class='has-sub'><a href =''>2014</a>
+                <ul>
+                    <?php foreach ($batch_year as $get_batch_year): //List of Skill Set?>       
+                    <li class='has-sub'>
+                        <a href="<?php readable_text(url('trainee/index', array('sort_by' => 'batch_year', 'data'=>$get_batch_year))) ?>"> 
+                        <?php readable_text($get_batch_year); ?></a>
                          <ul>
-                            <li><a href='#'>1st Term</a></li>
-                            <li><a href='#'>2nd Term</a></li>
+                            <?php foreach ($batch_term as $get_batch_term): //List of Skill Set?> 
+                            <li>
+                                <a href="<?php readable_text(url('trainee/index', array('sort_by' => 'batch_year', 'data'=>$get_batch_term))) ?>"> 
+                                <?php readable_text($get_batch_term); ?></a>
+                            </li>
+                            <?php endforeach; ?>
                         </ul>
-                    </li>   
-                    
-                    <li class='has-sub'><a href =''>2015</a>
-                            <ul>
-                                <li><a href='#'>1st Term</a></li>
-                                <li><a href='#'>2nd Term</a></li>
-                            </ul>
-                    </li>  
+                        <?php endforeach; ?>
+                    </li>    
                 </ul>
             </li>
 
