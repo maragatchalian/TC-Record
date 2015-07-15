@@ -30,12 +30,16 @@
     <div class="container">
 
  <?php if (isset($_SESSION['user_id'])) : ?>
-  <ul class="nav">
-    <li><a href="<?php readable_text(url('user/index')) ?>">Home</a></li>
-    <li><a href="<?php readable_text(url('trainee/index')) ?>">Trainees</a></li>
-    <li><a href="<?php readable_text(url('course/index')) ?>">Courses</a></li>
-    <li><a href="#">Exam Scores</a></li>
+  
+<div id='cssmenu'>
+  <ul>
+     <li> <a href="<?php readable_text(url('user/index')) ?>">Home</a></li>
+     <li> <a href="<?php readable_text(url('trainee/index')) ?>">Trainees</a></li>
+     <li> <a href="<?php readable_text(url('course/index')) ?>">Courses</a></li>
+     <li> <a href="#">Exam Scores</a></li>
   </ul>
+</div>
+
  <?php endif ?>
  
       <?php echo $_content_ ?>

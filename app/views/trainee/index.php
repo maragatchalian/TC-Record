@@ -5,65 +5,71 @@
 <br />
 <br />
 
-<div class="menu-wrap">
-    <nav class="menu">
-        <ul class="clearfix">
-
-        <!--Sort by Date Hired-->
-            <li>
+<div id='cssmenu'>
+    <ul>
+    <!--Sort by Date Hired-->
+        <li>
                 <a href="<?php readable_text(url('trainee/index')) ?>">Date Hired</span></a>
             </li>
+
         <!--Sort by Training Status-->
-            <li>
-                <a href="">Training Status <span class="arrow">&#9660;</span></a>
-                <ul class="sub-menu">      
-                   <li>
+            <li class='has-sub '><a href="">Training Status <span class="arrow">&#9660;</span></a>
+                <ul>      
                     <?php foreach ($training_status as $get_training_status): //List of Training Status?>
+                    <li class='has-sub'>
                         <a href="<?php readable_text(url('trainee/index', array('sort_by' => 'training_status', 'data'=>$get_training_status))) ?>"> 
                         <?php readable_text($get_training_status); ?></a>
                     <?php endforeach; ?>
                     </li>   
                 </ul> 
+            </li>
+
         <!--Sort by Skill Set-->
-            <li>
-                <a href="">Skill Set <span class="arrow">&#9660;</span></a>
-                <ul class="sub-menu">      
-                   <li>
-                    <?php foreach ($skill_set as $get_skill_set): //List of Skill Set?>
+            <li class='has-sub'><a href="">Skill Set <span class="arrow">&#9660;</span></a>
+                <ul> 
+                    <?php foreach ($skill_set as $get_skill_set): //List of Skill Set?>     
+                    <li>
                         <a href="<?php readable_text(url('trainee/index', array('sort_by' => 'skill_set', 'data'=>$get_skill_set))) ?>"> 
                         <?php readable_text($get_skill_set); ?></a>
                     <?php endforeach; ?>
                     </li>   
                 </ul>
-            </li>    
+            </li>  
+
+
         <!--Sort by Batch-->
-            <li>
-                <a href="">Batch <span class="arrow">&#9660;</span></a>
-                <ul class="sub-menu">      
-                   <li>
-                    <?php foreach ($batch as $get_batch): //List of Skill Set?>
-                        <a href="<?php readable_text(url('trainee/index', array('sort_by' => 'batch', 'data'=>$get_batch))) ?>"> 
-                        <?php readable_text($get_batch); ?></a>
-                    <?php endforeach; ?>
+            <li class='has-sub'><li> <a href="">Batch <span class="arrow">&#9660;</span></a>
+                <ul>      
+                    <li class='has-sub'><a href =''>2014</a>
+                         <ul>
+                            <li><a href='#'>1st Term</a></li>
+                            <li><a href='#'>2nd Term</a></li>
+                        </ul>
                     </li>   
+                    
+                    <li class='has-sub'><a href =''>2015</a>
+                            <ul>
+                                <li><a href='#'>1st Term</a></li>
+                                <li><a href='#'>2nd Term</a></li>
+                            </ul>
+                    </li>  
                 </ul>
-            </li>    
+            </li>
+
         <!--Sort by Course Status-->
             <li>
-                <a href="">Course <span class="arrow">&#9660;</span></a>
-                <ul class="sub-menu">      
-                   <li>
+                <li class='has-sub'><a href="">Course <span class="arrow">&#9660;</span></a>
+                <ul>      
                     <?php foreach ($course_status as $get_course_status): //List of Skill Set?>
+                    <li>
                         <a href="<?php readable_text(url('trainee/index', array('sort_by' => 'course_status', 'data'=>$get_course_status))) ?>"> 
                         <?php readable_text($get_course_status); ?></a>
                     <?php endforeach; ?>
                     </li>   
                 </ul>
             </li>    
-        </ul>
-    </nav>
+    </ul>
 </div>
-
 
 <!-- Index Table -->
 <table class="gridtable">
@@ -106,79 +112,3 @@
     <?php endforeach; ?> 
     </tr>
 </table>
-
-
-<style>
-/*----- Menu Outline -----*/
-.menu-wrap {
-width:100%;
-box-shadow:0px 1px 3px rgba(0,0,0,0.2);
-background:#3e3436;
-}
-.menu {
-width:1000px;
-margin:0px auto;
-}
-.menu li {
-margin:0px;
-list-style:none;
-font-family:'Ek Mukta';
-}
-.menu a {
-transition:all linear 0.15s;
-color:#919191;
-}
-.menu li:hover > a, .menu .current-item > a {
-text-decoration:none;
-color:#be5b70;
-}
-.menu .arrow {
-font-size:11px;
-line-height:0%;
-}
-/*----- Top Level -----*/
-.menu > ul > li {
-float:left;
-display:inline-block;
-position:relative;
-font-size:14px;
-}
-.menu > ul > li > a {
-padding:10px 40px;
-display:inline-block;
-text-shadow:0px 1px 0px rgba(0,0,0,0.4);
-}
-.menu > ul > li:hover > a, .menu > ul > .current-item > a {
-background:#2e2728;
-}
-/*----- Bottom Level -----*/
-.menu li:hover .sub-menu {
-z-index:1;
-opacity:1;
-}
-.sub-menu {
-width:160%;
-padding:5px 0px;
-position:absolute;
-top:100%;
-left:0px;
-z-index:-1;
-opacity:0;
-transition:opacity linear 0.15s;
-box-shadow:0px 2px 3px rgba(0,0,0,0.2);
-background:#2e2728;
-}
-sub-menu li {
-display:block;
-font-size:14px;
-}
-
-.sub-menu li a {
-padding:10px 30px;
-display:block;
-}
-
-.sub-menu li a:hover, .sub-menu .current-item a {
-background:#3e3436;
-} 
-</style>
