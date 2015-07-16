@@ -84,7 +84,7 @@ class Course extends AppModel
         }
     }
 
-    public static function getDistinctCategory()
+    public static function getCategory()
     {
         $db = DB::conn();
         $rows = $db->rows("SELECT DISTINCT category FROM course order by category");

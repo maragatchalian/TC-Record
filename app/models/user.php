@@ -143,7 +143,7 @@ class User extends AppModel
         $_SESSION['username'] = $user['username'];
     }
 
-     public static function get($user_id)
+    public static function get($user_id)
     {
         $db = DB::conn();
         $row = $db->row("SELECT * FROM user WHERE id = ?", array($user_id));

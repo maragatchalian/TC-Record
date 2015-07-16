@@ -62,6 +62,7 @@ class Exam extends AppModel
             )
         ),
     );
+
 	public function add()
     {
         if (!$this->validate()) {
@@ -146,7 +147,7 @@ class Exam extends AppModel
         return $row;
     } 
 
-        public static function getAllByTraineID($trainee_id)
+    public static function getAllByTraineeId($trainee_id)
     {
         $exam = array();
 

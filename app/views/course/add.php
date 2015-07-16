@@ -4,33 +4,30 @@
     <div class="alert alert-error">
     <h4 class="alert-heading">Oh snap!</h4>
     <h7>Change a few things up and try again.</h7>
+    <br /> <br />
 
-    <br />
-    <br />
+        <!--Checking: Course Name Length-->
+        <?php if (!empty($course->validation_errors['name']['length'])): ?>
+            <div>
+                <em> Name </em> must be between
+                    <?php readable_text($course->validation['name']['length'][1]) ?> and
+                    <?php readable_text($course->validation['name']['length'][2]) ?> characters.
+            </div>
+        <?php endif ?>
 
-    <?php //Checking of name length
-    if (!empty($course->validation_errors['name']['length'])): ?>
-        <div>
-            <em> Name </em> must be between
-                <?php readable_text($course->validation['name']['length'][1]) ?> and
-                <?php readable_text($course->validation['name']['length'][2]) ?> characters.
-        </div>
-    <?php endif ?>
+        <!--Checking: Valid Course Name-->
+        <?php if (!empty($course->validation_errors['name']['valid'])): ?>
+            <div>
+                Invalid <em>Name</em>!
+            </div>
+        <?php endif ?>
 
-
-    <?php //Checking of name if it's valid
-    if (!empty($course->validation_errors['name']['valid'])): ?>
-        <div>
-            Invalid <em>Name</em>!
-        </div>
-    <?php endif ?>
-
-    <?php //Course Category Error Message
-    if (!empty($course->validation_errors['category']['length'])): ?>    
-        <div>
-         Please select a <em>Category!</em> 
-        </div>
-      <?php endif ?>
+        <!--Checking: Selecting a Category-->
+        <?php if (!empty($course->validation_errors['category']['length'])): ?>    
+            <div>
+                Please select a <em>Category!</em> 
+            </div>
+        <?php endif ?>
 
     </div>
 <?php endif ?> 
@@ -52,13 +49,13 @@
     <input type="text" name="name" placeholder="Course Name" value="<?php readable_text(Param::get('name')) ?>">
 
 <!--Submit-->
-    <div class="control-group">
-    <div class="controls">
-    <form class="well" method="post" action="<?php readable_text(url('course/add_course_end')) ?>">
+    <br /><br />
+    <form class="well" method="post" action="<?php readable_text(url('course/add_end')) ?>">
     <input type="hidden" name="course_id" value="<?php readable_text($course->id) ?>">
-    <input type="hidden" name="page_next" value="add_course_end">
+    <input type="hidden" name="page_next" value="add_end">
     <button type="submit" class="btn btn-info btn-medium">Submit</button>
     <a class="btn btn-medium btn-default" href="<?php readable_text(url('course/index')) ?>">Cancel</a>
     </form> 
-    </div>
-    </div>
+
+</form>
+</form>

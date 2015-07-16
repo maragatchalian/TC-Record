@@ -6,4 +6,3 @@
 <a href="<?php readable_text(url('course/index')) ?>">
     &larr; Back to Courses 
 </a>
-

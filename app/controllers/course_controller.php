@@ -2,20 +2,20 @@
 
 class CourseController extends AppController
 {
-    const ADD_COURSE = 'add_course';
-    const ADD_COURSE_END = 'add_course_end';
-    const EDIT = 'edit_course';
-    const EDIT_END = 'edit_course_end';
+    const ADD_COURSE = 'add';
+    const ADD_COURSE_END = 'add_end';
+    const EDIT = 'edit';
+    const EDIT_END = 'edit_end';
 
     public function index()
     {
-        $categories = Course::getDistinctCategory();
+        $categories = Course::getCategory();
         $course_id = Param::get('course_id');
         $courses = Course::getByCategory($course_id);
         $this->set(get_defined_vars());
     }
 
-    public function add_course()
+    public function add()
     {
         $params = array(
             'name' => Param::get('name'),
@@ -44,7 +44,7 @@ class CourseController extends AppController
         $this->render($page);
     }
 
-    public function edit_course()
+    public function edit()
     {
         $course_id = Param::get('course_id');   
         $params = array(
@@ -76,7 +76,7 @@ class CourseController extends AppController
         $this->render($page);
     }
 
-    public function delete_course() 
+    public function delete()
     { 
         $course_id = Param::get('course_id');
         $course = Course::delete($course_id);
@@ -85,8 +85,8 @@ class CourseController extends AppController
 
     public function view_course_details()
     {
-        $course_id = Param::get('course_id');   
+        $course_id = Param::get('course_id');
         $course = Course::getById($course_id);
-        $this->set(get_defined_vars());   
+        $this->set(get_defined_vars());
     }
 }

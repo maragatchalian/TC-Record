@@ -25,7 +25,6 @@ class TraineeController extends AppController
         $course_status = Trainee::getDistinctCourseStatus();
         $batch_year = Trainee::getDistinctBatchYear();
         $batch_term = Trainee::getDistinctBatchTerm();
-        //$batch = Trainee::getDistinctBatch();
 
         $page = 'index';
 
