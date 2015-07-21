@@ -138,7 +138,6 @@ class Exam extends AppModel
         return $exam;
     }
 
-
     public static function getById($exam_id)
     {
         $db = DB::conn();
@@ -146,17 +145,4 @@ class Exam extends AppModel
         
         return $row;
     } 
-
-    public static function getAllByTraineeId($trainee_id)
-    {
-        $exam = array();
-
-        $db = DB::conn();
-        $rows = $db->rows("SELECT * FROM exam where trainee_id = ?", array($trainee_id));
-
-        foreach ($rows as $row) {
-            $exam[] = new self($row);
-        }
-        return $exam;
-    }
 }

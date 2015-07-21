@@ -15,7 +15,7 @@
         <!--Sort by Training Status-->
             <li class='has-sub '><a href="">Training Status <span class="arrow">&#9660;</span></a>
                 <ul>      
-                    <?php foreach ($training_status as $get_training_status): //List of Training Status?>
+                    <?php foreach ($training_status as $get_training_status): ?>
                     <li class='has-sub'>
                         <a href="<?php readable_text(url('trainee/index', array('sort_by' => 'training_status', 'data'=>$get_training_status))) ?>"> 
                         <?php readable_text($get_training_status); ?></a>
@@ -27,7 +27,7 @@
         <!--Sort by Skill Set-->
             <li class='has-sub'><a href="">Skill Set <span class="arrow">&#9660;</span></a>
                 <ul> 
-                    <?php foreach ($skill_set as $get_skill_set): //List of Skill Set?>     
+                    <?php foreach ($skill_set as $get_skill_set): ?>     
                     <li>
                         <a href="<?php readable_text(url('trainee/index', array('sort_by' => 'skill_set', 'data'=>$get_skill_set))) ?>"> 
                         <?php readable_text($get_skill_set); ?></a>
@@ -36,18 +36,17 @@
                 </ul>
             </li>  
 
-
         <!--Sort by Batch-->
             <li class='has-sub'><li> <a href="">Batch <span class="arrow">&#9660;</span></a>
                 <ul>
-                    <?php foreach ($batch_year as $get_batch_year): //List of Skill Set?>       
+                    <?php foreach ($batch_year as $get_batch_year): ?>       
                     <li class='has-sub'>
                         <a href="<?php readable_text(url('trainee/index', array('sort_by' => 'batch_year', 'data'=>$get_batch_year))) ?>"> 
                         <?php readable_text($get_batch_year); ?></a>
                          <ul>
-                            <?php foreach ($batch_term as $get_batch_term): //List of Skill Set?> 
+                            <?php foreach ($batch_term as $get_batch_term): ?> 
                             <li>
-                                <a href="<?php readable_text(url('trainee/index', array('sort_by' => 'batch_year', 'data'=>$get_batch_term))) ?>"> 
+                                <a href="<?php readable_text(url('trainee/index', array('sort_by' => 'batch_term', 'data'=>$get_batch_term))) ?>"> 
                                 <?php readable_text($get_batch_term); ?></a>
                             </li>
                             <?php endforeach; ?>
@@ -61,7 +60,7 @@
             <li>
                 <li class='has-sub'><a href="">Course <span class="arrow">&#9660;</span></a>
                 <ul>      
-                    <?php foreach ($course_status as $get_course_status): //List of Skill Set?>
+                    <?php foreach ($course_status as $get_course_status): ?>
                     <li>
                         <a href="<?php readable_text(url('trainee/index', array('sort_by' => 'course_status', 'data'=>$get_course_status))) ?>"> 
                         <?php readable_text($get_course_status); ?></a>

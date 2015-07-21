@@ -230,13 +230,23 @@ class Trainee extends AppModel
         $trainee = array();
         $db = DB::conn();
 
-        $rows = $db->rows("SELECT * FROM trainee WHERE batch_term = ? AND batch_year = ", array($batch_term, $batch_year));
+        $rows = $db->rows("SELECT * FROM trainee WHERE batch_term = ? AND batch_year = ?", array($batch_term, $batch_year));
 
         foreach($rows as $row){
             $trainee[] = new self($row);
         }
+    
         return $trainee;
     }
+
+    /*public static function getYearBatchTerms()
+    {
+        $year_batch_term = array();
+        $db = DB::conn();
+        $year_batch_term = $db->rows("SELECT CONCAT(batch_year, '_', batch_term) FROM trainee GROUP BY batch_year, batch_term");
+        
+        return $year_batch_term;
+    }*/
 
     public static function getByCourseStatus($course_status) 
     {
