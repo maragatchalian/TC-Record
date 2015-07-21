@@ -19,6 +19,8 @@ class TraineeController extends AppController
         $index = Param::get('sort_by', self::INDEX);
         $trainee_id = Param::get('trainee_id');
         $data = Param::get('data');
+        $term = Param::get('batch_term');
+        $year = Param::get('batch_year');
         $training_status = Trainee::getDistinctTrainingStatus();
         $skill_set = Trainee::getDistinctSkillSet();
         $course_status = Trainee::getDistinctCourseStatus();
@@ -31,18 +33,24 @@ class TraineeController extends AppController
                 case self::INDEX:
                     $trainees = Trainee::getAll();
                     break;
+
                 case self::TRAINING_STATUS:
                     $trainees = Trainee::getByTrainingStatus($data);
                     break;
+
                 case self::SKILL_SET:
                     $trainees = Trainee::getBySkillSet($data);
                     break;
+
                 case self::BATCH_YEAR:
                     $trainees = Trainee::getByBatchYear($data);
                     break;
+
                 case self::BATCH_TERM:
-                    $trainees = Trainee::getByBatchTerm($data, list($year, $term) = explode('_', $batch_term));
+                    list($year, $term) = explode('_', $data);
+                    $trainees = Trainee::getByBatchTerm($term, $year);                
                     break;
+
                 case self::COURSE_STATUS:
                     $trainees = Trainee::getByCourseStatus($data);
                     break;

@@ -46,7 +46,7 @@
                          <ul>
                             <?php foreach ($batch_term as $get_batch_term): ?> 
                             <li>
-                                <a href="<?php readable_text(url('trainee/index', array('sort_by' => 'batch_term', 'data'=>$get_batch_term))) ?>"> 
+                                <a href="<?php readable_text(url('trainee/index', array('sort_by' => 'batch_term', 'data'=> $get_batch_year . '_' . $get_batch_term))) ?>"> 
                                 <?php readable_text($get_batch_term); ?></a>
                             </li>
                             <?php endforeach; ?>
