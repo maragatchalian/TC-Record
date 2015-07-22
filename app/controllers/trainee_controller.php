@@ -21,11 +21,11 @@ class TraineeController extends AppController
         $data = Param::get('data');
         $term = Param::get('batch_term');
         $year = Param::get('batch_year');
-        $training_status = Trainee::getDistinctTrainingStatus();
-        $skill_set = Trainee::getDistinctSkillSet();
-        $course_status = Trainee::getDistinctCourseStatus();
-        $batch_year = Trainee::getDistinctBatchYear();
-        $batch_term = Trainee::getDistinctBatchTerm();
+        $training_status = Trainee::getTrainingStatus();
+        $skill_set = Trainee::getSkillSet();
+        $course_status = Trainee::getCourseStatus();
+        $batch_year = Trainee::getBatchYear();
+        $batch_term = Trainee::getBatchTerm();
 
         $page = 'index';
 

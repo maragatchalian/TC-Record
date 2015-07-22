@@ -232,7 +232,7 @@ class Trainee extends AppModel
 
         $rows = $db->rows("SELECT * FROM trainee WHERE batch_term = ? AND batch_year = ?", array($batch_term, $batch_year));
 
-        foreach($rows as $row){
+        foreach($rows as $row) {
             $trainee[] = new self($row);
         }
          
@@ -252,7 +252,7 @@ class Trainee extends AppModel
         return $trainee;
     }
 
-    public static function getDistinctTrainingStatus()
+    public static function getTrainingStatus()
     {
         $db = DB::conn();
         $rows = $db->rows("SELECT DISTINCT training_status FROM trainee");
@@ -266,7 +266,7 @@ class Trainee extends AppModel
         return $training_status;
     }
 
-    public static function getDistinctBatchYear()
+    public static function getBatchYear()
     {
         $db = DB::conn();
         $rows = $db->rows("SELECT DISTINCT batch_year FROM trainee");
@@ -280,7 +280,7 @@ class Trainee extends AppModel
         return $batch_year;
     }
 
-    public static function getDistinctBatchTerm()
+    public static function getBatchTerm()
     {
         $db = DB::conn();
         $rows = $db->rows("SELECT DISTINCT batch_term FROM trainee");
@@ -294,22 +294,7 @@ class Trainee extends AppModel
         return $batch_term;
     }
 
-    public static function getTrainingStatus($training_status)
-    {
-        $db = DB::conn();
-        $rows = $db->rows("SELECT training_status from trainee where training_status = ?", array($training_status));
-
-        $training_status = array();
-
-        foreach ($rows as $row) {
-            if (!empty($row['training_status'])) {
-                $training_status[] = $row['training_status'];
-            }
-        }
-        return $training_status;
-    }
-
-    public static function getDistinctSkillSet()
+    public static function getSkillSet()
     {
         $db = DB::conn();
         $rows = $db->rows("SELECT DISTINCT skill_set FROM trainee");
@@ -323,7 +308,7 @@ class Trainee extends AppModel
         return $skill_set;
     }
 
-    public static function getDistinctCourseStatus()
+    public static function getCourseStatus()
     {
         $db = DB::conn();
         $rows = $db->rows("SELECT DISTINCT course_status FROM trainee");
@@ -336,20 +321,6 @@ class Trainee extends AppModel
         }
         return $course_status;
     }
-
-    /*public static function getDistinctBatch()
-    {
-        $db = DB::conn();
-        $rows = $db->rows("SELECT DISTINCT batch FROM trainee");
-        $batch = array();
-        
-        foreach ($rows as $row) {
-            if (!empty($row['batch'])) {
-                $batch[] = $row['batch'];
-            }
-        }
-        return $batch;
-    }*/
 
     public static function getCourses()
     {
