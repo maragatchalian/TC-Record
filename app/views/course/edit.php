@@ -33,7 +33,7 @@
 <form action="<?php readable_text(url('')) ?>" method="POST">
 <input type="hidden" name="course_id" value="<?php readable_text(Param::get('course_id')) ?>">
 
-    <!--Course Category-->
+    <!--Courses-->
     <label for="category"><h5>Category</h5></label>
     <select name="category"> 
         <option value="<?php readable_text($course_edit['category']) ?>"> <?php readable_text($course_edit['category']) ?> </option>
@@ -42,7 +42,7 @@
         <option value="Project Course">Project Course</option>
     </select>
 
-    <!--Course Name-->
+    <!--Sub Courses-->
     <label for="name"><h5>Course Name</h5></label>
     <input type="text" name="name" placeholder="Course Name" value="<?php readable_text($course_edit['name']) ?>">
 

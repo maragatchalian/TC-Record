@@ -3,6 +3,6 @@
         You've successfully added a Course!               
     </p>
                  
-<a href="<?php readable_text(url('course/index')) ?>">
-    &larr; Back to Courses 
-</a>
+    <a href="<?php readable_text(url('course/index')) ?>">
+        &larr; Back to Courses 
+    </a>
