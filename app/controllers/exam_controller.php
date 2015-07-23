@@ -20,7 +20,6 @@ class ExamController extends AppController
         $trainee_id = Param::get('trainee_id');
         $trainee = Exam::getAllTrainee($trainee_id);
         $exam = Exam::getAllByTraineeId($trainee_id);
-        //$exam_details = Exam::getById($trainee_id);
         $this->set(get_defined_vars());
     }
 
@@ -62,7 +61,7 @@ class ExamController extends AppController
     public function edit_score()
     {
         $trainee_id = Param::get('trainee_id');
-        //$exam_id = Param::get('exam_id');
+        $exam_id = Param::get('exam_id');
         
         $params = array(
             'course_name' => Param::get('course_name'),
@@ -92,7 +91,7 @@ class ExamController extends AppController
                 throw new NotFoundException("{$page} is not found");
                 break;
         }
-        $exam_edit = Exam::getById($trainee_id);
+        $exam_edit = Exam::getById($exam_id);
         $this->set(get_defined_vars());
         $this->render($page);
     }

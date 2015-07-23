@@ -1,5 +1,3 @@
-TODO: Edit Scores
-
 <h3> Edit Score </h3>
 <?php if ($exam->hasError()): ?>
     <div class="alert alert-error">
