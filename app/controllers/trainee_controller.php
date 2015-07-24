@@ -2,10 +2,10 @@
 
 class TraineeController extends AppController
 {  
-    const ADD_TRAINEE = 'add_trainee';
-    const ADD_TRAINEE_END = 'add_trainee_end';
-    const EDIT = 'edit_trainee';
-    const EDIT_END = 'edit_trainee_end';
+    const ADD_TRAINEE = 'add';
+    const ADD_TRAINEE_END = 'add_end';
+    const EDIT = 'edit';
+    const EDIT_END = 'edit_end';
 
     const INDEX = 'index';
     const TRAINING_STATUS = 'training_status';
@@ -58,6 +58,7 @@ class TraineeController extends AppController
                     throw new NotFoundException("{$index} is not found");
                     break;
             }
+        
         $this->set(get_defined_vars());
         $this->render($page);
     }        
@@ -96,8 +97,8 @@ class TraineeController extends AppController
                 throw new NotFoundException("{$page} is not found");
                 break;
         }
-        $name = Param::get('name');
-        $course_status = Trainee::getCourses($name);
+        $course_name = Param::get('name');
+        $course_status = Trainee::getCourses($course_name);
         $this->set(get_defined_vars());
         $this->render($page);
     }
@@ -109,7 +110,7 @@ class TraineeController extends AppController
         $this->set(get_defined_vars());
     }
 
-    public function edit_trainee()
+    public function edit()
     {
         $trainee_id = Param::get('trainee_id');
         
@@ -151,8 +152,8 @@ class TraineeController extends AppController
                 throw new NotFoundException("{$page} is not found");
                 break;
         }
-        $name = Param::get('name');
-        $course_status = Trainee::getCourses($name);
+        $sub_courses = Param::get('name');
+        $course_status = Trainee::getCourses($sub_courses);
         $trainee_edit = Trainee::getById($trainee_id);
         $this->set(get_defined_vars());
         $this->render($page);

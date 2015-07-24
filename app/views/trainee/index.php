@@ -7,10 +7,10 @@
 
 <div id='cssmenu'>
     <ul>
-    <!--Sort by Date Hired-->
+        <!--Sort by Date Hired-->
         <li>
-                <a href="<?php readable_text(url('trainee/index')) ?>">Date Hired</span></a>
-            </li>
+            <a href="<?php readable_text(url('trainee/index')) ?>">Date Hired</span></a>
+        </li>
 
         <!--Sort by Training Status-->
             <li class='has-sub '><a href="">Training Status <span class="arrow">&#9660;</span></a>
