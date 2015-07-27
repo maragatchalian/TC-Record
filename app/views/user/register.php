@@ -1,119 +1,107 @@
-<font color = "black">
 <h3>Registration</h3>
 <h5>Please fill up this form:</h5>
 
 <?php if ($user->hasError()): ?>
     <div class="alert alert-error">
         <h4 class="alert-heading">Oh snap!</h4><h7>Change a few things up and try registering again.</h7><br /><br/>
- 
-<?php 
-//Checking of username if it's valid
-    if ($user->validation_errors['username']['valid']): ?>
-    <div>
-        <em>Username may only consist of letters, numbers,  hypen (-), underscores(_), and dots(.).</em>
-    </div>
-<?php endif ?>
+     
+    <!--Checking: Valid Username-->
+    <?php if ($user->validation_errors['username']['valid']): ?>
+        <div>
+            <em>Username may only consist of letters, numbers,  hypen (-), underscores(_), and dots(.).</em>
+        </div>
+    <?php endif ?>
 
-<?php 
-//Checking of username length 
-if (!empty($user->validation_errors['username']['length'])): ?>
-    <div>
-        <em>Your Username</em> must be between
-        <?php readable_text($user->validation['username']['length'][1]) ?> and
-        <?php readable_text($user->validation['username']['length'][2]) ?> characters.
-    </div>
-<?php endif ?>
+    <!--Checking: Username Length-->
+    <?php if (!empty($user->validation_errors['username']['length'])): ?>
+        <div>
+            <em>Your Username</em> must be between
+            <?php readable_text($user->validation['username']['length'][1]) ?> and
+            <?php readable_text($user->validation['username']['length'][2]) ?> characters.
+        </div>
+    <?php endif ?>
 
-<?php 
-//Checking of username if it exists
-if (!empty($user->validation_errors['username']['exist'])): ?>
-    <div>
-        <em> Username is already taken. Please choose another.</em>
-    </div>
-<?php endif ?>
+    <!--Checking: Existing Username-->
+    <?php if (!empty($user->validation_errors['username']['exist'])): ?>
+        <div>
+            <em> Username is already taken. Please choose another.</em>
+        </div>
+    <?php endif ?>
 
-<?php 
-//Checking of first_name length
-if (!empty($user->validation_errors['first_name']['length'])): ?>
-    <div>
-        <em>Your First Name</em> must be between
+    <!--Checking: First Name Length-->
+    <?php if (!empty($user->validation_errors['first_name']['length'])): ?>
+        <div>
+            <em>Your First Name</em> must be between
             <?php readable_text($user->validation['first_name']['length'][1]) ?> and
             <?php readable_text($user->validation['first_name']['length'][2]) ?> characters.
-    </div>
-<?php endif ?>
+        </div>
+    <?php endif ?>
 
-<?php 
-//Checking of first_name if it's valid.
-    if ($user->validation_errors['first_name']['valid']): ?>
-    <div>
-        <em>First Name </em> MUST only consist of letters or hypen (-)</em>
-    </div>
-<?php endif ?>
+    <!--Checking: Valid First Name-->
+    <?php if ($user->validation_errors['first_name']['valid']): ?>
+        <div>
+            <em>First Name </em> MUST only consist of letters or hypen (-)</em>
+        </div>
+    <?php endif ?>
 
-<?php 
-//Last Name Validation
-    if (!empty($user->validation_errors['last_name']['length'])): ?>
-    <div><em>Your Last Name</em> must be between
-        <?php readable_text($user->validation['last_name']['length'][1]) ?> and
-        <?php readable_text($user->validation['last_name']['length'][2]) ?> characters.
-    </div>
-<?php endif ?>
+    <!--Checking: Last Name Length-->
+    <?php if (!empty($user->validation_errors['last_name']['length'])): ?>
+        <div><em>Your Last Name</em> must be between
+            <?php readable_text($user->validation['last_name']['length'][1]) ?> and
+            <?php readable_text($user->validation['last_name']['length'][2]) ?> characters.
+        </div>
+    <?php endif ?>
 
-<?php
-//Checking of first_name if it's valid.
-if ($user->validation_errors['last_name']['valid']): ?>
-    <div>
-        <em>Last Name </em> MUST only consist of letters or hypen (-)</em>
-    </div>
-<?php endif ?>
+    <!--Checking: Valid Last Name-->
+    <?php if ($user->validation_errors['last_name']['valid']): ?>
+        <div>
+            <em>Last Name </em> MUST only consist of letters or hypen (-)</em>
+        </div>
+    <?php endif ?>
 
+    <!--Checking: Email Length-->
+    <?php if (!empty($user->validation_errors['email']['length'])): ?>
+        <div><em>Your Email</em> must be 
+            <?php readable_text($user->validation['email']['length'][1]) ?> 
+            <?php readable_text($user->validation['email']['length'][2]) ?> characters and below only.
+        </div>
+    <?php endif ?>
 
-<?php 
-//Email Validation
-if (!empty($user->validation_errors['email']['length'])): ?>
-    <div><em>Your Email</em> must be 
-        <?php readable_text($user->validation['email']['length'][1]) ?> 
-        <?php readable_text($user->validation['email']['length'][2]) ?> characters and below only.
-    </div>
-<?php endif ?>
+    <!--Checking: Existing Email-->
+    <?php if(!empty($user->validation_errors['email']['exist'])): ?>
+        <div>
+             <em> Your email address</em> is already registered. Please choose another.
+        </div>
+    <?php endif ?>
 
-<?php
-//Checking of email if it already exists 
-if(!empty($user->validation_errors['email']['exist'])): ?>
-    <div>
-         <em> Your email address</em> is already registered. Please choose another.
-    </div>
-<?php endif ?>
+    <!--Checking: Password Length-->
+    <?php if (!empty($user->validation_errors['password']['length'])): ?>
+        <div><em>Your Password</em> must be between
+            <?php readable_text($user->validation['password']['length'][1]) ?> and
+            <?php readable_text($user->validation['password']['length'][2]) ?> characters.
+        </div>
+    <?php endif ?>
 
-<?php 
-//Password Validation
-if (!empty($user->validation_errors['password']['length'])): ?>
-    <div><em>Your Password</em> must be between
-        <?php readable_text($user->validation['password']['length'][1]) ?> and
-        <?php readable_text($user->validation['password']['length'][2]) ?> characters.
-    </div>
-<?php endif ?>
+    <!--Checking: Matching Password-->
+    <?php if (!empty($user->validation_errors['confirm_password']['match'])) : ?> 
+        <div>
+            <em>Passwords</em> did not match!
+        </div>
+    <?php endif ?>
 
-<?php 
-//Checking if Password and Confirm Password matched
-if (!empty($user->validation_errors['confirm_password']['match'])) : ?> 
-    <div>
-        <em>Passwords</em> did not match!
-    </div>
-<?php endif ?>
-
-<!--User Type  Validation Error Message--> 
-  <?php if (!empty($user->validation_errors['user_type']['length'])): ?>    
-    <div>
-     Please select a <em>User Type!</em> 
-    </div>
-  <?php endif ?>
+    <!--Checking: Selected User Type--> 
+    <?php if (!empty($user->validation_errors['user_type']['length'])): ?>    
+        <div>
+            Please select a <em>User Type!</em> 
+        </div>
+    <?php endif ?>
 
 </div>
 <?php endif ?> 
 
 <form class="form-horizontal">
 <form action="<?php readable_text(url('')) ?>" method="POST">
+
 <!--Username-->
     <div class="control-group">
     <label class="control-label" for="username"><h5>Username</h5></label>
@@ -166,7 +154,6 @@ if (!empty($user->validation_errors['confirm_password']['match'])) : ?>
     <label class="control-label" for="confirm_password"><h5>User Type</h5></label>
     <div class="controls">
     <select name="user_type">
-        
         <option value="">Please Select</option>
         <option value="Admin">Admin</option>
         <option value="Trainee">Trainee</option>
@@ -187,5 +174,6 @@ if (!empty($user->validation_errors['confirm_password']['match'])) : ?>
     <a href="<?php readable_text(url('user/login')) ?>"> HERE</a>.
     </div>
     </div>
+
 </form>
-</font>
+</form>

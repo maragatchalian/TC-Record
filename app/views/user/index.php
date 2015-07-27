@@ -1,6 +1,6 @@
 <h3> 
-	<?php readable_text($user['first_name']);?>
-	<?php readable_text($user['last_name']);?>
+    <?php readable_text($user['first_name']);?>
+    <?php readable_text($user['last_name']);?>
 </h3>
 
 <div class="avatar-big float-left">

@@ -1,9 +1,8 @@
-<font color = "black">
 <h1> Welcome to TC Records</h1>
 <h5>Please log in to continue</h5>
 <br />
 
-<!--Empty/invalid username/password error message-->
+<!--Checking: Username and Password Must Match-->
 <?php if (!is_logged_in() && $user->username != '') : ?> 
     <div class="alert alert-error">
         <em><h4 class="alert-heading">Oops!</h4></em>
@@ -28,7 +27,7 @@
     </div>
     <br />
  
-<!--Will be redirected to login_end once successfully logged in-->
+<!--Successfully Logged In-->
     <div class="control-group">
     <div class="controls">
     <input type="hidden" name="page_next" value="login_end">
@@ -45,4 +44,3 @@ If you don't have an account, register
 </div>
 
 </form>
-</font>
