@@ -111,6 +111,13 @@ class TraineeController extends AppController
         $this->set(get_defined_vars());
     }
 
+    public function delete()
+    { 
+        $trainee_id = Param::get('trainee_id');
+        $trainee = Trainee::delete($trainee_id);
+        $this->set(get_defined_vars());
+    }
+
     public function edit()
     {
         $trainee_id = Param::get('trainee_id');

@@ -148,6 +148,20 @@ class Trainee extends AppModel
         }
     }
 
+    public static function delete($trainee_id)
+    {
+        try {
+            $db = DB::conn();
+            $db->begin();
+
+            $db->query("DELETE FROM trainee WHERE id = ?", array($trainee_id));
+            $db->commit();
+        
+        } catch (Exception $e) {
+            $db->rollback();
+        }
+    }
+
     public function edit($trainee_id)
     {
         if (!$this->validate()) {

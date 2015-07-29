@@ -21,3 +21,5 @@
 <br />
 </div>
 <a class="btn btn-medium btn-info" href="">Change Photo</a>
+<a class="btn btn-medium btn-danger" href="<?php readable_text(url('trainee/delete', array('trainee_id' => $trainee_id)))?>"
+    onclick="return confirm('Are you sure you want to delete this trainee?')">Delete</a>
