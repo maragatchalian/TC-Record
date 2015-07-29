@@ -5,6 +5,7 @@ class Trainee extends AppModel
     const MIN_EMPLOYEE_ID_LENGTH = 3;
     const MIN_FIRST_NAME_LENGTH = 1;
     const MIN_LAST_NAME_LENGTH = 1;
+    const MIN_NICKNAME_LENGTH = 1;
     const MIN_SKILL_SET_LENGTH = 1;
     const MIN_TRAINING_STATUS_LENGTH = 1;
     const MIN_COURSE_STATUS_LENGTH = 1;
@@ -16,6 +17,7 @@ class Trainee extends AppModel
     const MAX_EMPLOYEE_ID_LENGTH = 11;
     const MAX_FIRST_NAME_LENGTH = 30;
     const MAX_LAST_NAME_LENGTH = 30;
+    const MAX_NICKNAME_LENGTH = 20;
     const MAX_SKILL_SET_LENGTH = 20;
     const MAX_TRAINING_STATUS_LENGTH = 20;
     const MAX_COURSE_STATUS_LENGTH = 20;
@@ -50,6 +52,15 @@ class Trainee extends AppModel
         'last_name' => array(
             'length' => array(
                 'validate_between', self::MIN_LAST_NAME_LENGTH, self::MAX_LAST_NAME_LENGTH
+            ),
+            'valid' => array(
+                'is_valid_name'
+            ),
+        ),
+
+        'nickname' => array(
+            'length' => array(
+                'validate_between', self::MIN_NICKNAME_LENGTH, self::MAX_NICKNAME_LENGTH
             ),
             'valid' => array(
                 'is_valid_name'
@@ -120,6 +131,7 @@ class Trainee extends AppModel
                 'employee_id' => $this->employee_id,
                 'first_name' => $this->first_name,
                 'last_name' => $this->last_name,
+                'nickname' => $this->nickname,
                 'skill_set' => $this->skill_set,
                 'course_status' => $this->course_status,
                 'training_status' => $this->training_status,
@@ -148,6 +160,7 @@ class Trainee extends AppModel
                 'employee_id' => $this->new_employee_id,
                 'last_name' => $this->last_name,
                 'first_name' => $this->first_name,
+                'nickname' => $this->nickname,
                 'skill_set' => $this->skill_set,
                 'course_status' => $this->course_status,
                 'training_status' => $this->training_status,

@@ -2,8 +2,7 @@
 
 <?php if ($trainee->hasError()): ?>
     <div class="alert alert-error">
-    <h4 class="alert-heading">Oh snap!</h4><h7>Change a few things up and try again.</h7>
-    <br /><br/>
+    <h4 class="alert-heading">Oh snap!</h4><h7>Change a few things up and try again.</h7> <br /><br/>
 
     <!--Checking: Valid Employee Id-->
     <?php if (!empty($trainee->validation_errors['employee_id']['valid'])): ?>
@@ -54,6 +53,21 @@
     <?php if ($trainee->validation_errors['last_name']['valid']): ?>
         <div>
             <em>Last Name </em> MUST only consist of letters or hypen (-)</em>
+        </div>
+    <?php endif ?>
+
+    <!--Checking: Nickname Length-->
+    <?php if (!empty($trainee->validation_errors['nickname']['length'])): ?>
+        <div><em>Your Nickname/em> must be between
+            <?php readable_text($trainee->validation['nickname']['length'][1]) ?> and
+            <?php readable_text($trainee->validation['nickname']['length'][2]) ?> characters.
+        </div>
+    <?php endif ?>
+
+    <!--Checking: Valid Nickname-->
+    <?php if ($trainee->validation_errors['nickname']['valid']): ?>
+        <div>
+            <em>Nickname </em> MUST only consist of letters or hypen (-)</em>
         </div>
     <?php endif ?>
 
@@ -120,7 +134,7 @@
     </div>
     </div>
 
-<!--First Name-->
+<!--Last Name-->
     <div class="control-group">
     <label class="control-label" for="first_name"><h5>First Name</h5></label>
     <div class="controls">
@@ -133,6 +147,14 @@
     <label class="control-label" for="last_name"><h5>Last Name</h5></label>
     <div class="controls">
     <input type="text" name="last_name" placeholder="Last Name" value="<?php readable_text(Param::get('last_name')) ?>">
+    </div>
+    </div>
+
+<!--Nickname-->
+    <div class="control-group">
+    <label class="control-label" for="nickname"><h5>Nickname</h5></label>
+    <div class="controls">
+    <input type="text" name="nickname" placeholder="Nickname" value="<?php readable_text(Param::get('nickname')) ?>">
     </div>
     </div>
 

@@ -63,12 +63,13 @@ class TraineeController extends AppController
         $this->render($page);
     }        
 
-    public function add_trainee() 
+    public function add() 
     {      
         $params = array(
             'employee_id' => Param::get('employee_id'),
             'first_name' => Param::get('first_name'),
             'last_name' => Param::get('last_name'),
+            'nickname' => Param::get('nickname'),
             'skill_set' => Param::get('skill_set'),
             'training_status' => Param::get('training_status'),
             'course_status' => Param::get('course_status'),
@@ -118,6 +119,7 @@ class TraineeController extends AppController
             'new_employee_id' => Param::get('employee_id'),
             'last_name' => Param::get('last_name'),
             'first_name' => Param::get('first_name'),
+            'nickname' => Param::get('nickname'),
             'skill_set' => Param::get('skill_set'),
             'training_status' => Param::get('training_status'),
             'course_status' => Param::get('course_status'),

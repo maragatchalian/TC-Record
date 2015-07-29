@@ -20,6 +20,7 @@ id                  INT(11) NOT NULL AUTO_INCREMENT,
 employee_id         INT(11) NOT NULL,
 first_name          VARCHAR(50) NOT NULL,
 last_name           VARCHAR(50) NOT NULL,
+nickname            VARCHAR(50) NOT NULL,
 skill_set           VARCHAR(20) NOT NULL,
 course_status       VARCHAR(50) NOT NULL,
 training_status     VARCHAR(20) NOT NULL,
@@ -32,7 +33,7 @@ PRIMARY KEY (id)
 
 CREATE TABLE IF NOT EXISTS training_status(
 id                  INT(11) NOT NULL AUTO_INCREMENT,
-name           		VARCHAR(50) NOT NULL,
+name                VARCHAR(50) NOT NULL,
 PRIMARY KEY (id)
 )ENGINE=InnoDB;
 

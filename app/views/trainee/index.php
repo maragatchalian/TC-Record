@@ -1,7 +1,7 @@
 <h3> Trainees </h3>
 <link href="/bootstrap/css/custom.css" rel="stylesheet">
 
-<a class="btn btn-medium btn-info" href="<?php readable_text(url('trainee/add_trainee')) ?>">Add Trainee</a>
+<a class="btn btn-medium btn-info" href="<?php readable_text(url('trainee/add')) ?>">Add Trainee</a>
 <br />
 <br />
 
@@ -74,7 +74,7 @@
 <!-- Index Table -->
 <table class="gridtable">
 <tr>
-    <th> Employee ID </th>
+    <th> Nickname </th>
     <th> Date Hired</th>
     <th> Last Name </th>
     <th> First Name </th>
@@ -89,7 +89,7 @@
 <?php foreach ($trainees as $get_from_trainee): ?>
     <tr>
         <td><a href="<?php readable_text(url('trainee/view_trainee_profile', array('trainee_id' => $get_from_trainee->id))) ?>">   
-        <?php readable_text($get_from_trainee->employee_id) ?> </a> </td>
+        <?php readable_text($get_from_trainee->nickname) ?> </a> </td>
 
         <td> <?php readable_text($get_from_trainee->hired) ?> </a> </td>
 

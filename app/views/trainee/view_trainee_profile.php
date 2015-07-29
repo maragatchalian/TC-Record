@@ -8,6 +8,7 @@
 <br />
 <div class="float-right user-details">
     <b>Last Name: </b>  <?php readable_text($trainee['last_name']);?> <br />
+    <b>Nickname: </b>  <?php readable_text($trainee['nickname']);?> <br />
     <b>First Name: </b>  <?php readable_text($trainee['first_name']);?> <br />
     <b>Batch : </b>  <?php readable_text($trainee['batch_year']);?> <?php readable_text($trainee['batch_term']);?> <br />
     <b>Primary Skill : </b>  <?php readable_text($trainee['skill_set']);?> <br />

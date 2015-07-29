@@ -12,7 +12,7 @@
     <?php endif ?>
 
     <!--Checking: Existing Employee ID-->
-    <?php if (!empty($trainee->validation_errors['employee_id']['exist'])): ?>
+    <?php if (!empty($trainee->validation_errors['employee_id']['exist'])): ?>  
         <div>
             <em> Employee ID </em> is already existing!
         </div>
@@ -56,19 +56,34 @@
         </div>
     <?php endif ?>
 
+    <!--Checking: Nickname Length-->
+    <?php if (!empty($trainee->validation_errors['nickname']['length'])): ?>
+        <div><em>Your Nickname/em> must be between
+            <?php readable_text($trainee->validation['nickname']['length'][1]) ?> and
+            <?php readable_text($trainee->validation['nickname']['length'][2]) ?> characters.
+        </div>
+    <?php endif ?>
+
+    <!--Checking: Valid Nickname-->
+    <?php if ($trainee->validation_errors['nickname']['valid']): ?>
+        <div>
+            <em>Nickname </em> MUST only consist of letters or hypen (-)</em>
+        </div>
+    <?php endif ?>
+
     <!--Checking: Skill Set Length--> 
-      <?php if (!empty($trainee->validation_errors['skill_set']['length'])): ?>    
+    <?php if (!empty($trainee->validation_errors['skill_set']['length'])): ?>    
         <div>
             Please select a <em>Skill Set!</em> 
         </div>
       <?php endif ?>
 
     <!--Checking: Course Status Length-->
-      <?php if (!empty($trainee->validation_errors['course_status']['length'])): ?>    
+    <?php if (!empty($trainee->validation_errors['course_status']['length'])): ?>    
         <div>
             Please select a <em>Skill Set!</em> 
         </div>
-      <?php endif ?>
+    <?php endif ?>
 
     <!--Checking: Training Status Length--> 
       <?php if (!empty($trainee->validation_errors['training_status']['length'])): ?>
@@ -141,6 +156,14 @@
     <label class="control-label" for="last_name"><h5>Last Name</h5></label>
     <div class="controls">
     <input type="text" name="last_name" value="<?php readable_text($trainee_edit['last_name']) ?>"> 
+    </div>
+    </div>
+
+<!--Nickname-->
+    <div class="control-group">
+    <label class="control-label" for="nickname"><h5>Nickname</h5></label>
+    <div class="controls">
+    <input type="text" name="nickname" value="<?php readable_text($trainee_edit['nickname']) ?>"> 
     </div>
     </div>
 
