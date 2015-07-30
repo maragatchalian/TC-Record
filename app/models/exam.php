@@ -75,6 +75,7 @@ class Exam extends AppModel
             
             $trainee_id = Param::get('trainee_id');
             $params = array( 
+                'trainee_id' => $trainee_id,
                 'course_name' => $this->course_name,
                 'course_type' => $this->course_type,
                 'exam_type' => $this->exam_type,
