@@ -36,7 +36,7 @@ class Trainee extends AppModel
                 'is_valid_employee_id'
             ),
             'exist' => array(
-                'is_employee_id_exist'
+                'is_employee_exist'
             ),
         ),
 
@@ -110,7 +110,7 @@ class Trainee extends AppModel
         ),
     );
 
-    public function is_employee_id_exist()
+    public function is_employee_exist()
     {
         $db = DB::conn();
         $employee_id_exist = $db->row("SELECT employee_id FROM trainee WHERE employee_id = ?", array($this->employee_id));

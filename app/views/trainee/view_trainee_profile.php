@@ -1,5 +1,6 @@
 <h3> <?php readable_text($trainee['last_name']);?>,
      <?php readable_text($trainee['first_name']);?> </h3>
+     <b>Employe ID:</b> <?php readable_text($trainee['employee_id']);?> </h3>
 
 <div class="avatar-big float-left">
 <img src='' width="200" height="200" align="left" class="img-rounded" />
