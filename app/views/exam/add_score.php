@@ -33,30 +33,12 @@
         </div>
     <?php endif ?>
 
-    <?php //Checking of makeup exam score
-    if (!empty($exam->validation_errors['makeup_score']['length'])): ?>
-        <div>
-            <em> Makeup Exam Score </em> must be between
-                <?php readable_text($exam->validation['makeup_score']['length'][1]) ?> and
-                <?php readable_text($exam->validation['makeup_score']['length'][2]) ?>.
-        </div>
-    <?php endif ?>
-
     <?php //Checking of status
     if (!empty($exam->validation_errors['status']['length'])): ?>
         <div>
             <em> Exam Status </em> must be between
                 <?php readable_text($exam->validation['status']['length'][1]) ?> and
                 <?php readable_text($exam->validation['status']['length'][2]) ?>.
-        </div>
-    <?php endif ?>
-
-    <?php //Checking of makeup status
-    if (!empty($exam->validation_errors['makeup_status']['length'])): ?>
-        <div>
-            <em> Makeup Exam Status </em> must be between
-                <?php readable_text($exam->validation['makeup_status']['length'][1]) ?> and
-                <?php readable_text($exam->validation['makeup_status']['length'][2]) ?>.
         </div>
     <?php endif ?>
 
@@ -70,29 +52,41 @@
     </div>
 <?php endif ?> 
 
+<br />
+
 <form class="form-horizontal">
 <form action="<?php readable_text(url('')) ?>" method="POST">
 
-    <label for="course_name"><h5>Course </h5></label>
+<!--Course Name -->
+    <div class="control-group">
+    <label class="control-label" for="course_name"><h5>Course Status</h5></label>
+    <div class="controls">
     <select name="course_name"> 
         <option value="">Please Select</option>
-        <option value=""><b>1. Essential Course</b></option>
-        <option value="Computer Science">Computer Science</option>
-        <option value="Database">Database</option>
-        <option value="Data Structures and Algorithms">DSA</option>
-        <option value="Networking">Networking</option>
-        <option value=""> </option>
-        <option value=""><b>2. Language Course</b></option>
-        <option value="Linux">Linux</option>
-        <option value="PHP">PHP</option>
-        <option value="DietCake">DietCake</option>
-        <option value=""> </option>
-        <option value="Objective C">Objective C</option>
-        <option value="iOS">iOS</option>
-        <option value=""> </option>
-        <option value="Java">Java</option>
-        <option value="Android">Android</option>
+        
+        <?php foreach ($course_status as $get_course): ?>
+            <option value= "<?php readable_text($get_course) ?>">
+            <?php readable_text($get_course)?></option>
+        <?php endforeach; ?>
     </select>
+    </div>
+    </div>
+
+<!--Course Course-->
+<label for="course_type"><h5>Course Category</h5></label>
+    <select name="course_type"> 
+        <option value="">Please Select</option>
+        <option value="Passed">Essential</option>
+        <option value="Failed">Language</option>
+        <option value="Failed">Project</option>
+    </select>
+
+<!--Exam Type-->
+<label for="status"><h5>Exam Type</h5></label>
+    <select name="exam_type"> 
+        <option value="">Please Select</option>
+        <option value="Passed">Initial Exam</option>
+        <option value="Failed">Makeup Exam</option>
 
 <!--Items-->
     <label for="items"><h5>Items</h5></label>
@@ -105,20 +99,6 @@
 <!--Status-->
     <label for="status"><h5>Status</h5></label>
     <select name="status"> 
-        <option value="">Please Select</option>
-        <option value="Passed">Passed</option>
-        <option value="Failed">Failed</option>
-        <option value="Pending">Pending</option>
-        <option value="None">None</option>
-    </select>
-
-<!--Makeup Score-->
-    <label for="makeup_score"><h5>Make-up Score</h5></label>
-    <input type="text" name="makeup_score" placeholder="Make-up Score" value="<?php readable_text(Param::get('makeup_score')) ?>">
-
- <!--Makeup Status-->
-    <label for="makeup_status"><h5>Make-up status</h5></label>
-    <select name="makeup_status"> 
         <option value="">Please Select</option>
         <option value="Passed">Passed</option>
         <option value="Failed">Failed</option>

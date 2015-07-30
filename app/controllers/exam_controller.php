@@ -27,11 +27,11 @@ class ExamController extends AppController
     {
         $params = array(
             'course_name' => Param::get('course_name'),
+            'course_type' => Param::get('course_type'),
+            'exam_type' => Param::get('exam_type'),
             'items' => Param::get('items'),
             'score' => Param::get('score'),
             'status' => Param::get('status'),
-            'makeup_score' => Param::get('makeup_score'),
-            'makeup_status' => Param::get('makeup_status'),
             'date_taken' => Param::get('date_taken')
         );
 
@@ -54,6 +54,8 @@ class ExamController extends AppController
                 throw new NotFoundException("{$page} is not found");
                 break;
         }
+        $sub_courses = Param::get('name');
+        $course_status = Exam::getCourses($sub_courses);
         $this->set(get_defined_vars());
         $this->render($page);
     }
@@ -82,7 +84,7 @@ class ExamController extends AppController
                 break;
             case self::EDIT_END:
                 try {
-                    $exam->edit($trainee_id);
+                    $exam->edit($exam_id);
                 } catch (ValidationException $e) {
                     $page = self::EDIT;
                 }
@@ -91,6 +93,8 @@ class ExamController extends AppController
                 throw new NotFoundException("{$page} is not found");
                 break;
         }
+        $sub_courses = Param::get('name');
+        $course_status = Exam::getCourses($sub_courses);
         $exam_edit = Exam::getById($exam_id);
         $this->set(get_defined_vars());
         $this->render($page);

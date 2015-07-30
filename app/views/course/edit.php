@@ -32,6 +32,8 @@
 <form class="form-horizontal">
 <form action="<?php readable_text(url('')) ?>" method="POST">
 <input type="hidden" name="course_id" value="<?php readable_text(Param::get('course_id')) ?>">
+<input type="hidden" name="trainee_id" value="<?php readable_text(Param::get('trainee_id')) ?>">
+<input type="hidden" name="exam_id" value="<?php readable_text(Param::get('exam_id')) ?>">
 
     <!--Courses-->
     <label for="category"><h5>Category</h5></label>

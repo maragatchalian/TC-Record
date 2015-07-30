@@ -75,13 +75,12 @@ class Exam extends AppModel
             
             $trainee_id = Param::get('trainee_id');
             $params = array( 
-                'trainee_id' => $trainee_id,
                 'course_name' => $this->course_name,
+                'course_type' => $this->course_type,
+                'exam_type' => $this->exam_type,
                 'items' => $this->items,
                 'score' => $this->score,
                 'status' => $this->status,
-                'makeup_score' => $this->makeup_score,
-                'makeup_status' => $this->makeup_status,
                 'date_taken' => $this->date_taken
             );
 
@@ -94,7 +93,7 @@ class Exam extends AppModel
         }
     }
 
-    public function edit()
+    public function edit($exam_id)
     {
         if (!$this->validate()) {
             throw new ValidationException('Invalid Input');
@@ -104,11 +103,11 @@ class Exam extends AppModel
             $db = DB::conn();
             $params = array(
                 'course_name' => $this->course_name,
+                'course_type' => $this->course_type,
+                'exam_type' => $this->exam_type,
                 'items' => $this->items,
                 'score' => $this->score,
                 'status' => $this->status,
-                'makeup_score' => $this->makeup_score,
-                'makeup_status' => $this->makeup_status,
                 'date_taken' => $this->date_taken
             );
         
@@ -157,5 +156,10 @@ class Exam extends AppModel
         $row = $db->row("SELECT * FROM exam WHERE id = ?", array($exam_id));
         
         return $row;
-    } 
+    }
+
+    public static function getCourses()
+    {
+        return Course::getByName();
+    }
 }

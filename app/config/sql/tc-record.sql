@@ -18,6 +18,7 @@ PRIMARY KEY (id)
 CREATE TABLE IF NOT EXISTS trainee(
 id                  INT(11) NOT NULL AUTO_INCREMENT,
 employee_id         INT(11) NOT NULL,
+new_employee_id     INT(11) NOT NULL,
 first_name          VARCHAR(50) NOT NULL,
 last_name           VARCHAR(50) NOT NULL,
 nickname            VARCHAR(50) NOT NULL,
@@ -31,11 +32,6 @@ graduated           VARCHAR(30) NOT NULL,
 PRIMARY KEY (id)
 )ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS training_status(
-id                  INT(11) NOT NULL AUTO_INCREMENT,
-name                VARCHAR(50) NOT NULL,
-PRIMARY KEY (id)
-)ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS course(
 id                  INT(11) NOT NULL AUTO_INCREMENT,
@@ -48,11 +44,11 @@ CREATE TABLE IF NOT EXISTS exam(
 id                  INT(11) NOT NULL AUTO_INCREMENT,
 trainee_id          INT(11) NOT NULL,
 course_name         VARCHAR(30) NOT NULL,
+course_type         VARCHAR(20) NOT NULL,
+exam_type           VARCHAR(20) NOT NULL,
 items               INT(3) NOT NULL,
 score               VARCHAR(10) NOT NULL,
-makeup_score        VARCHAR(10) NOT NULL,
 status              VARCHAR(10) NOT NULL,
-makeup_status       VARCHAR(10) NOT NULL,
 date_taken          VARCHAR(10) NOT NULL,
 PRIMARY KEY (id)
 )ENGINE=InnoDB;
