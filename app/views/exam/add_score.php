@@ -113,7 +113,6 @@
 <!--Trainee Id-->
     <input type="hidden" name="trainee_id" value="<?php readable_text(Param::get('trainee_id')) ?>">
 
-
 <!--Submit-->
     <div class="control-group">
     <div class="controls">
