@@ -6,8 +6,8 @@
 <!-- Index Table -->
 <table class="gridtable">
 <tr>
-    <th> Name </th>
-    <th> Course</th>
+    <th> Course Name </th>
+    <th> Course Category</th>
     <th> Exam Type </th>
     <th> Items </th>
     <th> Score </th>

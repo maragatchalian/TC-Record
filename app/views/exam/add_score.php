@@ -1,3 +1,5 @@
+<h3>Add Score</h3>
+
 <?php if ($exam->hasError()): ?>
     <div class="alert alert-error">
     <h4 class="alert-heading">Oh snap!</h4>
@@ -59,7 +61,7 @@
 
 <!--Course Name -->
     <div class="control-group">
-    <label class="control-label" for="course_name"><h5>Course Status</h5></label>
+    <label class="control-label" for="course_name"><h5>Course Name</h5></label>
     <div class="controls">
     <select name="course_name"> 
         <option value="">Please Select</option>
@@ -73,31 +75,49 @@
     </div>
 
 <!--Course Course-->
-<label for="course_type"><h5>Course Category</h5></label>
+    <div class="control-group">
+    <label class= "control-label" for="course_type"><h5>Course Category</h5></label>
+    <div class="controls">
     <select name="course_type"> 
         <option value="">Please Select</option>
-        <option value="Passed">Essential</option>
-        <option value="Failed">Language</option>
-        <option value="Failed">Project</option>
+        <option value="Essential Course">Essential Course</option>
+        <option value="Language Course">Language Course</option>
+        <option value="Project Course">Project Course</option>
     </select>
+    </div>
+    </div>
 
 <!--Exam Type-->
-<label for="status"><h5>Exam Type</h5></label>
+    <div class="control-group">
+    <label class= "control-label" for="status"><h5>Exam Type</h5></label>
+    <div class="controls">
     <select name="exam_type"> 
         <option value="">Please Select</option>
-        <option value="Passed">Initial Exam</option>
-        <option value="Failed">Makeup Exam</option>
+        <option value="Initial Exam">Initial Exam</option>
+        <option value="Makeup Exam">Makeup Exam</option>
+    </div>
+    </div>
 
 <!--Items-->
-    <label for="items"><h5>Items</h5></label>
+    <div class="control-group">
+    <label class= "control-label" for="items"><h5>Items</h5></label>
+    <div class="controls">
     <input type="text" name="items" placeholder="Items" value="<?php readable_text(Param::get('items')) ?>">
+    </div>
+    </div>
 
 <!--Score-->
-    <label for="score"><h5>Score</h5></label>
+    <div class="control-group">
+    <label class= "control-label" for="score"><h5>Score</h5></label>
+    <div class="controls">
     <input type="text" name="score" placeholder="Score" value="<?php readable_text(Param::get('score')) ?>">
+    </div>
+    </div>
 
 <!--Status-->
-    <label for="status"><h5>Status</h5></label>
+    <div class="control-group">
+    <label class= "control-label" for="status"><h5>Status</h5></label>
+    <div class="controls">
     <select name="status"> 
         <option value="">Please Select</option>
         <option value="Passed">Passed</option>
@@ -105,10 +125,15 @@
         <option value="Pending">Pending</option>
         <option value="None">None</option>
     </select>
+    </div>
+    </div>
 
 <!--Date Taken-->
-    <label for="date_taken"><h5>Date Taken</h5></label>
+    <div class="control-group">
+    <label class= "control-label" for="date_taken"><h5>Date Taken</h5></label>
     <input type="text" name="date_taken" placeholder="yyyy/mm/dd" value="<?php readable_text(Param::get('date_taken')) ?>">
+    </div>
+    </div>
 
 <!--Trainee Id-->
     <input type="hidden" name="trainee_id" value="<?php readable_text(Param::get('trainee_id')) ?>">
@@ -124,3 +149,6 @@
     </form> 
     </div>
     </div>
+
+</form>
+</form>

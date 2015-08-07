@@ -46,7 +46,7 @@
 
     <!--Sub Courses-->
     <label for="name"><h5>Course Name</h5></label>
-    <input type="text" name="name" placeholder="Course Name" value="<?php readable_text($course_edit['name']) ?>">
+    <input type="text" name="name" value="<?php readable_text($course_edit['name']) ?>">
 
     <!--Submit-->
     <input type="hidden" name="page_next" value="edit_end">

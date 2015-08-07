@@ -1,4 +1,5 @@
-<h3> Edit Score </h3>
+<h3>Edit Score</h3>
+
 <?php if ($exam->hasError()): ?>
     <div class="alert alert-error">
     <h4 class="alert-heading">Oh snap!</h4>
@@ -34,30 +35,12 @@
         </div>
     <?php endif ?>
 
-    <?php //Checking of makeup exam score
-    if (!empty($exam->validation_errors['makeup_score']['length'])): ?>
-        <div>
-            <em> Makeup Exam Score </em> must be between
-                <?php readable_text($exam->validation['makeup_score']['length'][1]) ?> and
-                <?php readable_text($exam->validation['makeup_score']['length'][2]) ?>.
-        </div>
-    <?php endif ?>
-
     <?php //Checking of status
     if (!empty($exam->validation_errors['status']['length'])): ?>
         <div>
             <em> Exam Status </em> must be between
                 <?php readable_text($exam->validation['status']['length'][1]) ?> and
                 <?php readable_text($exam->validation['status']['length'][2]) ?>.
-        </div>
-    <?php endif ?>
-
-    <?php //Checking of makeup status
-    if (!empty($exam->validation_errors['makeup_status']['length'])): ?>
-        <div>
-            <em> Makeup Exam Status </em> must be between
-                <?php readable_text($exam->validation['makeup_status']['length'][1]) ?> and
-                <?php readable_text($exam->validation['makeup_status']['length'][2]) ?>.
         </div>
     <?php endif ?>
 
@@ -71,77 +54,101 @@
     </div>
 <?php endif ?> 
 
-
+<br />
 
 <form class="form-horizontal">
 <form action="<?php readable_text(url('')) ?>" method="POST">
-<input type="hidden" name="exam_id" value="<?php readable_text(Param::get('exam_id')) ?>">
 
-
-<!--Course Name-->
-    <labelfor="course_name"><h5>Course Name</h5></label>
-    <select name="skill_set"> 
-        <option value="<?php readable_text($exam_edit['course_name'])?>"> <?php readable_text($exam_edit['course_name'])?> </option>
-        <option value=""><b>1. Essential Course</b></option>
-        <option value="Computer Science">Computer Science</option>
-        <option value="Database">Database</option>
-        <option value="Data Structures and Algorithms">DSA</option>
-        <option value="Networking">Networking</option>
-        <option value=""> </option>
-        <option value=""><b>2. Language Course</b></option>
-        <option value="Linux">Linux</option>
-        <option value="PHP">PHP</option>
-        <option value="DietCake">DietCake</option>
-        <option value=""> </option>
-        <option value="Objective C">Objective C</option>
-        <option value="iOS">iOS</option>
-        <option value=""> </option>
-        <option value="Java">Java</option>
-        <option value="Android">Android</option>
+<!--Course Name -->
+    <div class="control-group">
+    <label class="control-label" for="course_name"><h5>Course Name</h5></label>
+    <div class="controls">
+    <select name="course_name"> 
+        <option value="<?php readable_text($exam_edit['name']) ?>"><?php readable_text($exam_edit['course_name']) ?></option>
+        
+        <?php foreach ($course_status as $get_course): ?>
+            <option value= "<?php readable_text($get_course) ?>">
+            <?php readable_text($get_course)?></option>
+        <?php endforeach; ?>
     </select>
+    </div>
+    </div>
+
+<!--Course Course-->
+    <div class="control-group">
+    <label class= "control-label" for="course_type"><h5>Course Category</h5></label>
+    <div class="controls">
+    <select name="course_type"> 
+        <option value="<?php readable_text($exam_edit['course_type']) ?>"><?php readable_text($exam_edit['course_type']) ?></option>
+        <option value="Essential Course">Essential Course</option>
+        <option value="Language Course">Language Course</option>
+        <option value="Project Course">Project Course</option>
+    </select>
+    </div>
+    </div>
+
+<!--Exam Type-->
+    <div class="control-group">
+    <label class= "control-label" for="status"><h5>Exam Type</h5></label>
+    <div class="controls">
+    <select name="exam_type"> 
+        <option value ="<?php readable_text($exam_edit['exam_type']) ?>"><?php readable_text($exam_edit['exam_type']) ?></option>
+        <option value="Initial Exam">Initial Exam</option>
+        <option value="Makeup Exam">Makeup Exam</option>
+    </div>
+    </div>
 
 <!--Items-->
-    <label for="items"><h5>Items</h5></label>
-    <input type="text" name="items" value="<?php readable_text($exam_edit['items']) ?>">
-    
-<!--Score-->
-    <label for="score"><h5>Score</h5></label>
-    <input type="text" name="score" value="<?php readable_text($exam_edit['score']) ?>"> 
+    <div class="control-group">
+    <label class= "control-label" for="items"><h5>Items</h5></label>
+    <div class="controls">
+    <input type="text" name="items" value= "<?php readable_text($exam_edit['items']) ?>">
+    </div>
+    </div>
 
+<!--Score-->
+    <div class="control-group">
+    <label class= "control-label" for="score"><h5>Score</h5></label>
+    <div class="controls">
+    <input type="text" name="score" value= "<?php readable_text($exam_edit['score']) ?>">
+    </div>
+    </div>
 
 <!--Status-->
-    <label for="status"><h5>Status</h5></label>
-    <select name="status" value="<?php readable_text($exam_edit['status']) ?>"> 
-        <option value="<?php readable_text($exam_edit['status']) ?>"><?php readable_text($exam_edit['status']) ?></option>
+    <div class="control-group">
+    <label class= "control-label" for="status"><h5>Status</h5></label>
+    <div class="controls">
+    <select name="status"> 
+        <option value = "<?php readable_text($exam_edit['status']) ?>"><?php readable_text($exam_edit['status'])?></option>
         <option value="Passed">Passed</option>
         <option value="Failed">Failed</option>
         <option value="Pending">Pending</option>
         <option value="None">None</option>
     </select>
-
-<!--Makeup Score-->
-    <label for="makeup_score"><h5>Make-up Score</h5></label>
-    <input type="text" name="makeup_score" value="<?php readable_text($exam_edit['makeup_score']) ?>">
-
- <!--Makeup Status-->
-    <label for="makeup_status"><h5>Make-up status</h5></label>
-    <select name="makeup_status"> 
-        <option value="<?php readable_text($exam_edit['makeup_status']) ?>"><?php readable_text($exam_edit['makeup_status']) ?></option>
-        <option value="Passed">Passed</option>
-        <option value="Failed">Failed</option>
-        <option value="Pending">Pending</option>
-        <option value="None">None</option>
-    </select>
+    </div>
+    </div>
 
 <!--Date Taken-->
-    <label for="date_taken"><h5>Date Taken</h5></label>
-    <input type="text" name="date_taken" value="<?php readable_text($exam_edit['date_taken']) ?>">
+    <div class="control-group">
+    <label class= "control-label" for="date_taken"><h5>Date Taken</h5></label>
+    <input type="text" name="date_taken" value = "<?php readable_text($exam_edit['date_taken']) ?>">
+    </div>
+    </div>
+
+<!--Exam Id-->
+    <input type="hidden" name="trainee_id" value="<?php readable_text(Param::get('exam_id')) ?>">
 
 <!--Submit-->
-<input type="hidden" name="page_next" value="edit_score_end">
-<div class="span12">
-<br />
-<button class="btn btn-info btn-medium" type="submit">Save</button>
-<a href="<?php readable_text(url('trainee/index')) ?>" class="btn btn-medium">Cancel</a>
+    <div class="control-group">
+    <div class="controls">
+    <form class="well" method="post" action="<?php readable_text(url('exam/edit_score_end')) ?>">
+    <input type="hidden" name="exam_id" value="<?php readable_text($exam->id) ?>">
+    <input type="hidden" name="page_next" value="edit_score_end">
+    <button type="submit" class="btn btn-info btn-medium">Save</button>
+    <a class="btn btn-medium btn-default" href="<?php readable_text(url('trainee/index')) ?>">Cancel</a>
+    </form> 
+    </div>
+    </div>
+
 </form>
 </form>
