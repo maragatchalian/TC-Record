@@ -49,6 +49,6 @@ exam_type           VARCHAR(20) NOT NULL,
 items               INT(3) NOT NULL,
 score               VARCHAR(10) NOT NULL,
 status              VARCHAR(10) NOT NULL,
-date_taken          VARCHAR(10) NOT NULL,
+date_taken          DATE NOT NULL,
 PRIMARY KEY (id)
 )ENGINE=InnoDB;
