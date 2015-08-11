@@ -51,7 +51,7 @@
                             </li>
                             <?php endforeach; ?>
                         </ul>
-                        <?php endforeach; ?>
+                    <?php endforeach; ?>
                     </li>    
                 </ul>
             </li>

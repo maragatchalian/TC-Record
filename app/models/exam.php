@@ -95,8 +95,7 @@ class Exam extends AppModel
     }
 
     public function edit($exam_id)
-    {
-        
+    {        
         if (!$this->validate()) {
             throw new ValidationException('Invalid Input');
         }
@@ -121,12 +120,12 @@ class Exam extends AppModel
         }
     }
 
-    public static function getAllTrainee($trainee_id)
+    public static function getTraineeInfo($trainee_id)
     {
         return new self(object_to_array(Trainee::getById($trainee_id)));
     }
 
-    public static function getAllByTraineeId($trainee_id)
+    public static function getByTraineeId($trainee_id)
     {
         $exam = array();
 
@@ -135,6 +134,34 @@ class Exam extends AppModel
 
         foreach ($rows as $row) {
             $exam[] = new self($row);
+        }
+        return $exam;
+    }
+
+    public static function getByExamId($exam_id)
+    {
+        $exam = array();
+
+        $db = DB::conn();
+        $rows = $db->rows("SELECT * FROM exam WHERE id = ?", array($exam_id));
+
+        foreach ($rows as $row) {
+            $exam[] = new self($row);
+        }
+        return $exam;
+    }
+
+    //Trial Only...
+    public static function getAll($trainee_id, $exam_id)
+    {
+        $exam = array();
+
+        $db = DB::conn();
+        $rows = $db->rows("SELECT * FROM exam where trainee_id = ? AND id = ?", array($trainee_id, $exam_id));
+        
+        foreach ($rows as $row) {
+            $exam[] = new self($row);
+
         }
         return $exam;
     }

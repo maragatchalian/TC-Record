@@ -8,8 +8,8 @@
     <br />
     <br />
 
-    <?php //Checking of course name
-    if (!empty($exam->validation_errors['course_name']['length'])): ?>
+    <!--CHECKING: Course Name Length-->
+    <?php if (!empty($exam->validation_errors['course_name']['length'])): ?>
         <div>
             <em> Course Name </em> must be between
                 <?php readable_text($exam->validation['course_name']['length'][1]) ?> and
@@ -17,8 +17,8 @@
         </div>
     <?php endif ?>
 
-   <?php //Checking of score items
-    if (!empty($exam->validation_errors['items']['length'])): ?>
+    <!--CHECKING: Items Length-->
+   <?php if (!empty($exam->validation_errors['items']['length'])): ?>
         <div>
             <em> Number of Exam Items </em> must be between
                 <?php readable_text($exam->validation['items']['length'][1]) ?> and
@@ -26,8 +26,8 @@
         </div>
     <?php endif ?>
 
-    <?php //Checking of score
-    if (!empty($exam->validation_errors['score']['length'])): ?>
+    <!--CHECKING: Score Length-->
+    <?php if (!empty($exam->validation_errors['score']['length'])): ?>
         <div>
             <em> Exam Score </em> must be between
                 <?php readable_text($exam->validation['score']['length'][1]) ?> and
@@ -35,8 +35,8 @@
         </div>
     <?php endif ?>
 
-    <?php //Checking of status
-    if (!empty($exam->validation_errors['status']['length'])): ?>
+   <!--CHECKING: Status Length-->
+    <?php if (!empty($exam->validation_errors['status']['length'])): ?>
         <div>
             <em> Exam Status </em> must be between
                 <?php readable_text($exam->validation['status']['length'][1]) ?> and
@@ -44,8 +44,8 @@
         </div>
     <?php endif ?>
 
-    <?php //Checking of Date Taken
-    if (!empty($exam->validation_errors['date_taken']['valid'])): ?>
+    <!--CHECKING: Status Length-->
+    <?php if (!empty($exam->validation_errors['date_taken']['valid'])): ?>
         <div>
         Your input on <em>Date Taken</em> is not valid!
         </div>
