@@ -29,36 +29,35 @@ class TraineeController extends AppController
 
         $page = 'index';
 
-            switch ($index) {
-                case self::INDEX:
-                    $trainees = Trainee::getAll();
-                    break;
+        switch ($index) {
+            case self::INDEX:
+                $trainees = Trainee::getAll();
+                break;
 
-                case self::TRAINING_STATUS:
-                    $trainees = Trainee::getByTrainingStatus($data);
-                    break;
+            case self::TRAINING_STATUS:
+                $trainees = Trainee::getByTrainingStatus($data);
+                break;
 
-                case self::SKILL_SET:
-                    $trainees = Trainee::getBySkillSet($data);
-                    break;
+            case self::SKILL_SET:
+                $trainees = Trainee::getBySkillSet($data);
+                break;
 
-                case self::BATCH_YEAR:
-                    $trainees = Trainee::getByBatchYear($data);
-                    break;
+            case self::BATCH_YEAR:
+                $trainees = Trainee::getByBatchYear($data);
+                break;
 
-                case self::BATCH_TERM:
-                    list($year, $term) = explode('_', $data);
-                    $trainees = Trainee::getByBatchTerm($term, $year);                
-                    break;
+            case self::BATCH_TERM:
+                list($year, $term) = explode('_', $data);
+                $trainees = Trainee::getByBatchTerm($term, $year);                
+                break;
 
-                case self::COURSE_STATUS:
-                    $trainees = Trainee::getByCourseStatus($data);
-                    break;
-                default:
-                    throw new NotFoundException("{$index} is not found");
-                    break;
-            }
-        
+            case self::COURSE_STATUS:
+                $trainees = Trainee::getByCourseStatus($data);
+                break;
+            default:
+                throw new NotFoundException("{$index} is not found");
+                break;
+        }
         $this->set(get_defined_vars());
         $this->render($page);
     }        
