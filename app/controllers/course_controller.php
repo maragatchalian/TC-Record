@@ -9,7 +9,7 @@ class CourseController extends AppController
 
     public function index()
     {
-        $courses = Course::getCategories();
+        $course_categories= Course::getCategories();
         $course_id = Param::get('course_id');
         $sub_courses = Course::getByCategory($course_id);
         $this->set(get_defined_vars());

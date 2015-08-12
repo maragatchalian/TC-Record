@@ -4,10 +4,10 @@
 <br />
 
 <ul id="courses">
-    <?php foreach ($courses as $get_courses): ?>
+    <?php foreach ($course_categories as $get_course_categories): ?>
         <li>
-            <a href="<?php readable_text(url('course/index', array('course_id' => $get_courses))) ?>">
-            <?php readable_text($get_courses); ?></a>
+            <a href="<?php readable_text(url('course/index', array('course_id' => $get_course_categories))) ?>">
+            <?php readable_text($get_course_categories); ?></a>
         </li>
     <?php endforeach; ?>
 </ul>    
