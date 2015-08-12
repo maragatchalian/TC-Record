@@ -230,7 +230,7 @@
     <div class="control-group">
     <label class="control-label" for="date_hired"><h5>Date Hired</h5></label>
     <div class="controls">
-    <input type="text" name="date_hired" placeholder="yyyy/mm/dd" value="<?php readable_text(Param::get('date_hired')) ?>">
+    <input type="text" name="date_hired" placeholder="yyyy-mm-dd" value="<?php readable_text(Param::get('date_hired')) ?>">
     </div>
     </div>
 
@@ -238,7 +238,7 @@
     <div class="control-group">
     <label class="control-label" for="date_graduated"><h5>Date of Graduation</h5></label>
     <div class="controls">
-    <input type="text" name="date_graduated" placeholder="yyyy/mm/dd" value="<?php readable_text(Param::get('date_graduated')) ?>">
+    <input type="text" name="date_graduated" placeholder="yyyy-mm-dd" value="<?php readable_text(Param::get('date_graduated')) ?>">
     </div>
     </div>
 

@@ -153,8 +153,8 @@ class Trainee extends AppModel
         if (!$this->validate()) {
             throw new ValidationException('Invalid Input');
         }
-            $db = DB::conn();
-            $params = array(
+        $db = DB::conn();
+        $params = array(
                 'employee_id' => $this->new_employee_id,
                 'last_name' => $this->last_name,
                 'first_name' => $this->first_name,
@@ -166,10 +166,9 @@ class Trainee extends AppModel
                 'batch_term' => $this->batch_term,
                 'date_hired' => $this->date_hired,
                 'date_graduated'=> $this->date_graduated
-            );
-        
-            $trainee_id = array('id' => $this->trainee_id);
-            $db->update('trainee', $params, $trainee_id);
+        );
+
+        $db->update('trainee', $params, array('id' => $this->trainee_id));
     }
 
     public static function getAll()
