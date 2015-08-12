@@ -19,6 +19,7 @@ class ExamController extends AppController
     public function add_score() 
     {
         $params = array(
+            'trainee_id' => Param::get('trainee_id'),
             'course_name' => Param::get('course_name'),
             'course_type' => Param::get('course_type'),
             'exam_type' => Param::get('exam_type'),

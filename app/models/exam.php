@@ -64,23 +64,21 @@ class Exam extends AppModel
     );
 
     public function add()
-    {
-    
+    {    
         if (!$this->validate()) {
             throw new ValidationException('Invalid Input!');
         }
 
         $db = DB::conn(); 
-        $trainee_id = Param::get('trainee_id');
             $params = array( 
-                'trainee_id' => $trainee_id,
                 'course_name' => $this->course_name,
                 'course_type' => $this->course_type,
                 'exam_type' => $this->exam_type,
                 'items' => $this->items,
                 'score' => $this->score,
                 'status' => $this->status,
-                'date_taken' => $this->date_taken
+                'date_taken' => $this->date_taken,
+                'trainee_id' => $this->trainee_id
             );
 
         $db->insert('exam', $params);
