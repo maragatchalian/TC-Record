@@ -131,7 +131,7 @@
 <!--Date Taken-->
     <div class="control-group">
     <label class= "control-label" for="date_taken"><h5>Date Taken</h5></label>
-    <input type="text" name="date_taken" placeholder="yyyy/mm/dd" value="<?php readable_text(Param::get('date_taken')) ?>">
+    <input type="text" name="date_taken" placeholder="yyyy-mm-dd" value="<?php readable_text(Param::get('date_taken')) ?>">
     </div>
     </div>
 
