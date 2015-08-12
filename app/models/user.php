@@ -101,21 +101,17 @@ class User extends AppModel
             throw new ValidationException('Invalid Input!');
         }
         
-        $db = DB::conn(); 
-        $registered = date("Y-m-d H:i:s");
-        
+        $db = DB::conn();        
             $params = array( 
                 'username' => $this->username,
                 'first_name' => $this->first_name,
                 'last_name' => $this->last_name,
                 'password' => md5($this->password),
                 'email' => strtolower($this->email),
-                'user_type' => $this->user_type,
-                'registered' => $registered
+                'user_type' => $this->user_type
             );
             
         $db->insert('user', $params); 
-        $db->commit();
     }
 
     public function login()
