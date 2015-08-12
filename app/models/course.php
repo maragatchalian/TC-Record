@@ -30,23 +30,14 @@ class Course extends AppModel
         if (!$this->validate()) {
             throw new ValidationException('Invalid Input!');
         }
+        
+        $db = DB::conn();            
+        $params = array( 
+            'name' => $this->name,
+            'category' => $this->category,
+        );
 
-        try {
-            $db = DB::conn(); 
-            $db->begin();
-            
-            $params = array( 
-                'name' => $this->name,
-                'category' => $this->category,
-            );
-
-            $db->insert('course', $params); 
-            $db->commit();
-
-        } catch(Exception $e) {
-            $db->rollback();
-            throw $e;
-        }
+        $db->insert('course', $params); 
     }
 
     public function edit($course_id)
