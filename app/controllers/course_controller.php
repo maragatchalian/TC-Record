@@ -38,7 +38,6 @@ class CourseController extends AppController
                 break;
             default:
                 throw new NotFoundException("{$page} is not found");
-                break;
         }
         $this->set(get_defined_vars());
         $this->render($page);
@@ -69,7 +68,6 @@ class CourseController extends AppController
            
             default:
                 throw new NotFoundException("{$page} is not found");
-                break;
         }
         $course_edit = Course::getById($course_id);
         $this->set(get_defined_vars());

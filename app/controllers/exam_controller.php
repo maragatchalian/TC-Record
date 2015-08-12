@@ -45,7 +45,6 @@ class ExamController extends AppController
 
             default:
                 throw new NotFoundException("{$page} is not found");
-                break;
         }
         $sub_courses = Param::get('name');
         $course_status = Exam::getCourses($sub_courses);
@@ -82,7 +81,6 @@ class ExamController extends AppController
                 break;
             default:
                 throw new NotFoundException("{$page} is not found");
-                break;
         }
         $sub_courses = Param::get('name');
         $course_status = Exam::getCourses($sub_courses);

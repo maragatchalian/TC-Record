@@ -153,7 +153,6 @@ class TraineeController extends AppController
                 if ($success) {
                     $trainee->employee_id = $trainee->new_employee_id;
                 }
-
                 break;
             default:
                 throw new NotFoundException("{$page} is not found");

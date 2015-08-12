@@ -42,7 +42,6 @@ class UserController extends AppController
 
             default:
                 throw new NotFoundException("{$page} is not found");
-                break;
         }
         $this->set(get_defined_vars());
         $this->render($page);
@@ -76,7 +75,6 @@ class UserController extends AppController
             
             default:
                 throw new NotFoundException("{$page} is not found");
-                break;
         }
         $this->set(get_defined_vars());
         $this->render($page); 
