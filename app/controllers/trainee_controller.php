@@ -95,7 +95,6 @@ class TraineeController extends AppController
 
             default:
                 throw new NotFoundException("{$page} is not found");
-                break;
         }
         $course_name = Param::get('name');
         $course_status = Trainee::getCourses($course_name);
@@ -158,7 +157,6 @@ class TraineeController extends AppController
                 break;
             default:
                 throw new NotFoundException("{$page} is not found");
-                break;
         }
         $sub_courses = Param::get('name');
         $course_status = Trainee::getCourses($sub_courses);
