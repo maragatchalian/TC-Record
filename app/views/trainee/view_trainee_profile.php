@@ -15,8 +15,8 @@
     <b>Primary Skill : </b>  <?php readable_text($trainee['skill_set']);?> <br />
     <b>Training Status : </b><?php readable_text($trainee['training_status']);?> <br />
     <b>Course Status : </b><?php readable_text($trainee['course_status']);?> <br />
-    <b>Date Hired : </b><?php readable_text($trainee['hired']);?> <br />
-    <b>Date of Graduation : </b><?php readable_text($trainee['graduated']);?> <br />
+    <b>Date Hired : </b><?php readable_text($trainee['date_hired']);?> <br />
+    <b>Date of Graduation : </b><?php readable_text($trainee['date_graduated']);?> <br />
     <a class="btn btn-medium btn-info" href="<?php readable_text(url('trainee/edit', array('trainee_id' => $trainee_id))) ?>">Edit Trainee</a>
     <a class="btn btn-medium btn-info" href="<?php readable_text(url('exam/view_trainee_score', array('trainee_id' => $trainee_id))) ?>">Exam Scores</a>
 <br />

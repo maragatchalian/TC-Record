@@ -91,7 +91,7 @@
         <td><a href="<?php readable_text(url('trainee/view_trainee_profile', array('trainee_id' => $get_from_trainee->id))) ?>">   
         <?php readable_text($get_from_trainee->nickname) ?> </a> </td>
 
-        <td> <?php readable_text($get_from_trainee->hired) ?> </a> </td>
+        <td> <?php readable_text($get_from_trainee->date_hired) ?> </a> </td>
 
         <td><a href="<?php readable_text(url('trainee/view_trainee_profile', array('trainee_id' => $get_from_trainee->id))) ?>">
         <?php readable_text($get_from_trainee->last_name) ?> </a> </td>

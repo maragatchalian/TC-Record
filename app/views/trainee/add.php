@@ -107,14 +107,14 @@
     <?php endif ?>
 
     <!--Checking: Valid Hired Date-->
-    <?php if (!empty($trainee->validation_errors['hired']['valid'])): ?>
+    <?php if (!empty($trainee->validation_errors['date_hired']['valid'])): ?>
         <div>
             Your input on <em>Date Hired</em> is not valid!
         </div>
     <?php endif ?>
 
     <!--Checking: Valid Graduated Date--> 
-    <?php if (!empty($trainee->validation_errors['graduated']['valid'])): ?>
+    <?php if (!empty($trainee->validation_errors['date_graduated']['valid'])): ?>
         <div>
             Your input on <em>Date of graduation</em> is not valid!
         </div>
@@ -228,17 +228,17 @@
 
 <!--Hired -->
     <div class="control-group">
-    <label class="control-label" for="hired"><h5>Date Hired</h5></label>
+    <label class="control-label" for="date_hired"><h5>Date Hired</h5></label>
     <div class="controls">
-    <input type="text" name="hired" placeholder="yyyy/mm/dd" value="<?php readable_text(Param::get('hired')) ?>">
+    <input type="text" name="date_hired" placeholder="yyyy/mm/dd" value="<?php readable_text(Param::get('date_hired')) ?>">
     </div>
     </div>
 
 <!--Graduated -->
     <div class="control-group">
-    <label class="control-label" for="graduated"><h5>Date of Graduation</h5></label>
+    <label class="control-label" for="date_graduated"><h5>Date of Graduation</h5></label>
     <div class="controls">
-    <input type="text" name="graduated" placeholder="yyyy/mm/dd" value="<?php readable_text(Param::get('graduated')) ?>">
+    <input type="text" name="date_graduated" placeholder="yyyy/mm/dd" value="<?php readable_text(Param::get('date_graduated')) ?>">
     </div>
     </div>
 

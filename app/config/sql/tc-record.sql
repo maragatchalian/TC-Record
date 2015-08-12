@@ -26,12 +26,11 @@ skill_set           VARCHAR(20) NOT NULL,
 course_status       VARCHAR(50) NOT NULL,
 training_status     VARCHAR(20) NOT NULL,
 batch_term          VARCHAR(30) NOT NULL,
-batch_year          int(4) NOT NULL,
-hired               VARCHAR(30) NOT NULL,
-graduated           VARCHAR(30) NOT NULL,
+batch_year          INT(4) NOT NULL,
+date_hired          DATE NOT NULL,
+date_graduated      DATE NOT NULL,
 PRIMARY KEY (id)
 )ENGINE=InnoDB;
-
 
 CREATE TABLE IF NOT EXISTS course(
 id                  INT(11) NOT NULL AUTO_INCREMENT,
@@ -49,6 +48,6 @@ exam_type           VARCHAR(20) NOT NULL,
 items               INT(3) NOT NULL,
 score               VARCHAR(10) NOT NULL,
 status              VARCHAR(10) NOT NULL,
-date_taken          DATE NOT NULL,
+date_taken          DATE NOT NULL, 
 PRIMARY KEY (id)
 )ENGINE=InnoDB;

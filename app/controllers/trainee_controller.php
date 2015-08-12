@@ -75,8 +75,8 @@ class TraineeController extends AppController
             'course_status' => Param::get('course_status'),
             'batch_year' => Param::get('batch_year'),
             'batch_term' => Param::get('batch_term'),
-            'hired' => Param::get('hired'),
-            'graduated' => Param::get('graduated')
+            'date_hired' => Param::get('date_hired'),
+            'date_graduated' => Param::get('date_graduated')
         );
 
         $trainee = new Trainee($params);
@@ -132,8 +132,8 @@ class TraineeController extends AppController
             'course_status' => Param::get('course_status'),
             'batch_year' => Param::get('batch_year'),
             'batch_term' => Param::get('batch_term'),
-            'hired' => Param::get('hired'),
-            'graduated' => Param::get('graduated'),
+            'date_hired' => Param::get('date_hired'),
+            'date_graduated' => Param::get('date_graduated'),
             'trainee_id' => $trainee_id
         );
 

@@ -97,13 +97,13 @@ class Trainee extends AppModel
             )
         ),
 
-        'hired' => array(
+        'date_hired' => array(
             'valid' => array(
                 'is_valid_date',
             )
         ),
 
-        'graduated' => array(
+        'date_graduated' => array(
             'valid' => array(
                 'is_valid_date',
             )
@@ -137,8 +137,8 @@ class Trainee extends AppModel
                 'training_status' => $this->training_status,
                 'batch_year' => $this->batch_year,
                 'batch_term' => $this->batch_term,
-                'hired' => $this->hired,
-                'graduated' => $this->graduated
+                'date_hired' => $this->date_hired,
+                'date_graduated' => $this->date_graduated
             );
             $db->insert('trainee', $params); 
             $db->commit();
@@ -180,8 +180,8 @@ class Trainee extends AppModel
                 'training_status' => $this->training_status,
                 'batch_year' => $this->batch_year,
                 'batch_term' => $this->batch_term,
-                'hired' => $this->hired,
-                'graduated'=> $this->graduated
+                'date_hired' => $this->date_hired,
+                'date_graduated'=> $this->date_graduated
             );
         
             $trainee_id = array('id' => $this->trainee_id);
@@ -197,7 +197,7 @@ class Trainee extends AppModel
         $trainees = array();
 
         $db = DB::conn();
-        $rows = $db->rows("SELECT * FROM trainee ORDER BY hired desc");
+        $rows = $db->rows("SELECT * FROM trainee ORDER BY date_hired desc");
 
         foreach ($rows as $row) {
             $trainees[] = new self($row);
