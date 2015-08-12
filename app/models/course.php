@@ -46,33 +46,21 @@ class Course extends AppModel
             throw new ValidationException('Invalid Input');
         }
     
-        try {
-            $db = DB::conn();
+        $db = DB::conn();
             $params = array(
                 'category' => $this->category,
                 'name' => $this->name
             );
-        
-            $course_id = array('id' => $this->course_id);
-            $db->update('course', $params, $course_id);
-            
-        } catch(Exception $e) {
-            throw $e;
-        }
+
+        $course_id = array('id' => $this->course_id);
+        $db->update('course', $params, $course_id);        
     }
 
     public static function delete($course_id)
     {
-        try {
-            $db = DB::conn();
-            $db->begin();
-
-            $db->query("DELETE FROM course WHERE id = ?", array($course_id));
-            $db->commit();
-        
-        } catch (Exception $e) {
-            $db->rollback();
-        }
+        $db = DB::conn();
+        $db->query("DELETE FROM course WHERE id = ?", array($course_id));
+        $db->commit();
     }
 
     public static function getCategory()

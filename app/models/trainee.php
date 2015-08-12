@@ -124,9 +124,7 @@ class Trainee extends AppModel
             throw new ValidationException('Invalid Input!');
         }
 
-        try {
             $db = DB::conn(); 
-            $db->begin();
             $params = array( 
                 'employee_id' => $this->employee_id,
                 'first_name' => $this->first_name,
@@ -142,24 +140,12 @@ class Trainee extends AppModel
             );
             $db->insert('trainee', $params); 
             $db->commit();
-        } catch(Exception $e) {
-            $db->rollback();
-            throw $e;
-        }
     }
 
     public static function delete($trainee_id)
     {
-        try {
-            $db = DB::conn();
-            $db->begin();
-
-            $db->query("DELETE FROM trainee WHERE id = ?", array($trainee_id));
-            $db->commit();
-        
-        } catch (Exception $e) {
-            $db->rollback();
-        }
+        $db = DB::conn();
+        $db->query("DELETE FROM trainee WHERE id = ?", array($trainee_id));
     }
 
     public function edit($trainee_id)
@@ -167,8 +153,6 @@ class Trainee extends AppModel
         if (!$this->validate()) {
             throw new ValidationException('Invalid Input');
         }
-    
-        try {
             $db = DB::conn();
             $params = array(
                 'employee_id' => $this->new_employee_id,
@@ -186,10 +170,6 @@ class Trainee extends AppModel
         
             $trainee_id = array('id' => $this->trainee_id);
             $db->update('trainee', $params, $trainee_id);
-            
-        } catch(Exception $e) {
-            throw $e;
-        }
     }
 
     public static function getAll()

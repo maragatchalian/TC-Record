@@ -100,12 +100,10 @@ class User extends AppModel
         if (!$this->validate()) {
             throw new ValidationException('Invalid Input!');
         }
-
-        try {
-            $db = DB::conn(); 
-            $registered = date("Y-m-d H:i:s");
-            $db->begin();
-            
+        
+        $db = DB::conn(); 
+        $registered = date("Y-m-d H:i:s");
+        
             $params = array( 
                 'username' => $this->username,
                 'first_name' => $this->first_name,
@@ -116,13 +114,8 @@ class User extends AppModel
                 'registered' => $registered
             );
             
-            $db->insert('user', $params); 
-            $db->commit();
-        
-        } catch(Exception $e) {
-            $db->rollback();
-            throw $e;
-        }
+        $db->insert('user', $params); 
+        $db->commit();
     }
 
     public function login()
