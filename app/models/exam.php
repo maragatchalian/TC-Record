@@ -130,7 +130,7 @@ class Exam extends AppModel
         $exam = array();
 
         $db = DB::conn();
-        $rows = $db->rows("SELECT * FROM exam where trainee_id = ?", array($trainee_id));
+        $rows = $db->rows("SELECT * FROM exam WHERE trainee_id = ?", array($trainee_id));
 
         foreach ($rows as $row) {
             $exam[] = new self($row);
@@ -157,7 +157,7 @@ class Exam extends AppModel
         $exam = array();
 
         $db = DB::conn();
-        $rows = $db->rows("SELECT * FROM exam where trainee_id = ? AND id = ?", array($trainee_id, $exam_id));
+        $rows = $db->rows("SELECT * FROM exam WHERE trainee_id = ? AND id = ?", array($trainee_id, $exam_id));
         
         foreach ($rows as $row) {
             $exam[] = new self($row);

@@ -90,7 +90,7 @@ class User extends AppModel
     public function is_email_exist()
     {
         $db = DB::conn();
-        $email_exist = $db->row("SELECT email FROM user where email = ?", array($this->email));
+        $email_exist = $db->row("SELECT email FROM user WHERE email = ?", array($this->email));
         
         return (!$email_exist);
     }
