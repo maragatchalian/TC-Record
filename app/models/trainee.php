@@ -171,6 +171,32 @@ class Trainee extends AppModel
         $db->update('trainee', $params, array('id' => $this->trainee_id));
     }
 
+    /*Ms. Fati Suggestion
+    public function getByType($type, array $params)
+    {
+        switch ($type) {
+            case 'training_status':
+                $where = 'training_status = ?';
+                break;
+            case 'skill_set':
+                $where = 'skill_set = ?';
+                break;
+            case 'batch_year':
+                $where = 'batch year = ?'
+                break;
+            case 'batch_term':
+                $where = 'batch_term = ?'
+                break;
+            case 'course_status':
+                $where = 'course_status = ?'
+                break;
+            default:
+                throw new NotFoundException("{$index} is not found");
+        }
+        $db = DB::conn();
+        $rows = $db->search('trainee', $where, $params);
+    }*/
+
     public static function getAll()
     {
         $trainees = array();

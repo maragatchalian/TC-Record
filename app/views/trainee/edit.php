@@ -216,9 +216,9 @@
     <div class="controls">
     <select name="batch_year">        
         <option value="<?php readable_text($trainee_edit['batch_year']) ?>"><?php readable_text($trainee_edit['batch_year']) ?></option>
-        <option value="2015">2015</option>
-        <option value="2014">2014</option>
-        <option value="2013">2013</option>
+        <?php foreach (range(date('Y'), 2013) as $year): ?>
+        <option value="<?php echo $year ?>"><?php echo $year ?></option>
+        <?php endforeach; ?>
     </select>
     </div>
     </div>

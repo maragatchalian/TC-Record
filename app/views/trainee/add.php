@@ -206,10 +206,9 @@
     <label class="control-label" for="batch_year"><h5>Batch Year</h5></label>
     <div class="controls">
     <select name="batch_year">        
-        <option value="">Please Select</option>
-        <option value="2015">2015</option>
-        <option value="2014">2014</option>
-        <option value="2013">2013</option>
+        <?php foreach (range(date('Y'), 2013) as $year): ?>
+        <option value="<?php echo $year ?>"><?php echo $year ?></option>
+        <?php endforeach; ?>
     </select>
     </div>
     </div>
