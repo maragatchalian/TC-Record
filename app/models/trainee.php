@@ -21,7 +21,7 @@ class Trainee extends AppModel
     const MAX_SKILL_SET_LENGTH = 20;
     const MAX_TRAINING_STATUS_LENGTH = 20;
     const MAX_COURSE_STATUS_LENGTH = 20;
-    const MAX_BATCH_YEAR_LENGTH = 20;
+    const MAX_BATCH_YEAR_LENGTH = 4;
     const MAX_BATCH_TERM_LENGTH = 20;
     const MAX_HIRED_LENGTH = 10;
     const MAX_GRADUATED_LENGTH = 10;
