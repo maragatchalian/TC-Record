@@ -36,6 +36,7 @@ class TraineeController extends AppController
 
             case self::TRAINING_STATUS:
                 $trainees = Trainee::getByTrainingStatus($data);
+                //$trainees = Trainee::getByType($data);
                 break;
 
             case self::SKILL_SET:
