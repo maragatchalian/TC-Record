@@ -52,7 +52,7 @@
       <?php endif ?>
 
     </div>
-<?php endif ?> 
+<?php endif ?>
 
 <br />
 
@@ -120,10 +120,10 @@
     <div class="controls">
     <select name="status"> 
         <option value="">Please Select</option>
-        <option value="Passed">Passed</option>
-        <option value="Failed">Failed</option>
-        <option value="Pending">Pending</option>
-        <option value="None">None</option>
+        <option value="<?php readable_text(Exam::PASSED) ?>">Passed</option>
+        <option value="<?php readable_text(Exam::FAILED) ?>">Failed</option>
+        <option value="<?php readable_text(Exam::PENDING) ?>">Pending</option>
+        <option value="<?php readable_text(Exam::NONE) ?>">None</option>
     </select>
     </div>
     </div>
@@ -146,7 +146,7 @@
     <input type="hidden" name="page_next" value="add_score_end">
     <button type="submit" class="btn btn-info btn-medium">Submit</button>
     <a class="btn btn-medium btn-default" href="<?php readable_text(url('trainee/index')) ?>">Cancel</a>
-    </form> 
+    </form>
     </div>
     </div>
 

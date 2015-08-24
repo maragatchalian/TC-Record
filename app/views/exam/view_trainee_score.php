@@ -13,17 +13,18 @@
 </tr>
 
 <?php foreach ($exam_details as $get_exam_details): ?>
-    <tr>     
-        <td> 
+    <tr>
+        <td>
             <a href="<?php readable_text(url('exam/edit_score', array('exam_id' => $exam_id))) ?>">
             <?php readable_text($get_exam_details->course_name)?> </a> 
-        </td>  
+        </td>
         <td> <?php readable_text($get_exam_details->course_type) ?> </a> </td>
         <td> <?php readable_text($get_exam_details->exam_type) ?> </a> </td>
         <td> <?php readable_text($get_exam_details->items) ?> </a> </td>
         <td> <?php readable_text($get_exam_details->score) ?> </a> </td>
-        <td> <?php readable_text($get_exam_details->status) ?> </a> </td>
-        <td> <?php readable_text($get_exam_details->date_taken) ?> </a> </td>
+        <!--<td> <?php readable_text($get_exam_details->status) ?> </a> </td>-->
+        <td> <?php echo $get_exam_details->getByStatus($get_exam_details->trainee_id) ?> </a> </td>
+        <td> <?php readable_text($get_exam_details->date_taken) ?> </a> </td>    
     <?php endforeach; ?>
     </tr>
 </table>

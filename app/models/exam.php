@@ -6,7 +6,7 @@ class Exam extends AppModel
     const MIN_ITEMS = 1;
     const MIN_SCORE = 1;
     const MIN_MAKEUP_SCORE = 1;
-    const MIN_STATUS = 3;
+    const MIN_STATUS = 1;
     const MIN_MAKEUP_STATUS = 3;
     const MIN_DATE_TAKEN = 3;
 
@@ -14,9 +14,15 @@ class Exam extends AppModel
     const MAX_ITEMS = 5;
     const MAX_SCORE = 5;
     const MAX_MAKEUP_SCORE = 10;
-    const MAX_STATUS = 10;
+    const MAX_STATUS = 1;
     const MAX_MAKEUP_STATUS = 10;
     const MAX_DATE_TAKEN = 10;
+
+    //Exam Status
+    const PASSED = 1;
+    const FAILED = 2;
+    const PENDING = 3;
+    const NONE = 4;
 
     public $validation = array(
 
@@ -82,6 +88,31 @@ class Exam extends AppModel
             );
 
         $db->insert('exam', $params);
+    }
+
+    public static function getByStatus($trainee_id)
+    {
+        $db = DB::conn();
+        $row = $db->row('SELECT status FROM exam WHERE trainee_id = ?', array($trainee_id));
+        
+        switch ($row['status']) {
+            case self::PASSED:
+                $status = "PASSED";
+                break;
+            case self::FAILED:
+                $status = "FAILED";
+                break;
+            case self::PENDING:
+                $status = "PENDING";
+                break;
+            case self::NONE:
+                $status = "NONE";
+                break;
+            default:
+                throw new NotFoundException("{$status} is not found");
+                break;
+        }
+        return $status;
     }
 
     public function edit($exam_id)
