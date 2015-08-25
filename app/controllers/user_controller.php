@@ -30,8 +30,7 @@ class UserController extends AppController
         
         switch ($page) {    
             case self::REGISTER:
-                break;
-            
+                break;           
             case self::REGISTER_END:
                 try {
                     $user->register();
@@ -39,7 +38,6 @@ class UserController extends AppController
                     $page = self::REGISTER;
                 }
                 break;
-
             default:
                 throw new NotFoundException("{$page} is not found");
         }
@@ -47,7 +45,7 @@ class UserController extends AppController
         $this->render($page);
     }
 
-    public function login() 
+    public function login()
     {
         if (is_logged_in()) {
             redirect(url('user/login_end'));

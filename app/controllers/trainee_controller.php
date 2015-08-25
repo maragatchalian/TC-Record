@@ -36,7 +36,6 @@ class TraineeController extends AppController
 
             case self::TRAINING_STATUS:
                 $trainees = Trainee::getByTrainingStatus($data);
-                //$trainees = Trainee::getByType($data);
                 break;
 
             case self::SKILL_SET:
@@ -57,7 +56,6 @@ class TraineeController extends AppController
                 break;
             default:
                 throw new NotFoundException("{$index} is not found");
-                break;
         }
         $this->set(get_defined_vars());
         $this->render($page);

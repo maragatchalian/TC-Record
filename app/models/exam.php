@@ -172,21 +172,6 @@ class Exam extends AppModel
         return $exam;
     }
 
-    //Trial Only...
-    public static function getAll($trainee_id, $exam_id)
-    {
-        $exam = array();
-
-        $db = DB::conn();
-        $rows = $db->rows("SELECT * FROM exam WHERE trainee_id = ? AND id = ?", array($trainee_id, $exam_id));
-        
-        foreach ($rows as $row) {
-            $exam[] = new self($row);
-
-        }
-        return $exam;
-    }
-
     public static function getById($exam_id)
     {
         $db = DB::conn();

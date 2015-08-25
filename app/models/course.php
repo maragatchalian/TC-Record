@@ -47,10 +47,10 @@ class Course extends AppModel
         }
     
         $db = DB::conn();
-            $params = array(
-                'category' => $this->category,
-                'name' => $this->name
-            );
+        $params = array(
+            'category' => $this->category,
+            'name' => $this->name
+        );
 
         $course_id = array('id' => $this->course_id);
         $db->update('course', $params, $course_id);        
@@ -60,7 +60,6 @@ class Course extends AppModel
     {
         $db = DB::conn();
         $db->query("DELETE FROM course WHERE id = ?", array($course_id));
-        $db->commit();
     }
 
     public static function getCategories()

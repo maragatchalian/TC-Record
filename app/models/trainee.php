@@ -123,23 +123,24 @@ class Trainee extends AppModel
         if (!$this->validate()) {
             throw new ValidationException('Invalid Input!');
         }
-
-            $db = DB::conn(); 
-            $params = array( 
-                'employee_id' => $this->employee_id,
-                'first_name' => $this->first_name,
-                'last_name' => $this->last_name,
-                'nickname' => $this->nickname,
-                'skill_set' => $this->skill_set,
-                'course_status' => $this->course_status,
-                'training_status' => $this->training_status,
-                'batch_year' => $this->batch_year,
-                'batch_term' => $this->batch_term,
-                'date_hired' => $this->date_hired,
-                'date_graduated' => $this->date_graduated
-            );
-            $db->insert('trainee', $params); 
-            $db->commit();
+        
+        $db = DB::conn(); 
+        $params = array( 
+            'employee_id' => $this->employee_id,
+            'first_name' => $this->first_name,
+            'last_name' => $this->last_name,
+            'nickname' => $this->nickname,
+            'skill_set' => $this->skill_set,
+            'course_status' => $this->course_status,
+            'training_status' => $this->training_status,
+            'batch_year' => $this->batch_year,
+            'batch_term' => $this->batch_term,
+            'date_hired' => $this->date_hired,
+            'date_graduated' => $this->date_graduated
+        );
+        
+        $db->insert('trainee', $params);
+        $db->commit();
     }
 
     public static function delete($trainee_id)
@@ -155,52 +156,21 @@ class Trainee extends AppModel
         }
         $db = DB::conn();
         $params = array(
-                'employee_id' => $this->new_employee_id,
-                'last_name' => $this->last_name,
-                'first_name' => $this->first_name,
-                'nickname' => $this->nickname,
-                'skill_set' => $this->skill_set,
-                'course_status' => $this->course_status,
-                'training_status' => $this->training_status,
-                'batch_year' => $this->batch_year,
-                'batch_term' => $this->batch_term,
-                'date_hired' => $this->date_hired,
-                'date_graduated'=> $this->date_graduated
+            'employee_id' => $this->new_employee_id,
+            'last_name' => $this->last_name,
+            'first_name' => $this->first_name,
+            'nickname' => $this->nickname,
+            'skill_set' => $this->skill_set,
+            'course_status' => $this->course_status,
+            'training_status' => $this->training_status,
+            'batch_year' => $this->batch_year,
+            'batch_term' => $this->batch_term,
+            'date_hired' => $this->date_hired,
+            'date_graduated'=> $this->date_graduated
         );
 
         $db->update('trainee', $params, array('id' => $this->trainee_id));
     }
-
-    /*Ms. Fati Suggestion - Ongoing
-    public static function getByType($type array $params)
-    {
-        switch ($type) {
-            case 'training_status':
-                $where = 'training_status = ?';
-                break;
-            case 'skill_set':
-                $where = 'skill_set = ?';
-                break;
-            case 'batch_year':
-                $where = 'batch year = ?';
-                break;
-            case 'batch_term':
-                $where = 'batch_term = ?';
-                break;
-            case 'course_status':
-                $where = 'course_status = ?';
-                break;
-            default:
-                throw new NotFoundException("{$index} is not found");
-        }
-        $db = DB::conn();
-        $rows = $db->search('trainee', $where, $params);
-        
-        foreach($rows as $row) {
-            $trainee[] = new self($row);
-        }
-        return $trainee;
-    }*/
 
     public static function getAll()
     {
