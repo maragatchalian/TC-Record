@@ -46,7 +46,7 @@ course_name         VARCHAR(30) NOT NULL,
 course_type         VARCHAR(20) NOT NULL,
 exam_type           VARCHAR(20) NOT NULL,
 items               INT(3) NOT NULL,
-score               VARCHAR(10) NOT NULL,
+score               INT(3) NOT NULL,
 status              TINYINT(1) NOT NULL,
 date_taken          DATE NOT NULL, 
 PRIMARY KEY (id)
