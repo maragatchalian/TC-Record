@@ -164,11 +164,11 @@
     <div class="controls">
     <select name="skill_set"> 
         <option value="">Please Select</option>
-        <option value="Pending">Pending</option>
-        <option value="Android">Android</option>
-        <option value="iOS">iOS</option>
-        <option value="PHP">PHP</option>
-        <option value="Unity">Unity</option>
+        <option value="<?php readable_text(Trainee::PENDING) ?>">Pending</option>
+        <option value="<?php readable_text(Trainee::ANDROID) ?>">Android</option>
+        <option value="<?php readable_text(Trainee::IOS) ?>">iOS</option>
+        <option value="<?php readable_text(Trainee::PHP) ?>">PHP</option>
+        <option value="<?php readable_text(Trainee::UNITY) ?>">Unity</option>
     </select>
     </div>
     </div>

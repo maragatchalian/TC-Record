@@ -103,7 +103,7 @@
 
         <td> <?php readable_text($get_from_trainee->batch_term) ?> </a> </td>
 
-        <td> <?php readable_text($get_from_trainee->skill_set) ?> </a> </td>
+        <td> <?php echo $get_from_trainee->getBySkillSet($get_from_trainee->skill_set) ?> </a> </td>
 
         <td> <?php readable_text($get_from_trainee->training_status) ?> </a> </td>
 

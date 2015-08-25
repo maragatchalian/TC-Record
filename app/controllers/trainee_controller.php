@@ -105,6 +105,7 @@ class TraineeController extends AppController
     {
         $trainee_id = Param::get('trainee_id');
         $trainee = Trainee::getById($trainee_id);
+        $skill_set = Trainee::getBySkillSet($trainee_id);
         $this->set(get_defined_vars());
     }
 

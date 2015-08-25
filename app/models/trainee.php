@@ -26,6 +26,18 @@ class Trainee extends AppModel
     const MAX_HIRED_LENGTH = 10;
     const MAX_GRADUATED_LENGTH = 10;
 
+    //Skill Set
+    const PENDING = 0;
+    const ANDROID = 1;
+    const IOS = 2;
+    const PHP = 3;
+    const UNITY = 4;
+
+    //Training Status
+    const ON_TRAINING = 0;
+    const GRADUATED = 1;
+    const EOC = 2;
+
     public $validation = array(
 
         'employee_id' => array(
@@ -187,11 +199,16 @@ class Trainee extends AppModel
 
     public static function getById($trainee_id)
     {
+        $trainee = array();
+
         $db = DB::conn();
-        $row = $db->row("SELECT * FROM trainee WHERE id = ?", array($trainee_id));
-        
-        return $row;
-    } 
+        $rows = $db->rows("SELECT * FROM trainee WHERE id = ?", array($trainee_id));
+
+        foreach ($rows as $row) {
+            $trainee[] = new self($row);
+        }
+        return $trainee;
+    }
 
     public static function getByTrainingStatus($training_status) 
     {
@@ -206,17 +223,31 @@ class Trainee extends AppModel
         return $trainee;
     }
 
-    public static function getBySkillSet($skill_set) 
+    public static function getBySkillSet($trainee_id)
     {
-        $trainee = array();
         $db = DB::conn();
-
-        $rows = $db->rows("SELECT * FROM trainee WHERE skill_set = ?", array($skill_set));
-            
-        foreach($rows as $row) {
-            $trainee[] = new self($row);
+        $row = $db->row("SELECT skill_set FROM trainee WHERE skill_set = ?", array($trainee_id));        
+        
+        switch ($row['skill_set']) {
+            case self::PENDING:
+                $skill_set = "Pending";
+                break;   
+            case self::ANDROID:
+                $skill_set = "Android";
+                break;
+            case self::IOS:
+                $skill_set = "iOS";
+                break;
+            case self::PHP:
+                $skill_set = "PHP";
+                break;
+            case self::UNITY:
+                $skill_set = "Unity";
+                break;
+            default:
+                throw new NotFoundException("{$trainee} is not found");
         }
-        return $trainee;
+        return $skill_set;
     }
 
     public static function getByBatchYear($batch_year)
