@@ -22,8 +22,7 @@
         <td> <?php readable_text($get_exam_details->exam_type) ?> </a> </td>
         <td> <?php readable_text($get_exam_details->items) ?> </a> </td>
         <td> <?php readable_text($get_exam_details->score) ?> </a> </td>
-        <!--<td> <?php readable_text($get_exam_details->status) ?> </a> </td>-->
-        <td> <?php echo $get_exam_details->getByStatus($get_exam_details->trainee_id) ?> </a> </td>
+        <td> <?php echo $get_exam_details->getByStatus($get_exam_details->status) ?> </a> </td>
         <td> <?php readable_text($get_exam_details->date_taken) ?> </a> </td>    
     <?php endforeach; ?>
     </tr>

@@ -90,10 +90,10 @@ class Exam extends AppModel
         $db->insert('exam', $params);
     }
 
-    public static function getByStatus($trainee_id)
+    public static function getByStatus($exam_id)
     {
         $db = DB::conn();
-        $row = $db->row('SELECT status FROM exam WHERE trainee_id = ?', array($trainee_id));
+        $row = $db->row('SELECT status FROM exam WHERE id = ?', array($exam_id));
         
         switch ($row['status']) {
             case self::PASSED:
