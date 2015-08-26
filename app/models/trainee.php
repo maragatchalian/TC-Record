@@ -359,9 +359,4 @@ class Trainee extends AppModel
         }
         return $course_status;
     }
-
-    public static function getCourses()
-    {
-        return Course::getByName();
-    }
 }
