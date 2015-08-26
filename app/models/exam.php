@@ -133,8 +133,7 @@ class Exam extends AppModel
                 'date_taken' => $this->date_taken
             );
         
-            $exam_id = array('id' => $this->exam_id);
-            $db->update('exam', $params, $exam_id);
+            $db->update('exam', $params, array('id' => $this->exam_id));
             
         } catch(Exception $e) {
             throw $e;

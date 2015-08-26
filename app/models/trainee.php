@@ -178,7 +178,7 @@ class Trainee extends AppModel
             'batch_year' => $this->batch_year,
             'batch_term' => $this->batch_term,
             'date_hired' => $this->date_hired,
-            'date_graduated'=> $this->date_graduated
+            'date_graduated'=> $this->date_graduated,
         );
 
         $db->update('trainee', $params, array('id' => $this->trainee_id));

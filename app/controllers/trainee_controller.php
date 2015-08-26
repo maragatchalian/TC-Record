@@ -131,7 +131,7 @@ class TraineeController extends AppController
             'batch_term' => Param::get('batch_term'),
             'date_hired' => Param::get('date_hired'),
             'date_graduated' => Param::get('date_graduated'),
-            'trainee_id' => $trainee_id
+            'trainee_id' => Param::get('trainee_id')
         );
 
         $trainee = new Trainee($params);
