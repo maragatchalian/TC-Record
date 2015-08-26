@@ -13,7 +13,6 @@ class ExamController extends AppController
         $trainee_id = Param::get('trainee_id');
         $trainee = Exam::getTraineeInfo($trainee_id);
         $exam_details = Exam::getByTraineeId($trainee_id);
-        $status = Exam::getByStatus($trainee_id);
         $this->set(get_defined_vars());
     }
 
