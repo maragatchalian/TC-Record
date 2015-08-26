@@ -48,7 +48,7 @@ class ExamController extends AppController
                 throw new NotFoundException("{$page} is not found");
         }
         $sub_courses = Param::get('name');
-        $course_status = Exam::getCourses($sub_courses);
+        $course_status = Course::getByName($sub_courses);
         $this->set(get_defined_vars());
         $this->render($page);
     }
