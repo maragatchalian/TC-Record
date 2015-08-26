@@ -30,7 +30,8 @@
                     <?php foreach ($skill_set as $get_skill_set): ?>     
                     <li>
                         <a href="<?php readable_text(url('trainee/index', array('sort_by' => 'skill_set', 'data'=>$get_skill_set))) ?>"> 
-                        <?php readable_text($get_skill_set); ?></a>
+                        <?php readable_text($get_skill_set); ?>
+                    </a>
                     <?php endforeach; ?>
                     </li>   
                 </ul>

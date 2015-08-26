@@ -54,8 +54,7 @@ class ExamController extends AppController
     }
 
     public function edit_score()
-    {
-        $exam_id = Param::get('exam_id');        
+    {  
         $params = array(
             'course_name' => Param::get('course_name'),
             'items' => Param::get('items'),
