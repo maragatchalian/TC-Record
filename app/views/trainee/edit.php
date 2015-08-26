@@ -134,11 +134,13 @@
 <form action="<?php readable_text(url('')) ?>" method="POST">
 <input type="hidden" name="trainee_id" value="<?php readable_text(Param::get('trainee_id')) ?>">
 
+<?php foreach ($trainee_edit as $trainees): ?>
 <!--Employee Id-->
     <div class="control-group">
     <label class="control-label" for="employee_id"><h5>Employee ID</h5></label>
     <div class="controls">
-    <input type="text" name="employee_id" value="<?php readable_text($trainee_edit['employee_id']) ?>">
+    <input type="text" name="employee_id" value="<?php readable_text($trainees->employee_id) ?>">
+
     </div>
     </div>
 
@@ -146,7 +148,7 @@
     <div class="control-group">
     <label class="control-label" for="first_name"><h5>First Name</h5></label>
     <div class="controls">
-    <input type="text" name="first_name" value="<?php readable_text($trainee_edit['first_name']) ?>"> 
+    <input type="text" name="first_name" value="<?php readable_text($trainees->first_name) ?>"> 
     </div>
     </div>
 
@@ -154,7 +156,7 @@
     <div class="control-group">
     <label class="control-label" for="last_name"><h5>Last Name</h5></label>
     <div class="controls">
-    <input type="text" name="last_name" value="<?php readable_text($trainee_edit['last_name']) ?>"> 
+    <input type="text" name="last_name" value="<?php readable_text($trainees->last_name) ?>"> 
     </div>
     </div>
 
@@ -162,7 +164,7 @@
     <div class="control-group">
     <label class="control-label" for="nickname"><h5>Nickname</h5></label>
     <div class="controls">
-    <input type="text" name="nickname" value="<?php readable_text($trainee_edit['nickname']) ?>"> 
+    <input type="text" name="nickname" value="<?php readable_text($trainees->nickname) ?>"> 
     </div>
     </div>
 
@@ -171,7 +173,8 @@
     <label class="control-label" for="skill_set"><h5>Skill Set</h5></label>
     <div class="controls">
     <select name="skill_set"> 
-        <option value="<?php readable_text($trainee_edit['skill_set']) ?>"><?php readable_text($trainee_edit->skill_set) ?></option>
+
+        <option value="<?php readable_text($trainees->skill_set) ?>"><?php echo $trainees->getBySkillSet($trainees->skill_set) ?></option>
         <option value="<?php readable_text(Trainee::PENDING) ?>">Pending</option>
         <option value="<?php readable_text(Trainee::ANDROID) ?>">Android</option>
         <option value="<?php readable_text(Trainee::IOS) ?>">iOS</option>
@@ -186,7 +189,7 @@
     <label class="control-label" for="training_status"><h5>Training Status</h5></label>
     <div class="controls">
     <select name="training_status"> 
-        <option value="<?php readable_text($trainee_edit['training_status']) ?>"><?php readable_text($trainee_edit['training_status'])?></option>
+        <option  value="<?php readable_text($trainees->training_status) ?>"><?php readable_text($trainees->training_status) ?></option>
         <option value="Graduated">Graduated</option>
         <option value="On-Training">On-Training</option>
         <option value="EOC">EOC</option>
@@ -199,7 +202,7 @@
     <label class="control-label" for="course_status"><h5>Course Status</h5></label>
     <div class="controls">
     <select name="course_status"> 
-        <option value="<?php readable_text($trainee_edit['course_status']) ?>"><?php readable_text($trainee_edit['course_status'])?></option>
+        <option  value="<?php readable_text($trainees->course_status) ?>"><?php readable_text($trainees->course_status) ?> </option>
         
         <?php foreach ($course_status as $get_course): ?>
             <option value= "<?php readable_text($get_course) ?>">
@@ -214,7 +217,7 @@
     <label class="control-label" for="batch_year"><h5>Year</h5></label>
     <div class="controls">
     <select name="batch_year">        
-        <option value="<?php readable_text($trainee_edit['batch_year']) ?>"><?php readable_text($trainee_edit['batch_year']) ?></option>
+        <option value="<?php readable_text($trainees->batch_year) ?>"><?php readable_text($trainees->batch_year) ?></option>
         <?php foreach (range(date('Y'), 2013) as $year): ?>
         <option value="<?php echo $year ?>"><?php echo $year ?></option>
         <?php endforeach; ?>
@@ -227,7 +230,7 @@
     <label class="control-label" for="batch_term"><h5>Term</h5></label>
     <div class="controls">
     <select name="batch_term">  
-    <option value="<?php readable_text($trainee_edit['batch_term']) ?>"><?php readable_text($trainee_edit['batch_term']) ?></option>
+    <option value="<?php readable_text($trainees->batch_term) ?>"><?php readable_text($trainees->batch_term) ?></option>
         <option value="1st Term">1st Term</option>
         <option value="2nd Term">2nd Term</option>
     </select>
@@ -238,7 +241,7 @@
     <div class="control-group">
     <label class="control-label" for="date_hired"><h5>Date Hired</h5></label>
     <div class="controls">
-    <input type="text" name="date_hired" placeholder="yyyy-mm-dd" value="<?php readable_text($trainee_edit['date_hired']) ?>">
+    <input type="text" name="date_hired" value="<?php readable_text($trainees->date_hired) ?>">
     </div>
     </div>
 
@@ -246,9 +249,10 @@
     <div class="control-group">
     <label class="control-label" for="date_graduated"><h5>Date of Graduation</h5></label>
     <div class="controls">
-    <input type="text" name="date_graduated" placeholder="yyyy-mm-dd" value="<?php readable_text($trainee_edit['date_graduated']) ?>">
+    <input type="text" name="date_graduated" value="<?php readable_text($trainees->date_graduated) ?>">
     </div>
     </div>
+<?php endforeach; ?>
 
 <input type="hidden" name="page_next" value="edit_end">
 <div class="span12">
