@@ -35,10 +35,11 @@
 <input type="hidden" name="trainee_id" value="<?php readable_text(Param::get('trainee_id')) ?>">
 <input type="hidden" name="exam_id" value="<?php readable_text(Param::get('exam_id')) ?>">
 
+    <?php foreach ($course_edit as $courses): ?>
     <!--Courses-->
     <label for="category"><h5>Category</h5></label>
     <select name="category"> 
-        <option value="<?php readable_text($course_edit['category']) ?>"> <?php readable_text($course_edit['category']) ?> </option>
+        <option value="<?php readable_text($courses->category) ?>"> <?php readable_text($courses->category) ?> </option>
         <option value="Essential Course">Essential Course</option>
         <option value="Language Course">Language Course</option>
         <option value="Project Course">Project Course</option>
@@ -46,7 +47,9 @@
 
     <!--Sub Courses-->
     <label for="name"><h5>Course Name</h5></label>
-    <input type="text" name="name" value="<?php readable_text($course_edit['name']) ?>">
+    <input type="text" name="name" value="<?php readable_text($courses->name) ?>">
+
+    <?php endforeach;?>
 
     <!--Submit-->
     <input type="hidden" name="page_next" value="edit_end">

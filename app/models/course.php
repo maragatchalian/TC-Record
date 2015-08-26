@@ -91,10 +91,15 @@ class Course extends AppModel
 
     public static function getById($course_id)
     {
+        $course = array();
         $db = DB::conn();
-        $row = $db->row("SELECT * FROM course WHERE id = ?", array($course_id));
         
-        return $row;
+        $rows = $db->rows("SELECT * FROM course WHERE id = ?", array($course_id));
+        
+        foreach($rows as $row) {
+            $course[] = new self($row);
+        }
+        return $course;
     }
 
     public static function getByName()

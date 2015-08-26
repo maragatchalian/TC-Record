@@ -109,7 +109,7 @@ class TraineeController extends AppController
     }
 
     public function delete()
-    { 
+    {
         $trainee_id = Param::get('trainee_id');
         $trainee = Trainee::delete($trainee_id);
         $this->set(get_defined_vars());
