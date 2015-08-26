@@ -139,7 +139,6 @@
     <label class="control-label" for="employee_id"><h5>Employee ID</h5></label>
     <div class="controls">
     <input type="text" name="employee_id" value="<?php readable_text($trainee_edit['employee_id']) ?>">
-    
     </div>
     </div>
 
@@ -172,7 +171,7 @@
     <label class="control-label" for="skill_set"><h5>Skill Set</h5></label>
     <div class="controls">
     <select name="skill_set"> 
-        <option value="">Please Select</option>
+        <option value="<?php readable_text($trainee_edit['skill_set']) ?>"><?php readable_text($trainee_edit->skill_set) ?></option>
         <option value="<?php readable_text(Trainee::PENDING) ?>">Pending</option>
         <option value="<?php readable_text(Trainee::ANDROID) ?>">Android</option>
         <option value="<?php readable_text(Trainee::IOS) ?>">iOS</option>
@@ -200,7 +199,7 @@
     <label class="control-label" for="course_status"><h5>Course Status</h5></label>
     <div class="controls">
     <select name="course_status"> 
-        <option value="<?php readable_text($trainee_edit['course_status']) ?>"><?php readable_text($trainee_edit['course_status']) ?></option>
+        <option value="<?php readable_text($trainee_edit['course_status']) ?>"><?php readable_text($trainee_edit['course_status'])?></option>
         
         <?php foreach ($course_status as $get_course): ?>
             <option value= "<?php readable_text($get_course) ?>">

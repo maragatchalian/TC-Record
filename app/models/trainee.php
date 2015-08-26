@@ -27,16 +27,16 @@ class Trainee extends AppModel
     const MAX_GRADUATED_LENGTH = 10;
 
     //Skill Set
-    const PENDING = 0;
-    const ANDROID = 1;
-    const IOS = 2;
-    const PHP = 3;
-    const UNITY = 4;
+    const PENDING = 1;
+    const ANDROID = 2;
+    const IOS = 3;
+    const PHP = 4;
+    const UNITY = 5;
 
     //Training Status
-    const ON_TRAINING = 0;
-    const GRADUATED = 1;
-    const EOC = 2;
+    const ON_TRAINING = 1;
+    const GRADUATED = 2;
+    const EOC = 3;
 
     public $validation = array(
 

@@ -1,4 +1,4 @@
-<h3> <?php readable_text($trainee->nickname)?> <?php readable_text($trainee->last_name)?></h3>
+<br />
 
 <!-- Index Table -->
 <table class="gridtable">
