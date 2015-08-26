@@ -178,9 +178,4 @@ class Exam extends AppModel
         
         return $row;
     }
-
-    public static function getCourses()
-    {
-        return Course::getByName();
-    }
 }
