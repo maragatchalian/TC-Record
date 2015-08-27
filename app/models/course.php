@@ -105,7 +105,7 @@ class Course extends AppModel
     public static function getByName()
     {
         $db = DB::conn();
-        $rows = $db->rows("SELECT DISTINCT name FROM course");
+        $rows = $db->rows("SELECT name FROM course");
         $courses = array();
         
         foreach ($rows as $row) {
