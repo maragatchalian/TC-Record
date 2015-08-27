@@ -157,7 +157,7 @@ class TraineeController extends AppController
                 throw new NotFoundException("{$page} is not found");
         }
         $sub_courses = Param::get('name');
-        $course_status = Trainee::getCourses($sub_courses);
+        $course_status = Course::getByName($sub_courses);
         $trainee_edit = Trainee::getById($trainee_id);
         $this->set(get_defined_vars());
         $this->render($page);

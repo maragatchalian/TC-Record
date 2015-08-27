@@ -122,8 +122,6 @@
         <option value="">Please Select</option>
         <option value="<?php readable_text(Exam::PASSED) ?>">Passed</option>
         <option value="<?php readable_text(Exam::FAILED) ?>">Failed</option>
-        <option value="<?php readable_text(Exam::PENDING) ?>">Pending</option>
-        <option value="<?php readable_text(Exam::NONE) ?>">None</option>
     </select>
     </div>
     </div>

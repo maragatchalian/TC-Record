@@ -21,9 +21,7 @@ class Exam extends AppModel
     //Exam Status
     const PASSED = 1;
     const FAILED = 2;
-    const PENDING = 3;
-    const NONE = 4;
-
+    
     public $validation = array(
 
         'course_name' => array(
@@ -90,10 +88,10 @@ class Exam extends AppModel
         $db->insert('exam', $params);
     }
 
-    public static function getByStatus($exam_id)
+    public static function getByStatus($trainee_id)
     {
         $db = DB::conn();
-        $row = $db->row('SELECT status FROM exam WHERE id = ?', array($exam_id));
+        $row = $db->row("SELECT status FROM exam WHERE status= ?", array($trainee_id));
         
         switch ($row['status']) {
             case self::PASSED:
@@ -101,12 +99,6 @@ class Exam extends AppModel
                 break;
             case self::FAILED:
                 $status = "FAILED";
-                break;
-            case self::PENDING:
-                $status = "PENDING";
-                break;
-            case self::NONE:
-                $status = "NONE";
                 break;
             default:
                 throw new NotFoundException("{$status} is not found");
