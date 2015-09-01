@@ -6,7 +6,8 @@ require_once APP_DIR.'app_layout_view.php';
 require_once APP_DIR.'app_exception.php';
 
 // helpers
-require_once HELPERS_DIR.'html_helper.php';
+require_once HELPERS_DIR."html_helper.php";
+require_once HELPERS_DIR."validation_helper.php";
 
 // vendor
 require_once VENDOR_DIR."SimpleDBI/SimpleDBI.php";
@@ -26,3 +27,4 @@ spl_autoload_register(function($name) {
         }
     }
 });
+session_start();
