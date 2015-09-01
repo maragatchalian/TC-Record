@@ -48,12 +48,13 @@ class TraineeController extends AppController
 
             case self::BATCH_TERM:
                 list($year, $term) = explode('_', $data);
-                $trainees = Trainee::getByBatchTerm($term, $year);                
+                $trainees = Trainee::getByBatchTerm($term, $year);
                 break;
 
             case self::COURSE_STATUS:
                 $trainees = Trainee::getByCourseStatus($data);
                 break;
+            
             default:
                 throw new NotFoundException("{$index} is not found");
         }
@@ -148,7 +149,6 @@ class TraineeController extends AppController
                     $page = self::EDIT;
                     $success = false;
                 }
-
                 if ($success) {
                     $trainee->employee_id = $trainee->new_employee_id;
                 }

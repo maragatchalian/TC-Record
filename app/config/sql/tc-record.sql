@@ -39,6 +39,29 @@ category            VARCHAR(30) NOT NULL,
 PRIMARY KEY (id)
 )ENGINE=InnoDB;
 
+--
+-- Dumping data for table `course`
+--
+
+INSERT INTO `course` 
+(`id`, `name`, `category`) VALUES
+('1', 'Computer Science', 'Essential Course'),
+('2', 'Database', 'Essential Course'),
+('3', 'DSA', 'Essential Course'),
+('4', 'Networking', 'Essential Course'),
+('5', 'Linux', 'Language Course'),
+('6', 'PHP', 'Language Course'),
+('7', 'DietCake', 'Language Course'),
+('8', 'Objective C', 'Language Course'),
+('9', 'iOS', 'Language Course'),
+('10', 'Java', 'Language Course'),
+('11', 'Android', 'Language Course'),
+('12', 'C sharp', 'Language Course'),
+('13', 'Unity', 'Language Course'),
+('14', 'Finals Project', 'Project Course'),
+('15', 'Group Project', 'Project Course'),
+('16', 'Personal Project', 'Project Course');
+
 CREATE TABLE IF NOT EXISTS exam(
 id                  INT(11) NOT NULL AUTO_INCREMENT,
 trainee_id          INT(11) NOT NULL,

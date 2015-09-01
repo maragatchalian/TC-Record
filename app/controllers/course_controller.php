@@ -65,7 +65,6 @@ class CourseController extends AppController
                     $page = self::EDIT;
                 }
                 break;
-           
             default:
                 throw new NotFoundException("{$page} is not found");
         }

@@ -43,7 +43,6 @@ class ExamController extends AppController
                     $page = self::ADD_SCORE;
                 }
                 break;
-
             default:
                 throw new NotFoundException("{$page} is not found");
         }

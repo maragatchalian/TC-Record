@@ -13,7 +13,7 @@ class UserController extends AppController
         $this->set(get_defined_vars());
     }
     
-    public function register() 
+    public function register()
     {
         $params = array(
             'username' => Param::get('username'),
